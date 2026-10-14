@@ -1,0 +1,24 @@
+{
+  "run": "fluxgate_qet_seed11",
+  "architecture": "fluxgate",
+  "rung": "qet",
+  "seed": 11,
+  "parameter_count": 19171,
+  "donor_gauges": 500,
+  "development_gauges": 200,
+  "training_years": [
+    2005,
+    2014
+  ],
+  "development_period": [
+    "2015-01-01",
+    "2018-12-31"
+  ],
+  "best_epoch": 24,
+  "best_development_median_kge": 0.4214311640236865,
+  "mass_balance": {
+    "daily_max_abs_mm": 2.2737367544323206e-13,
+    "cumulative_max_abs_mm": 6.252776074688882e-13
+  },
+  "target_discharge_accessed": false
+}

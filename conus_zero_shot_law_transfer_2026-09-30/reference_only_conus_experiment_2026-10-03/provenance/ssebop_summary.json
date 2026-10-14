@@ -1,0 +1,24 @@
+{
+  "dataset": "USGS SSEBop MODIS CONUS April-October cumulative actual ET",
+  "years": [
+    2003,
+    2018
+  ],
+  "reference_donors": 400,
+  "tier_counts": {
+    "Tier 1": 321,
+    "Tier 2": 79
+  },
+  "nonreference_basins_extracted": 0,
+  "target_et_accessed": false,
+  "donor_years_imputed_within_basin": 0,
+  "extraction_validation": {
+    "overlapping_basin_years": 3616,
+    "overlapping_basins": 226,
+    "pearson_r": 0.9999999999999996,
+    "median_absolute_error_mm": 1.1781992270698538e-08,
+    "p95_absolute_error_mm": 9.152871882633917e-08,
+    "median_signed_error_mm": 9.020482139021624e-10
+  },
+  "output_sha256": "5ac96df23d431b4b84bc74b8d0c70c1574df47d8d6296ef5dcc1d72b78e79d2e"
+}

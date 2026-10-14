@@ -1,0 +1,48 @@
+{
+  "frozen_on": "2026-09-30",
+  "target_discharge_accessed": false,
+  "selection_seed": 11,
+  "models": [
+    {
+      "architecture": "ealstm",
+      "rung": "q",
+      "epochs": 114,
+      "development_median_kge": 0.30934591819086255,
+      "status": "predictive_benchmark"
+    },
+    {
+      "architecture": "dhbv",
+      "rung": "q",
+      "epochs": 15,
+      "development_median_kge": 0.4711343470292907,
+      "status": "primary"
+    },
+    {
+      "architecture": "dhbv",
+      "rung": "qet",
+      "epochs": 15,
+      "development_median_kge": 0.4754521597154221,
+      "status": "primary"
+    },
+    {
+      "architecture": "fluxgate",
+      "rung": "q",
+      "epochs": 24,
+      "development_median_kge": 0.40693721668692867,
+      "status": "primary"
+    },
+    {
+      "architecture": "fluxgate",
+      "rung": "qet",
+      "epochs": 24,
+      "development_median_kge": 0.4214311640236865,
+      "status": "primary"
+    }
+  ],
+  "rejected_sensitivity": {
+    "architecture": "mclstm",
+    "rung": "q",
+    "best_development_median_kge": 0.16814533596552594,
+    "reason": "failed the prespecified predictive-competence screen"
+  }
+}

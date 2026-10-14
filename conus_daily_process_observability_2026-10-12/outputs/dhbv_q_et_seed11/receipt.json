@@ -1,0 +1,20 @@
+{
+  "run": "dhbv_q_et_seed11",
+  "architecture": "dhbv",
+  "rung": "q_et",
+  "seed": 11,
+  "target_gauges": 3982,
+  "target_discharge_accessed_after_model_freeze": true,
+  "common_forcing_anchors": "data/frozen/forcing_anchor_indices.npz",
+  "anchor_definition": "W_t = 0.97 W_(t-1) + P_t - PET_t; 12 warm-season quantiles",
+  "intervention": "P=PET=0, T=10 C, 91 days",
+  "maximum_float64_daily_mass_residual_mm": 6.821210263296962e-13,
+  "maximum_float64_cumulative_mass_residual_mm": 4.547473508864641e-12,
+  "model_checkpoint_sha256": "04f212aa8a888a71540ee405a3bde72f2d0da63c8f96fb15750ae726bc107d56",
+  "target_discharge_sha256": "37e021117b11a5dbcac395694f350783601794db6fb3948548466aae009f4f95",
+  "nldas_evaluation_target_sha256": "db2edffe2353bdba1063e35f9a740c677b19bf04c4ab75e03424ea7a8496c45d",
+  "esa_cci_evaluation_archive_sha256": "b405bedff506a4454ff9d13467f648747186f1251680c7680864bbc91a659abd",
+  "target_metrics_sha256": "63ac8af88e2521c992e44f2dd111a95848aa60486f24abd3e1355d6ba1c8a760",
+  "development_process_metrics_sha256": "6a67a6fbe3f262a4fa13d3958a2ba2f175f380bc25dadc4abd7952f4710cbdcd",
+  "drainage_curves_sha256": "396d3421e8d0e49c5e7dff6acca141b6bfb79f1d84573405774e53d47a192c36"
+}

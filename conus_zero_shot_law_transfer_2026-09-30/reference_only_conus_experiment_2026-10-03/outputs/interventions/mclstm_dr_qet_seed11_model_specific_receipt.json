@@ -1,0 +1,21 @@
+{
+  "run": "mclstm_dr_qet_seed11",
+  "model": "mclstm_dr",
+  "seed": 11,
+  "anchor_design": "model_specific",
+  "gauges": 413,
+  "anchors_per_gauge": 12,
+  "intervention_days": 91,
+  "forcing": "P=0, PET=0, T=10 C with calendar harmonics retained",
+  "q0_thresholds_mm_day": [
+    0.0001,
+    0.001,
+    0.01
+  ],
+  "maximum_daily_mass_residual_mm": 1.2789769243681803e-13,
+  "target_discharge_accessed": false,
+  "fingerprints": "outputs/interventions/mclstm_dr_qet_seed11_model_specific_fingerprints.csv.gz",
+  "fingerprints_sha256": "942a0e21e460d97c0f1a42f06354e265722923d38a6f12eab535f4dc584acf77",
+  "curves": "outputs/interventions/mclstm_dr_qet_seed11_model_specific_curves.npz",
+  "curves_sha256": "6ffafae541487cec480006799a14e43df09a13d6239488471766f71312b7b75e"
+}

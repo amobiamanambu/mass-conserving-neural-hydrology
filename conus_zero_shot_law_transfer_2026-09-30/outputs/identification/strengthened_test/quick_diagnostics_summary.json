@@ -1,0 +1,29 @@
+{
+  "primary_gauges": 2317,
+  "median_model_to_model_daily_pearson_r": 0.9394776276563942,
+  "median_model_to_model_daily_log_pearson_r": 0.9510755301570266,
+  "median_dhbv_referenced_model_to_model_kge": 0.8031339691211248,
+  "spearman_hydrograph_r_vs_absolute_r7_difference": -0.29583284550339867,
+  "top_hydrograph_agreement_decile": {
+    "n": 232,
+    "minimum_daily_pearson_r": 0.9704947003731538,
+    "r7_spearman_rho": 0.41752660540584163,
+    "median_absolute_r7_difference": 0.07662497088313103
+  },
+  "daily_pearson_r_at_least_0_95": {
+    "n": 881,
+    "r7_spearman_rho": 0.5986724655810111,
+    "median_absolute_r7_difference": 0.07266798615455627
+  },
+  "reference_primary": {
+    "n": 398,
+    "median_daily_pearson_r": 0.9359006991899791,
+    "median_absolute_r7_difference": 0.14908269047737122
+  },
+  "observed_proxy_reliability": {
+    "pairwise_spearman_min": 0.8983100638299052,
+    "pairwise_spearman_median": 0.9362252242727072,
+    "pairwise_spearman_max": 0.9949807391539038,
+    "median_within_gauge_scenario_range": 0.04907160997390747
+  }
+}

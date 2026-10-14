@@ -1,0 +1,141 @@
+{
+  "experiment": "reference-only training, development, and held-out evaluation",
+  "eligible_reference_gauges": 913,
+  "reference_donors": 400,
+  "reference_development": 100,
+  "held_out_reference_targets": 413,
+  "tier_1_targets": 349,
+  "tier_2_targets": 64,
+  "nonreference_gauges_used": 0,
+  "skill_summary": [
+    {
+      "model": "dhbv",
+      "gauges": 413,
+      "median_kge": 0.49177694354585444,
+      "q25_kge": 0.35674487163425317,
+      "fraction_kge_ge_03": 0.8208232445520581,
+      "fraction_kge_ge_04": 0.6779661016949152,
+      "fraction_kge_ge_05": 0.48426150121065376,
+      "fraction_kge_ge_06": 0.3026634382566586,
+      "median_nse": 0.49409005442889575,
+      "median_log_nse": 0.5686931528067579,
+      "median_correlation": 0.7404386287675584,
+      "median_absolute_percent_bias": 14.114971863611427,
+      "passes_global_competence": true
+    },
+    {
+      "model": "fluxgate",
+      "gauges": 413,
+      "median_kge": 0.5271251053468806,
+      "q25_kge": 0.3645293114132502,
+      "fraction_kge_ge_03": 0.8135593220338984,
+      "fraction_kge_ge_04": 0.7021791767554479,
+      "fraction_kge_ge_05": 0.5520581113801453,
+      "fraction_kge_ge_06": 0.3341404358353511,
+      "median_nse": 0.4901170293784297,
+      "median_log_nse": 0.622791220795607,
+      "median_correlation": 0.7405398791716602,
+      "median_absolute_percent_bias": 13.338015842544587,
+      "passes_global_competence": true
+    },
+    {
+      "model": "mc_node",
+      "gauges": 413,
+      "median_kge": 0.22752081240845312,
+      "q25_kge": 0.11607400878229657,
+      "fraction_kge_ge_03": 0.36561743341404357,
+      "fraction_kge_ge_04": 0.17675544794188863,
+      "fraction_kge_ge_05": 0.07990314769975787,
+      "fraction_kge_ge_06": 0.014527845036319613,
+      "median_nse": 0.2966689404990953,
+      "median_log_nse": 0.4633984992351736,
+      "median_correlation": 0.6346814221679039,
+      "median_absolute_percent_bias": 18.789692299648053,
+      "passes_global_competence": false
+    },
+    {
+      "model": "mclstm_dr",
+      "gauges": 413,
+      "median_kge": 0.1550925169755215,
+      "q25_kge": 0.01768774014060681,
+      "fraction_kge_ge_03": 0.1864406779661017,
+      "fraction_kge_ge_04": 0.06295399515738499,
+      "fraction_kge_ge_05": 0.012106537530266344,
+      "fraction_kge_ge_06": 0.004842615012106538,
+      "median_nse": 0.23035475408907646,
+      "median_log_nse": 0.4123804911968981,
+      "median_correlation": 0.6156362686959428,
+      "median_absolute_percent_bias": 22.95394672328325,
+      "passes_global_competence": false
+    },
+    {
+      "model": "mcp_ma3",
+      "gauges": 413,
+      "median_kge": 0.2856263843349569,
+      "q25_kge": 0.15004470614326926,
+      "fraction_kge_ge_03": 0.46246973365617433,
+      "fraction_kge_ge_04": 0.29539951573849876,
+      "fraction_kge_ge_05": 0.13559322033898305,
+      "fraction_kge_ge_06": 0.0387409200968523,
+      "median_nse": 0.3442521616645924,
+      "median_log_nse": 0.50874630428415,
+      "median_correlation": 0.6714177838624563,
+      "median_absolute_percent_bias": 19.275816654346748,
+      "passes_global_competence": false
+    }
+  ],
+  "primary_observed_usable_gauges": 403,
+  "observed_proxy_primary_vs_scenarios": [
+    {
+      "first": "primary",
+      "second": "strict_rain",
+      "n": 345,
+      "spearman_rho": 0.9534549743979261,
+      "median_absolute_difference": 0.02302759885787964
+    },
+    {
+      "first": "primary",
+      "second": "relaxed_rain",
+      "n": 403,
+      "spearman_rho": 0.9720393955062996,
+      "median_absolute_difference": 0.013152837753295898
+    },
+    {
+      "first": "primary",
+      "second": "low_q0",
+      "n": 403,
+      "spearman_rho": 0.9970382462985873,
+      "median_absolute_difference": 0.0
+    },
+    {
+      "first": "primary",
+      "second": "high_q0",
+      "n": 398,
+      "spearman_rho": 0.9951004040296565,
+      "median_absolute_difference": 0.0
+    }
+  ],
+  "dhbv_fluxgate_kge03_bootstrap": {
+    "first": "dhbv",
+    "second": "fluxgate",
+    "skill_threshold": 0.3,
+    "n": 322,
+    "rho": 0.6759831073728494,
+    "rho_ci95": [
+      0.6247149971402013,
+      0.720854013506061
+    ],
+    "mad": 0.12420935928821566,
+    "mad_ci95": [
+      0.11572527885437012,
+      0.1319061890244484
+    ],
+    "bootstrap_iterations": 2000
+  },
+  "high_skill_pairs_with_n_ge_10": 3,
+  "high_skill_pairs_showing_material_disagreement": 3,
+  "high_skill_pairs_converging": [],
+  "outcome_firewall": "15 predictions and 15 common-date intervention products checksummed before target discharge was opened",
+  "target_opened_at_utc": "2026-10-10T07:50:04.484784+00:00",
+  "target_discharge_sha256": "64177d9ff2551a566fbe317bafc7500b6d6954c99d42c6b27360cb74eab9e6c8"
+}

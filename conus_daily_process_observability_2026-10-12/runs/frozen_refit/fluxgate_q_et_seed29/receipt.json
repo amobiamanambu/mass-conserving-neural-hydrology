@@ -1,0 +1,24 @@
+{
+  "run": "fluxgate_q_et_seed29",
+  "architecture": "fluxgate",
+  "rung": "q_et",
+  "seed": 29,
+  "epochs": 24,
+  "parameter_count": 19171,
+  "donor_gauges": 500,
+  "training_years": [
+    2005,
+    2018
+  ],
+  "auxiliary_weight": 0.2,
+  "targets": [
+    "et"
+  ],
+  "training_seconds": 76.97147393226624,
+  "model_sha256": "5269c38ce8ac30a15f800193ddf2e1ff5b25ec17c13aaf48772a626c47e8f9e7",
+  "target_discharge_accessed": false,
+  "model_source_sha256": "249225b5dc6936c0d2c38e8ae2e143ab014e0fe3ff0e138b9f90943adc503bc6",
+  "training_target_sha256": {
+    "ssebop_monthly.npz": "71a1976bcba76c31120a9ec448622ff0a5ba43c2afa6f0228858bedd2e07e8bd"
+  }
+}

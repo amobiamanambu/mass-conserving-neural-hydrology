@@ -1,0 +1,31 @@
+{
+  "created_at_utc": "2026-10-01T07:43:01.716889+00:00",
+  "analysis": "model-side initial-flow threshold sensitivity from archived intervention curves",
+  "observed_recession_definition": "primary and held fixed",
+  "thresholds_mm_day": [
+    0.0001,
+    0.001,
+    0.01
+  ],
+  "primary_population": "outputs/identification/primary_identification_population.parquet",
+  "primary_population_sha256": "b18d51ea78772bcf42bc98373dc477b20f17265be5e9fd56d8d9333e8a5f2917",
+  "curve_sha256": {
+    "outputs/law_interventions/dhbv_q_seed11_curves.npz": "a2bd779d5c53b584475e91befbd4d0e79a521a18972ea2ff72872f2108103fc9",
+    "outputs/law_interventions/dhbv_q_seed29_curves.npz": "efe36371877cbc50a174e5bbb679f6179390aa1934e39e77781c0a317e8c7033",
+    "outputs/law_interventions/dhbv_q_seed47_curves.npz": "eb8e7a0a2db752f8de6ccdaad5755cca8dfe7b58b01a01f820a868b509f48aa1",
+    "outputs/law_interventions/dhbv_qet_seed11_curves.npz": "6dd09a60bf7ab8926380ea05523360c67ebc925cada0cb4e00a6471a20a74608",
+    "outputs/law_interventions/dhbv_qet_seed29_curves.npz": "0e0b6ac2ec7e5620827d374f39df611db01a08c05a169aa72f7554b8eded31b2",
+    "outputs/law_interventions/dhbv_qet_seed47_curves.npz": "d6872cf0a2a2eb429e4d0e12f32307a536561c1898453258f0311a0847305078",
+    "outputs/law_interventions/fluxgate_q_seed11_curves.npz": "f6c67c1dea39faaa92965ed2e96a215f1e477b2bc4fe0b1b202c1f2392abf94f",
+    "outputs/law_interventions/fluxgate_q_seed29_curves.npz": "c386f197bba74b048a365b074d0eb0436637302ac91114fbbc46a0ee2e2ef03b",
+    "outputs/law_interventions/fluxgate_q_seed47_curves.npz": "bb110a1226ff1d26d87e49fac59a4f5c2fc0214d76336fcc10ad39404a594e68",
+    "outputs/law_interventions/fluxgate_qet_seed11_curves.npz": "5b1c0ae009d19355ee3aee805fcbb0e69bf61e3e723c343748dfbb42b02f759a",
+    "outputs/law_interventions/fluxgate_qet_seed29_curves.npz": "619d840c37ac045eb973c183e7eb681c6f0d91d526885ab60773fda63b93e8fe",
+    "outputs/law_interventions/fluxgate_qet_seed47_curves.npz": "0e63bb50bb87b95231f61687595012fe12474ec36af4e2ff74c2a96ec51ca912"
+  },
+  "output": "outputs/identification/model_q0_sensitivity.csv",
+  "output_sha256": "895686f9a8bccc1be668015b48143dc19023dd307e9f4864f517827affc0c771",
+  "gate_file_updated": true,
+  "gate_file_sha256": "0b8f782ebf1f0633685ec4aedf864e16b26ff678c30cfc8e20ab4c576e4a5cec",
+  "script_sha256": "e15fc864f9474677ffe28af1de779a63a4ac8f0daf5ba1f4d27030ee0ab356f6"
+}

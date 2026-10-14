@@ -1,0 +1,23 @@
+{
+  "run": "mclstm_dr_qet_seed29",
+  "model": "mclstm_dr",
+  "family": "mass-conserving LSTM with dynamic redistribution",
+  "seed": 29,
+  "epochs": 39,
+  "donor_gauges": 400,
+  "target_gauges": 413,
+  "nonreference_gauges": 0,
+  "mass_balance": {
+    "daily_max_abs_mm": 5.684341886080802e-14,
+    "cumulative_max_abs_mm": 3.694822225952521e-13
+  },
+  "target_discharge_accessed": false,
+  "checkpoint": "runs/frozen_refit/mclstm_dr_qet_seed29/model.pt",
+  "checkpoint_sha256": "6ceb2ab8a8b4833862b88b241a2df4292df7b7fbfb08a054e3353147b5c873fc",
+  "prediction": "outputs/predictions/mclstm_dr_qet_seed29_target_q_2019_2024.npy",
+  "prediction_sha256": "0a7522946e36d4700d60416e1aeb29f531bb37649b34165d538175a03f45f574",
+  "common_date_states": "outputs/antecedent_states/mclstm_dr_qet_seed29_common_date.npz",
+  "common_date_states_sha256": "117d8c98a1e173faf8edb1e2733004e563ecdbc18ffa8237c05e2378c2f9d08a",
+  "model_specific_states": "outputs/antecedent_states/mclstm_dr_qet_seed29_model_specific.npz",
+  "model_specific_states_sha256": "27cd90bf1214b2469e03e1edb614650eb998fec2bd92328e24e419aac48bcdfe"
+}

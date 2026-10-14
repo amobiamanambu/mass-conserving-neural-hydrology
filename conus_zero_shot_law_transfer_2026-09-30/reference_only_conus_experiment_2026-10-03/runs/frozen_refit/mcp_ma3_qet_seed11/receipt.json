@@ -1,0 +1,23 @@
+{
+  "run": "mcp_ma3_qet_seed11",
+  "model": "mcp_ma3",
+  "family": "mass-conserving perceptron MA3",
+  "seed": 11,
+  "epochs": 66,
+  "donor_gauges": 400,
+  "target_gauges": 413,
+  "nonreference_gauges": 0,
+  "mass_balance": {
+    "daily_max_abs_mm": 1.1368683772161603e-13,
+    "cumulative_max_abs_mm": 4.405364961712621e-13
+  },
+  "target_discharge_accessed": false,
+  "checkpoint": "runs/frozen_refit/mcp_ma3_qet_seed11/model.pt",
+  "checkpoint_sha256": "edc4d84201da95e9c12fce405ab7a92d64212ffa9bba609ac2d370fc14b9103e",
+  "prediction": "outputs/predictions/mcp_ma3_qet_seed11_target_q_2019_2024.npy",
+  "prediction_sha256": "cb061b1f8a07d6a971712e6bfeef9be707bc2869a9386a2eba795adae96da2b8",
+  "common_date_states": "outputs/antecedent_states/mcp_ma3_qet_seed11_common_date.npz",
+  "common_date_states_sha256": "919e507a74a88eae4fc5c9a48122821f1e8403575d43384c19eafdebb774a979",
+  "model_specific_states": "outputs/antecedent_states/mcp_ma3_qet_seed11_model_specific.npz",
+  "model_specific_states_sha256": "2b9141305a41ca381aad5a1a4fd8a40ba257c2b32aed19c7b3e3d59b52500855"
+}

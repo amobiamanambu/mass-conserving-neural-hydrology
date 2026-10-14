@@ -1,0 +1,23 @@
+{
+  "run": "mc_node_qet_seed47",
+  "model": "mc_node",
+  "family": "conservative neural ODE",
+  "seed": 47,
+  "epochs": 48,
+  "donor_gauges": 400,
+  "target_gauges": 413,
+  "nonreference_gauges": 0,
+  "mass_balance": {
+    "daily_max_abs_mm": 5.684341886080802e-14,
+    "cumulative_max_abs_mm": 5.258016244624741e-13
+  },
+  "target_discharge_accessed": false,
+  "checkpoint": "runs/frozen_refit/mc_node_qet_seed47/model.pt",
+  "checkpoint_sha256": "42ea9cca0fe915779c151eab1ff5fff0af3abb5262a4f91478c592c16bd1fc49",
+  "prediction": "outputs/predictions/mc_node_qet_seed47_target_q_2019_2024.npy",
+  "prediction_sha256": "f756adc19cc9bb7058517bf1872f1273771ec40d5b1e6d09d0c269269e0ddbdf",
+  "common_date_states": "outputs/antecedent_states/mc_node_qet_seed47_common_date.npz",
+  "common_date_states_sha256": "0aa7c581433b2508432bf2fed47841308dedd0470e58e44af1e38161a63ad9df",
+  "model_specific_states": "outputs/antecedent_states/mc_node_qet_seed47_model_specific.npz",
+  "model_specific_states_sha256": "8ccfd47adecc6c26605b4036bb5cc44309b6a0810852f097c8c47ff1c60a60b0"
+}

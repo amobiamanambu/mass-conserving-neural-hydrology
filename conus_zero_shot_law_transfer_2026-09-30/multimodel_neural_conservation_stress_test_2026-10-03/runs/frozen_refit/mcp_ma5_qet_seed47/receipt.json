@@ -1,0 +1,31 @@
+{
+  "run": "mcp_ma5_qet_seed47",
+  "architecture": "mcp_ma5",
+  "family": "MCP directed graph",
+  "rung": "qet",
+  "seed": 47,
+  "epochs": 48,
+  "parameter_count": 27902,
+  "donor_gauges": 500,
+  "target_gauges": 3982,
+  "target_period": [
+    "2019-01-01",
+    "2024-12-31"
+  ],
+  "mass_balance": {
+    "daily_max_abs_mm": 1.7053025658242404e-13,
+    "cumulative_max_abs_mm": 3.979039320256561e-13
+  },
+  "checkpoint": "runs/frozen_refit/mcp_ma5_qet_seed47/model.pt",
+  "checkpoint_sha256": "4983b21b6e97a62ef99fe2bc24aa8419b8adf72d91f3f6c6a6c986e5670ae4cc",
+  "prediction": "outputs/predictions/mcp_ma5_qet_seed47_target_q_2019_2024.npy",
+  "prediction_sha256": "d8da3d0551263f5bd2cc7cae3830fc5c7fdc459be355394375554c24e66e3b96",
+  "model_specific_states": "outputs/antecedent_states/mcp_ma5_qet_seed47_model_specific.npz",
+  "model_specific_states_sha256": "be74b5ec3287664334cec58996370b5cf332399953d5d0e9e34019b145a239dd",
+  "common_date_states": "outputs/antecedent_states/mcp_ma5_qet_seed47_common_date.npz",
+  "common_date_states_sha256": "ff4ea08728e2fadf2cee5f5890ded6997b82bf0dc196582b6d45fe249ba0efa1",
+  "model_specific_relaxation_counts": {
+    "0": 3982
+  },
+  "target_discharge_accessed_by_script": false
+}

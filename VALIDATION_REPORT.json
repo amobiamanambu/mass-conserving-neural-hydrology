@@ -1,0 +1,23 @@
+{
+  "validated_at_utc": "2026-10-14T05:04:45.124904+00:00",
+  "status": "pass",
+  "summary": {
+    "station_roles": {
+      "target": 3982,
+      "donor": 500,
+      "development": 200
+    },
+    "primary_models": [
+      "dhbv",
+      "fluxgate",
+      "mc_node",
+      "mclstm_dr",
+      "mcp_ma3"
+    ],
+    "process_runs": 24,
+    "process_target_gauges": 3982,
+    "workflow_stages": 184,
+    "manifest_files": 881
+  },
+  "errors": []
+}

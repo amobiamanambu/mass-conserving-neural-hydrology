@@ -1,0 +1,7 @@
+{
+  "run": "fluxgate_qet_seed29",
+  "candidate_states": "outputs/identification/strengthened_test/fluxgate_qet_seed29_common_candidate_states.npz",
+  "candidate_states_sha256": "6237f2a3f8d5bef32a9b76e295c3e40394e820274f195b5ae1363c91a54fd62c",
+  "maximum_abs_state_replay_error": 0.0003662109375,
+  "maximum_abs_prediction_replay_error_mm_day": 3.814697265625e-06
+}

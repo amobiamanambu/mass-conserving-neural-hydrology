@@ -1,0 +1,31 @@
+{
+  "run": "mc_node_qet_seed29",
+  "architecture": "mc_node",
+  "family": "Hydrologic neural ODE",
+  "rung": "qet",
+  "seed": 29,
+  "epochs": 48,
+  "parameter_count": 32553,
+  "donor_gauges": 500,
+  "target_gauges": 3982,
+  "target_period": [
+    "2019-01-01",
+    "2024-12-31"
+  ],
+  "mass_balance": {
+    "daily_max_abs_mm": 8.526512829121202e-14,
+    "cumulative_max_abs_mm": 3.623767952376511e-13
+  },
+  "checkpoint": "runs/frozen_refit/mc_node_qet_seed29/model.pt",
+  "checkpoint_sha256": "fa8bf5fbffa48847a6fd142277795071449046a430d90845ce9606046cff207f",
+  "prediction": "outputs/predictions/mc_node_qet_seed29_target_q_2019_2024.npy",
+  "prediction_sha256": "8687799be76f4008273ac37aad2b40c346664babb2460ebf0be0f59ab394278a",
+  "model_specific_states": "outputs/antecedent_states/mc_node_qet_seed29_model_specific.npz",
+  "model_specific_states_sha256": "a066d5c9287f650627b899793ec31acb3af05b3b4a6b03e45dd288e4293dfff9",
+  "common_date_states": "outputs/antecedent_states/mc_node_qet_seed29_common_date.npz",
+  "common_date_states_sha256": "b73451e23194d26d4579b3a2a3d85b8259c27194200e981fd591454ad7c9c773",
+  "model_specific_relaxation_counts": {
+    "0": 3982
+  },
+  "target_discharge_accessed_by_script": false
+}

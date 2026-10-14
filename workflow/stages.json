@@ -1,0 +1,3797 @@
+{
+  "schema_version": 1,
+  "source": "audited pipeline stage registry",
+  "project_directory": "conus_zero_shot_law_transfer_2026-09-30",
+  "stages": [
+    {
+      "stage_id": "core.split",
+      "group": "core",
+      "description": "Build leakage-safe attributes and freeze the 500/200/3,982 split.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/00_build_attributes_and_split.py"
+      ],
+      "outputs": [
+        "data/frozen/station_split.csv",
+        "provenance/population_and_split_summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "core.forcing",
+      "group": "core",
+      "description": "Build GridMET forcing, static matrices, and donor/development discharge only.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/01_build_forcing_and_training_targets.py"
+      ],
+      "outputs": [
+        "data/processed/forcing.npy",
+        "data/processed/static.npy",
+        "provenance/model_data_summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "core.donor_et",
+      "group": "core",
+      "description": "Extract donor-only April-October SSEBop evapotranspiration.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/02_extract_donor_ssebop.py"
+      ],
+      "outputs": [
+        "data/processed/donor_ssebop_et_2003_2018.parquet",
+        "provenance/donor_ssebop_summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "core.mass_unit_test",
+      "group": "core",
+      "description": "Run model-level exact mass-conservation tests.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/00_test_mass_conservation.py"
+      ],
+      "outputs": [],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": false
+    },
+    {
+      "stage_id": "original.select.ealstm.q",
+      "group": "original",
+      "description": "Select the ealstm/q stopping epoch on 200 development gauges.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/03_select_on_development.py",
+        "--architecture",
+        "ealstm",
+        "--rung",
+        "q",
+        "--seed",
+        "11",
+        "--epochs",
+        "120"
+      ],
+      "outputs": [
+        "runs/development/ealstm_q_seed11/summary.json",
+        "runs/development/ealstm_q_seed11/training_history.csv"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.select.dhbv.q",
+      "group": "original",
+      "description": "Select the dhbv/q stopping epoch on 200 development gauges.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/03_select_on_development.py",
+        "--architecture",
+        "dhbv",
+        "--rung",
+        "q",
+        "--seed",
+        "11",
+        "--epochs",
+        "18"
+      ],
+      "outputs": [
+        "runs/development/dhbv_q_seed11/summary.json",
+        "runs/development/dhbv_q_seed11/training_history.csv"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.select.dhbv.qet",
+      "group": "original",
+      "description": "Select the dhbv/qet stopping epoch on 200 development gauges.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/03_select_on_development.py",
+        "--architecture",
+        "dhbv",
+        "--rung",
+        "qet",
+        "--seed",
+        "11",
+        "--epochs",
+        "18"
+      ],
+      "outputs": [
+        "runs/development/dhbv_qet_seed11/summary.json",
+        "runs/development/dhbv_qet_seed11/training_history.csv"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.select.fluxgate.q",
+      "group": "original",
+      "description": "Select the fluxgate/q stopping epoch on 200 development gauges.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/03_select_on_development.py",
+        "--architecture",
+        "fluxgate",
+        "--rung",
+        "q",
+        "--seed",
+        "11",
+        "--epochs",
+        "24"
+      ],
+      "outputs": [
+        "runs/development/fluxgate_q_seed11/summary.json",
+        "runs/development/fluxgate_q_seed11/training_history.csv"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.select.fluxgate.qet",
+      "group": "original",
+      "description": "Select the fluxgate/qet stopping epoch on 200 development gauges.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/03_select_on_development.py",
+        "--architecture",
+        "fluxgate",
+        "--rung",
+        "qet",
+        "--seed",
+        "11",
+        "--epochs",
+        "24"
+      ],
+      "outputs": [
+        "runs/development/fluxgate_qet_seed11/summary.json",
+        "runs/development/fluxgate_qet_seed11/training_history.csv"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.select.mclstm.q",
+      "group": "original",
+      "description": "Select the mclstm/q stopping epoch on 200 development gauges.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/03_select_on_development.py",
+        "--architecture",
+        "mclstm",
+        "--rung",
+        "q",
+        "--seed",
+        "11",
+        "--epochs",
+        "18"
+      ],
+      "outputs": [
+        "runs/development/mclstm_q_seed11/summary.json",
+        "runs/development/mclstm_q_seed11/training_history.csv"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.ealstm_q_seed11",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for ealstm_q_seed11.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "ealstm",
+        "--rung",
+        "q",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "runs/frozen_refit/ealstm_q_seed11/receipt.json",
+        "outputs/predictions/ealstm_q_seed11_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.ealstm_q_seed29",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for ealstm_q_seed29.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "ealstm",
+        "--rung",
+        "q",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "runs/frozen_refit/ealstm_q_seed29/receipt.json",
+        "outputs/predictions/ealstm_q_seed29_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.ealstm_q_seed47",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for ealstm_q_seed47.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "ealstm",
+        "--rung",
+        "q",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "runs/frozen_refit/ealstm_q_seed47/receipt.json",
+        "outputs/predictions/ealstm_q_seed47_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.dhbv_q_seed11",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for dhbv_q_seed11.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "dhbv",
+        "--rung",
+        "q",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "runs/frozen_refit/dhbv_q_seed11/receipt.json",
+        "outputs/predictions/dhbv_q_seed11_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.dhbv_q_seed29",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for dhbv_q_seed29.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "dhbv",
+        "--rung",
+        "q",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "runs/frozen_refit/dhbv_q_seed29/receipt.json",
+        "outputs/predictions/dhbv_q_seed29_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.dhbv_q_seed47",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for dhbv_q_seed47.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "dhbv",
+        "--rung",
+        "q",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "runs/frozen_refit/dhbv_q_seed47/receipt.json",
+        "outputs/predictions/dhbv_q_seed47_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.dhbv_qet_seed11",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for dhbv_qet_seed11.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "dhbv",
+        "--rung",
+        "qet",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "runs/frozen_refit/dhbv_qet_seed11/receipt.json",
+        "outputs/predictions/dhbv_qet_seed11_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.dhbv_qet_seed29",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for dhbv_qet_seed29.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "dhbv",
+        "--rung",
+        "qet",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "runs/frozen_refit/dhbv_qet_seed29/receipt.json",
+        "outputs/predictions/dhbv_qet_seed29_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.dhbv_qet_seed47",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for dhbv_qet_seed47.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "dhbv",
+        "--rung",
+        "qet",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "runs/frozen_refit/dhbv_qet_seed47/receipt.json",
+        "outputs/predictions/dhbv_qet_seed47_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.fluxgate_q_seed11",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for fluxgate_q_seed11.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "fluxgate",
+        "--rung",
+        "q",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "runs/frozen_refit/fluxgate_q_seed11/receipt.json",
+        "outputs/predictions/fluxgate_q_seed11_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.fluxgate_q_seed29",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for fluxgate_q_seed29.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "fluxgate",
+        "--rung",
+        "q",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "runs/frozen_refit/fluxgate_q_seed29/receipt.json",
+        "outputs/predictions/fluxgate_q_seed29_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.fluxgate_q_seed47",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for fluxgate_q_seed47.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "fluxgate",
+        "--rung",
+        "q",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "runs/frozen_refit/fluxgate_q_seed47/receipt.json",
+        "outputs/predictions/fluxgate_q_seed47_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.fluxgate_qet_seed11",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for fluxgate_qet_seed11.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "fluxgate",
+        "--rung",
+        "qet",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "runs/frozen_refit/fluxgate_qet_seed11/receipt.json",
+        "outputs/predictions/fluxgate_qet_seed11_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.fluxgate_qet_seed29",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for fluxgate_qet_seed29.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "fluxgate",
+        "--rung",
+        "qet",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "runs/frozen_refit/fluxgate_qet_seed29/receipt.json",
+        "outputs/predictions/fluxgate_qet_seed29_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.refit.fluxgate_qet_seed47",
+      "group": "original",
+      "description": "Frozen donor refit and outcome-blind target prediction for fluxgate_qet_seed47.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/04_refit_and_predict_targets.py",
+        "--architecture",
+        "fluxgate",
+        "--rung",
+        "qet",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "runs/frozen_refit/fluxgate_qet_seed47/receipt.json",
+        "outputs/predictions/fluxgate_qet_seed47_target_q_2019_2024.npy"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.dhbv_q_seed11",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for dhbv_q_seed11.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "dhbv_q_seed11"
+      ],
+      "outputs": [
+        "outputs/law_interventions/dhbv_q_seed11_curves.npz",
+        "outputs/law_interventions/dhbv_q_seed11_fingerprints.parquet",
+        "outputs/law_interventions/dhbv_q_seed11_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.dhbv_q_seed29",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for dhbv_q_seed29.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "dhbv_q_seed29"
+      ],
+      "outputs": [
+        "outputs/law_interventions/dhbv_q_seed29_curves.npz",
+        "outputs/law_interventions/dhbv_q_seed29_fingerprints.parquet",
+        "outputs/law_interventions/dhbv_q_seed29_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.dhbv_q_seed47",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for dhbv_q_seed47.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "dhbv_q_seed47"
+      ],
+      "outputs": [
+        "outputs/law_interventions/dhbv_q_seed47_curves.npz",
+        "outputs/law_interventions/dhbv_q_seed47_fingerprints.parquet",
+        "outputs/law_interventions/dhbv_q_seed47_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.dhbv_qet_seed11",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for dhbv_qet_seed11.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "dhbv_qet_seed11"
+      ],
+      "outputs": [
+        "outputs/law_interventions/dhbv_qet_seed11_curves.npz",
+        "outputs/law_interventions/dhbv_qet_seed11_fingerprints.parquet",
+        "outputs/law_interventions/dhbv_qet_seed11_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.dhbv_qet_seed29",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for dhbv_qet_seed29.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "dhbv_qet_seed29"
+      ],
+      "outputs": [
+        "outputs/law_interventions/dhbv_qet_seed29_curves.npz",
+        "outputs/law_interventions/dhbv_qet_seed29_fingerprints.parquet",
+        "outputs/law_interventions/dhbv_qet_seed29_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.dhbv_qet_seed47",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for dhbv_qet_seed47.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "dhbv_qet_seed47"
+      ],
+      "outputs": [
+        "outputs/law_interventions/dhbv_qet_seed47_curves.npz",
+        "outputs/law_interventions/dhbv_qet_seed47_fingerprints.parquet",
+        "outputs/law_interventions/dhbv_qet_seed47_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.fluxgate_q_seed11",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for fluxgate_q_seed11.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "fluxgate_q_seed11"
+      ],
+      "outputs": [
+        "outputs/law_interventions/fluxgate_q_seed11_curves.npz",
+        "outputs/law_interventions/fluxgate_q_seed11_fingerprints.parquet",
+        "outputs/law_interventions/fluxgate_q_seed11_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.fluxgate_q_seed29",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for fluxgate_q_seed29.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "fluxgate_q_seed29"
+      ],
+      "outputs": [
+        "outputs/law_interventions/fluxgate_q_seed29_curves.npz",
+        "outputs/law_interventions/fluxgate_q_seed29_fingerprints.parquet",
+        "outputs/law_interventions/fluxgate_q_seed29_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.fluxgate_q_seed47",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for fluxgate_q_seed47.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "fluxgate_q_seed47"
+      ],
+      "outputs": [
+        "outputs/law_interventions/fluxgate_q_seed47_curves.npz",
+        "outputs/law_interventions/fluxgate_q_seed47_fingerprints.parquet",
+        "outputs/law_interventions/fluxgate_q_seed47_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.fluxgate_qet_seed11",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for fluxgate_qet_seed11.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "fluxgate_qet_seed11"
+      ],
+      "outputs": [
+        "outputs/law_interventions/fluxgate_qet_seed11_curves.npz",
+        "outputs/law_interventions/fluxgate_qet_seed11_fingerprints.parquet",
+        "outputs/law_interventions/fluxgate_qet_seed11_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.fluxgate_qet_seed29",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for fluxgate_qet_seed29.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "fluxgate_qet_seed29"
+      ],
+      "outputs": [
+        "outputs/law_interventions/fluxgate_qet_seed29_curves.npz",
+        "outputs/law_interventions/fluxgate_qet_seed29_fingerprints.parquet",
+        "outputs/law_interventions/fluxgate_qet_seed29_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.intervention.fluxgate_qet_seed47",
+      "group": "original",
+      "description": "Run the frozen 90-day zero-input intervention for fluxgate_qet_seed47.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05_run_zero_input_interventions.py",
+        "--run",
+        "fluxgate_qet_seed47"
+      ],
+      "outputs": [
+        "outputs/law_interventions/fluxgate_qet_seed47_curves.npz",
+        "outputs/law_interventions/fluxgate_qet_seed47_fingerprints.parquet",
+        "outputs/law_interventions/fluxgate_qet_seed47_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.freeze_registry",
+      "group": "original",
+      "description": "Checksum and freeze all original predictions and intervention fingerprints.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05b_freeze_prediction_registry.py"
+      ],
+      "outputs": [
+        "provenance/frozen_prediction_registry.json",
+        "provenance/frozen_prediction_registry.sha256"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "original.evaluate_targets",
+      "group": "original",
+      "description": "Open target discharge only after freezing and compute zero-shot metrics.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/06_open_target_discharge_and_evaluate.py"
+      ],
+      "outputs": [
+        "data/evaluation/q_target_2019_2024.npy",
+        "outputs/evaluation/target_model_metrics.parquet",
+        "outputs/evaluation/target_skill_summary.csv",
+        "provenance/target_evaluation_receipt.json"
+      ],
+      "opens_target_discharge": true,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.observed_recessions",
+      "group": "original",
+      "description": "Extract primary and sensitivity rain-screened observed recessions.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/07_extract_observed_recessions.py"
+      ],
+      "outputs": [
+        "outputs/observed_recessions/recession_events.parquet",
+        "outputs/observed_recessions/recession_summary.parquet",
+        "provenance/observed_recession_receipt.json"
+      ],
+      "opens_target_discharge": true,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.identification",
+      "group": "original",
+      "description": "Assemble gauge-level evidence and evaluate the frozen identification gates.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/08_analyze_identification.py"
+      ],
+      "outputs": [
+        "outputs/identification/gauge_level_identification.parquet",
+        "outputs/identification/primary_identification_population.parquet",
+        "outputs/identification/identification_gates.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "original.model_q0_sensitivity",
+      "group": "original",
+      "description": "Rebuild fingerprints at the three prespecified model-side Q(0) thresholds.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/08d_analyze_model_q0_sensitivity.py"
+      ],
+      "outputs": [
+        "outputs/identification/model_q0_sensitivity.csv",
+        "provenance/model_q0_sensitivity_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "original.pet_replay.dhbv_qet_seed11",
+      "group": "original",
+      "description": "Replay dhbv_qet_seed11 with climatological PET and zero precipitation.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05c_run_climatological_pet_sensitivity.py",
+        "--run",
+        "dhbv_qet_seed11"
+      ],
+      "outputs": [
+        "outputs/law_interventions_pet_climatology/dhbv_qet_seed11_fingerprints.csv",
+        "outputs/law_interventions_pet_climatology/dhbv_qet_seed11_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.pet_replay.dhbv_qet_seed29",
+      "group": "original",
+      "description": "Replay dhbv_qet_seed29 with climatological PET and zero precipitation.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05c_run_climatological_pet_sensitivity.py",
+        "--run",
+        "dhbv_qet_seed29"
+      ],
+      "outputs": [
+        "outputs/law_interventions_pet_climatology/dhbv_qet_seed29_fingerprints.csv",
+        "outputs/law_interventions_pet_climatology/dhbv_qet_seed29_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.pet_replay.dhbv_qet_seed47",
+      "group": "original",
+      "description": "Replay dhbv_qet_seed47 with climatological PET and zero precipitation.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05c_run_climatological_pet_sensitivity.py",
+        "--run",
+        "dhbv_qet_seed47"
+      ],
+      "outputs": [
+        "outputs/law_interventions_pet_climatology/dhbv_qet_seed47_fingerprints.csv",
+        "outputs/law_interventions_pet_climatology/dhbv_qet_seed47_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.pet_replay.fluxgate_qet_seed11",
+      "group": "original",
+      "description": "Replay fluxgate_qet_seed11 with climatological PET and zero precipitation.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05c_run_climatological_pet_sensitivity.py",
+        "--run",
+        "fluxgate_qet_seed11"
+      ],
+      "outputs": [
+        "outputs/law_interventions_pet_climatology/fluxgate_qet_seed11_fingerprints.csv",
+        "outputs/law_interventions_pet_climatology/fluxgate_qet_seed11_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.pet_replay.fluxgate_qet_seed29",
+      "group": "original",
+      "description": "Replay fluxgate_qet_seed29 with climatological PET and zero precipitation.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05c_run_climatological_pet_sensitivity.py",
+        "--run",
+        "fluxgate_qet_seed29"
+      ],
+      "outputs": [
+        "outputs/law_interventions_pet_climatology/fluxgate_qet_seed29_fingerprints.csv",
+        "outputs/law_interventions_pet_climatology/fluxgate_qet_seed29_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.pet_replay.fluxgate_qet_seed47",
+      "group": "original",
+      "description": "Replay fluxgate_qet_seed47 with climatological PET and zero precipitation.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/05c_run_climatological_pet_sensitivity.py",
+        "--run",
+        "fluxgate_qet_seed47"
+      ],
+      "outputs": [
+        "outputs/law_interventions_pet_climatology/fluxgate_qet_seed47_fingerprints.csv",
+        "outputs/law_interventions_pet_climatology/fluxgate_qet_seed47_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.pet_analysis",
+      "group": "original",
+      "description": "Analyze the climatological-PET boundary-condition sensitivity.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/08b_analyze_pet_sensitivity.py"
+      ],
+      "outputs": [
+        "outputs/identification/pet_climatology_sensitivity_summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "original.strengthened_tests",
+      "group": "original",
+      "description": "Build common-date states, proxy reliability, hydrograph-equivalence, and flux decomposition tests.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/09_strengthen_identification.py",
+        "--stage",
+        "all"
+      ],
+      "outputs": [
+        "outputs/identification/strengthened_test/common_anchors.npz",
+        "outputs/identification/strengthened_test/anchor_design_gauge_comparison.csv",
+        "outputs/identification/strengthened_test/cross_architecture_gap_decomposition.parquet",
+        "outputs/identification/strengthened_test/strengthened_identification_summary.json"
+      ],
+      "opens_target_discharge": true,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "original.reference_expansion",
+      "group": "original",
+      "description": "Analyze national reference targets and matched non-reference controls.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/08c_analyze_reference_basins.py"
+      ],
+      "outputs": [
+        "outputs/identification/reference_expansion/reference_expansion_summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "original.nested_topology",
+      "group": "original",
+      "description": "Audit NHDPlusV2.1 direction and nested-pair distance sensitivity.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/12_analyze_nested_pair_topology.py"
+      ],
+      "outputs": [
+        "outputs/identification/nested_pair_topology_sensitivity.csv",
+        "outputs/identification/nested_pair_topology_audit.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.select.q",
+      "group": "mcp12",
+      "description": "Select the 12-cell MCP/q stopping epoch.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/01_select_on_development.py",
+        "--rung",
+        "q",
+        "--seed",
+        "11",
+        "--epochs",
+        "48"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/runs/development/mcp_q_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.refit.mcp_q_seed11",
+      "group": "mcp12",
+      "description": "Refit and predict with mcp_q_seed11.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--rung",
+        "q",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/runs/frozen_refit/mcp_q_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_q_seed11.model_specific",
+      "group": "mcp12",
+      "description": "Run the model_specific intervention for mcp_q_seed11.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_q_seed11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_q_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_q_seed11.common_date",
+      "group": "mcp12",
+      "description": "Run the common_date intervention for mcp_q_seed11.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_q_seed11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_q_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.refit.mcp_q_seed29",
+      "group": "mcp12",
+      "description": "Refit and predict with mcp_q_seed29.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--rung",
+        "q",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/runs/frozen_refit/mcp_q_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_q_seed29.model_specific",
+      "group": "mcp12",
+      "description": "Run the model_specific intervention for mcp_q_seed29.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_q_seed29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_q_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_q_seed29.common_date",
+      "group": "mcp12",
+      "description": "Run the common_date intervention for mcp_q_seed29.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_q_seed29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_q_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.refit.mcp_q_seed47",
+      "group": "mcp12",
+      "description": "Refit and predict with mcp_q_seed47.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--rung",
+        "q",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/runs/frozen_refit/mcp_q_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_q_seed47.model_specific",
+      "group": "mcp12",
+      "description": "Run the model_specific intervention for mcp_q_seed47.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_q_seed47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_q_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_q_seed47.common_date",
+      "group": "mcp12",
+      "description": "Run the common_date intervention for mcp_q_seed47.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_q_seed47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_q_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.select.qet",
+      "group": "mcp12",
+      "description": "Select the 12-cell MCP/qet stopping epoch.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/01_select_on_development.py",
+        "--rung",
+        "qet",
+        "--seed",
+        "11",
+        "--epochs",
+        "48"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/runs/development/mcp_qet_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.refit.mcp_qet_seed11",
+      "group": "mcp12",
+      "description": "Refit and predict with mcp_qet_seed11.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--rung",
+        "qet",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/runs/frozen_refit/mcp_qet_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_qet_seed11.model_specific",
+      "group": "mcp12",
+      "description": "Run the model_specific intervention for mcp_qet_seed11.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_qet_seed11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_qet_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_qet_seed11.common_date",
+      "group": "mcp12",
+      "description": "Run the common_date intervention for mcp_qet_seed11.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_qet_seed11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_qet_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.refit.mcp_qet_seed29",
+      "group": "mcp12",
+      "description": "Refit and predict with mcp_qet_seed29.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--rung",
+        "qet",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/runs/frozen_refit/mcp_qet_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_qet_seed29.model_specific",
+      "group": "mcp12",
+      "description": "Run the model_specific intervention for mcp_qet_seed29.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_qet_seed29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_qet_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_qet_seed29.common_date",
+      "group": "mcp12",
+      "description": "Run the common_date intervention for mcp_qet_seed29.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_qet_seed29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_qet_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.refit.mcp_qet_seed47",
+      "group": "mcp12",
+      "description": "Refit and predict with mcp_qet_seed47.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--rung",
+        "qet",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/runs/frozen_refit/mcp_qet_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_qet_seed47.model_specific",
+      "group": "mcp12",
+      "description": "Run the model_specific intervention for mcp_qet_seed47.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_qet_seed47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_qet_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.intervention.mcp_qet_seed47.common_date",
+      "group": "mcp12",
+      "description": "Run the common_date intervention for mcp_qet_seed47.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_qet_seed47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/interventions/mcp_qet_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.evaluate",
+      "group": "mcp12",
+      "description": "Evaluate all six frozen 12-cell MCP predictions.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_evaluate_predictions.py"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/evaluation/target_model_metrics.parquet"
+      ],
+      "opens_target_discharge": true,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "mcp12.compare",
+      "group": "mcp12",
+      "description": "Compare 12-cell MCP fingerprints with the original architectures.",
+      "cwd": "independent_mcp_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/05_compare_identification.py"
+      ],
+      "outputs": [
+        "independent_mcp_stress_test_2026-10-03/outputs/comparison/mcp_stress_test_summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.select.mclstm_dr",
+      "group": "stress",
+      "description": "Select the mclstm_dr stopping epoch without target discharge.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/01_select_on_development.py",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "11",
+        "--epochs",
+        "72"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/development/mclstm_dr_qet_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mclstm_dr_qet_seed11",
+      "group": "stress",
+      "description": "Refit mclstm_dr_qet_seed11 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mclstm_dr_qet_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mclstm_dr_qet_seed29",
+      "group": "stress",
+      "description": "Refit mclstm_dr_qet_seed29 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mclstm_dr_qet_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mclstm_dr_qet_seed47",
+      "group": "stress",
+      "description": "Refit mclstm_dr_qet_seed47 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mclstm_dr_qet_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.select.mc_node",
+      "group": "stress",
+      "description": "Select the mc_node stopping epoch without target discharge.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/01_select_on_development.py",
+        "--model",
+        "mc_node",
+        "--seed",
+        "11",
+        "--epochs",
+        "72"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/development/mc_node_qet_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mc_node_qet_seed11",
+      "group": "stress",
+      "description": "Refit mc_node_qet_seed11 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mc_node",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mc_node_qet_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mc_node_qet_seed29",
+      "group": "stress",
+      "description": "Refit mc_node_qet_seed29 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mc_node",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mc_node_qet_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mc_node_qet_seed47",
+      "group": "stress",
+      "description": "Refit mc_node_qet_seed47 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mc_node",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mc_node_qet_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.select.mcp_ma3",
+      "group": "stress",
+      "description": "Select the mcp_ma3 stopping epoch without target discharge.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/01_select_on_development.py",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "11",
+        "--epochs",
+        "72"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/development/mcp_ma3_qet_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mcp_ma3_qet_seed11",
+      "group": "stress",
+      "description": "Refit mcp_ma3_qet_seed11 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mcp_ma3_qet_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mcp_ma3_qet_seed29",
+      "group": "stress",
+      "description": "Refit mcp_ma3_qet_seed29 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mcp_ma3_qet_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mcp_ma3_qet_seed47",
+      "group": "stress",
+      "description": "Refit mcp_ma3_qet_seed47 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mcp_ma3_qet_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.select.mcp_ma4",
+      "group": "stress",
+      "description": "Select the mcp_ma4 stopping epoch without target discharge.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/01_select_on_development.py",
+        "--model",
+        "mcp_ma4",
+        "--seed",
+        "11",
+        "--epochs",
+        "72"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/development/mcp_ma4_qet_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mcp_ma4_qet_seed11",
+      "group": "stress",
+      "description": "Refit mcp_ma4_qet_seed11 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mcp_ma4",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mcp_ma4_qet_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mcp_ma4_qet_seed29",
+      "group": "stress",
+      "description": "Refit mcp_ma4_qet_seed29 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mcp_ma4",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mcp_ma4_qet_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mcp_ma4_qet_seed47",
+      "group": "stress",
+      "description": "Refit mcp_ma4_qet_seed47 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mcp_ma4",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mcp_ma4_qet_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.select.mcp_ma5",
+      "group": "stress",
+      "description": "Select the mcp_ma5 stopping epoch without target discharge.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/01_select_on_development.py",
+        "--model",
+        "mcp_ma5",
+        "--seed",
+        "11",
+        "--epochs",
+        "72"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/development/mcp_ma5_qet_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mcp_ma5_qet_seed11",
+      "group": "stress",
+      "description": "Refit mcp_ma5_qet_seed11 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mcp_ma5",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mcp_ma5_qet_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mcp_ma5_qet_seed29",
+      "group": "stress",
+      "description": "Refit mcp_ma5_qet_seed29 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mcp_ma5",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mcp_ma5_qet_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.refit.mcp_ma5_qet_seed47",
+      "group": "stress",
+      "description": "Refit mcp_ma5_qet_seed47 and freeze predictions and both antecedent-state designs.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_refit_predict.py",
+        "--model",
+        "mcp_ma5",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/runs/frozen_refit/mcp_ma5_qet_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.evaluate",
+      "group": "stress",
+      "description": "Verify all 15 stress-test receipts before evaluating target discharge.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_evaluate_predictions.py"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/evaluation/target_model_metrics.parquet"
+      ],
+      "opens_target_discharge": true,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mclstm_dr_qet_seed11.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mclstm_dr_qet_seed11.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mclstm_dr_qet_seed11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mclstm_dr_qet_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mclstm_dr_qet_seed11.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mclstm_dr_qet_seed11.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mclstm_dr_qet_seed11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mclstm_dr_qet_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mclstm_dr_qet_seed29.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mclstm_dr_qet_seed29.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mclstm_dr_qet_seed29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mclstm_dr_qet_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mclstm_dr_qet_seed29.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mclstm_dr_qet_seed29.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mclstm_dr_qet_seed29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mclstm_dr_qet_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mclstm_dr_qet_seed47.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mclstm_dr_qet_seed47.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mclstm_dr_qet_seed47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mclstm_dr_qet_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mclstm_dr_qet_seed47.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mclstm_dr_qet_seed47.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mclstm_dr_qet_seed47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mclstm_dr_qet_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mc_node_qet_seed11.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mc_node_qet_seed11.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mc_node_qet_seed11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mc_node_qet_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mc_node_qet_seed11.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mc_node_qet_seed11.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mc_node_qet_seed11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mc_node_qet_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mc_node_qet_seed29.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mc_node_qet_seed29.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mc_node_qet_seed29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mc_node_qet_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mc_node_qet_seed29.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mc_node_qet_seed29.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mc_node_qet_seed29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mc_node_qet_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mc_node_qet_seed47.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mc_node_qet_seed47.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mc_node_qet_seed47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mc_node_qet_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mc_node_qet_seed47.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mc_node_qet_seed47.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mc_node_qet_seed47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mc_node_qet_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma3_qet_seed11.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mcp_ma3_qet_seed11.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma3_qet_seed11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma3_qet_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma3_qet_seed11.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mcp_ma3_qet_seed11.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma3_qet_seed11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma3_qet_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma3_qet_seed29.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mcp_ma3_qet_seed29.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma3_qet_seed29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma3_qet_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma3_qet_seed29.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mcp_ma3_qet_seed29.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma3_qet_seed29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma3_qet_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma3_qet_seed47.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mcp_ma3_qet_seed47.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma3_qet_seed47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma3_qet_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma3_qet_seed47.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mcp_ma3_qet_seed47.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma3_qet_seed47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma3_qet_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma4_qet_seed11.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mcp_ma4_qet_seed11.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma4_qet_seed11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma4_qet_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma4_qet_seed11.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mcp_ma4_qet_seed11.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma4_qet_seed11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma4_qet_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma4_qet_seed29.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mcp_ma4_qet_seed29.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma4_qet_seed29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma4_qet_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma4_qet_seed29.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mcp_ma4_qet_seed29.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma4_qet_seed29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma4_qet_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma4_qet_seed47.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mcp_ma4_qet_seed47.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma4_qet_seed47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma4_qet_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma4_qet_seed47.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mcp_ma4_qet_seed47.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma4_qet_seed47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma4_qet_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma5_qet_seed11.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mcp_ma5_qet_seed11.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma5_qet_seed11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma5_qet_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma5_qet_seed11.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mcp_ma5_qet_seed11.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma5_qet_seed11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma5_qet_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma5_qet_seed29.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mcp_ma5_qet_seed29.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma5_qet_seed29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma5_qet_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma5_qet_seed29.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mcp_ma5_qet_seed29.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma5_qet_seed29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma5_qet_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma5_qet_seed47.model_specific",
+      "group": "stress",
+      "description": "Run the model_specific intervention for mcp_ma5_qet_seed47.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma5_qet_seed47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma5_qet_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.intervention.mcp_ma5_qet_seed47.common_date",
+      "group": "stress",
+      "description": "Run the common_date intervention for mcp_ma5_qet_seed47.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_run_interventions.py",
+        "--run",
+        "mcp_ma5_qet_seed47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/interventions/mcp_ma5_qet_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.compare",
+      "group": "stress",
+      "description": "Synthesize prediction competence and pairwise response identification.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/05_compare_multimodel.py"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/comparison/gauge_level_multimodel.parquet",
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/comparison/pairwise_response_agreement.csv"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "stress.reconcile",
+      "group": "stress",
+      "description": "Independently reconcile stress-test receipts, checksums, and summaries.",
+      "cwd": "multimodel_neural_conservation_stress_test_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/06_reconcile_results.py"
+      ],
+      "outputs": [
+        "multimodel_neural_conservation_stress_test_2026-10-03/outputs/comparison/reconciliation_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.prepare",
+      "group": "reference",
+      "description": "Create the outcome-blind 400/100/413 reference-only split and data arrays.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/01_prepare_reference_only_data.py"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/provenance/preprediction_data_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.donor_et",
+      "group": "reference",
+      "description": "Extract SSEBop ET for the 400 reference-only training gauges.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/02_extract_reference_donor_et.py"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/provenance/ssebop_summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.select.dhbv",
+      "group": "reference",
+      "description": "Select dhbv using only the 100 reference development gauges.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "select",
+        "--model",
+        "dhbv",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/development/dhbv_qet_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.dhbv_qet_seed11",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for dhbv_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "dhbv",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/dhbv_qet_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.dhbv_qet_seed11.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for dhbv_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "dhbv",
+        "--seed",
+        "11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/dhbv_qet_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.dhbv_qet_seed11.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for dhbv_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "dhbv",
+        "--seed",
+        "11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/dhbv_qet_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.dhbv_qet_seed29",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for dhbv_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "dhbv",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/dhbv_qet_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.dhbv_qet_seed29.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for dhbv_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "dhbv",
+        "--seed",
+        "29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/dhbv_qet_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.dhbv_qet_seed29.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for dhbv_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "dhbv",
+        "--seed",
+        "29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/dhbv_qet_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.dhbv_qet_seed47",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for dhbv_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "dhbv",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/dhbv_qet_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.dhbv_qet_seed47.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for dhbv_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "dhbv",
+        "--seed",
+        "47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/dhbv_qet_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.dhbv_qet_seed47.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for dhbv_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "dhbv",
+        "--seed",
+        "47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/dhbv_qet_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.select.fluxgate",
+      "group": "reference",
+      "description": "Select fluxgate using only the 100 reference development gauges.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "select",
+        "--model",
+        "fluxgate",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/development/fluxgate_qet_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.fluxgate_qet_seed11",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for fluxgate_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "fluxgate",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/fluxgate_qet_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.fluxgate_qet_seed11.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for fluxgate_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "fluxgate",
+        "--seed",
+        "11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/fluxgate_qet_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.fluxgate_qet_seed11.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for fluxgate_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "fluxgate",
+        "--seed",
+        "11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/fluxgate_qet_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.fluxgate_qet_seed29",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for fluxgate_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "fluxgate",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/fluxgate_qet_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.fluxgate_qet_seed29.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for fluxgate_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "fluxgate",
+        "--seed",
+        "29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/fluxgate_qet_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.fluxgate_qet_seed29.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for fluxgate_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "fluxgate",
+        "--seed",
+        "29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/fluxgate_qet_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.fluxgate_qet_seed47",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for fluxgate_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "fluxgate",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/fluxgate_qet_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.fluxgate_qet_seed47.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for fluxgate_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "fluxgate",
+        "--seed",
+        "47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/fluxgate_qet_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.fluxgate_qet_seed47.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for fluxgate_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "fluxgate",
+        "--seed",
+        "47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/fluxgate_qet_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.select.mcp_ma3",
+      "group": "reference",
+      "description": "Select mcp_ma3 using only the 100 reference development gauges.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "select",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/development/mcp_ma3_qet_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.mcp_ma3_qet_seed11",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for mcp_ma3_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/mcp_ma3_qet_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mcp_ma3_qet_seed11.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for mcp_ma3_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mcp_ma3_qet_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mcp_ma3_qet_seed11.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for mcp_ma3_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mcp_ma3_qet_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.mcp_ma3_qet_seed29",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for mcp_ma3_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/mcp_ma3_qet_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mcp_ma3_qet_seed29.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for mcp_ma3_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mcp_ma3_qet_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mcp_ma3_qet_seed29.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for mcp_ma3_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mcp_ma3_qet_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.mcp_ma3_qet_seed47",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for mcp_ma3_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/mcp_ma3_qet_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mcp_ma3_qet_seed47.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for mcp_ma3_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mcp_ma3_qet_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mcp_ma3_qet_seed47.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for mcp_ma3_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mcp_ma3",
+        "--seed",
+        "47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mcp_ma3_qet_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.select.mc_node",
+      "group": "reference",
+      "description": "Select mc_node using only the 100 reference development gauges.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "select",
+        "--model",
+        "mc_node",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/development/mc_node_qet_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.mc_node_qet_seed11",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for mc_node_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "mc_node",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/mc_node_qet_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mc_node_qet_seed11.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for mc_node_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mc_node",
+        "--seed",
+        "11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mc_node_qet_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mc_node_qet_seed11.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for mc_node_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mc_node",
+        "--seed",
+        "11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mc_node_qet_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.mc_node_qet_seed29",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for mc_node_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "mc_node",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/mc_node_qet_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mc_node_qet_seed29.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for mc_node_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mc_node",
+        "--seed",
+        "29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mc_node_qet_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mc_node_qet_seed29.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for mc_node_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mc_node",
+        "--seed",
+        "29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mc_node_qet_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.mc_node_qet_seed47",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for mc_node_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "mc_node",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/mc_node_qet_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mc_node_qet_seed47.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for mc_node_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mc_node",
+        "--seed",
+        "47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mc_node_qet_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mc_node_qet_seed47.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for mc_node_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mc_node",
+        "--seed",
+        "47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mc_node_qet_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.select.mclstm_dr",
+      "group": "reference",
+      "description": "Select mclstm_dr using only the 100 reference development gauges.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "select",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/development/mclstm_dr_qet_seed11/summary.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.mclstm_dr_qet_seed11",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for mclstm_dr_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "11"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/mclstm_dr_qet_seed11/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mclstm_dr_qet_seed11.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for mclstm_dr_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "11",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mclstm_dr_qet_seed11_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mclstm_dr_qet_seed11.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for mclstm_dr_qet_seed11.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "11",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mclstm_dr_qet_seed11_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.mclstm_dr_qet_seed29",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for mclstm_dr_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "29"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/mclstm_dr_qet_seed29/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mclstm_dr_qet_seed29.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for mclstm_dr_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "29",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mclstm_dr_qet_seed29_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mclstm_dr_qet_seed29.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for mclstm_dr_qet_seed29.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "29",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mclstm_dr_qet_seed29_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.refit.mclstm_dr_qet_seed47",
+      "group": "reference",
+      "description": "Reference-only refit and outcome-blind target prediction for mclstm_dr_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/03_train_and_freeze.py",
+        "--mode",
+        "refit",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "47"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/runs/frozen_refit/mclstm_dr_qet_seed47/receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mclstm_dr_qet_seed47.model_specific",
+      "group": "reference",
+      "description": "Run the reference-only model_specific intervention for mclstm_dr_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "47",
+        "--anchor-design",
+        "model_specific"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mclstm_dr_qet_seed47_model_specific_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.intervention.mclstm_dr_qet_seed47.common_date",
+      "group": "reference",
+      "description": "Run the reference-only common_date intervention for mclstm_dr_qet_seed47.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/04_run_interventions.py",
+        "--model",
+        "mclstm_dr",
+        "--seed",
+        "47",
+        "--anchor-design",
+        "common_date"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/interventions/mclstm_dr_qet_seed47_common_date_receipt.json"
+      ],
+      "opens_target_discharge": false,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.evaluate",
+      "group": "reference",
+      "description": "Freeze all reference-only predictions/fingerprints, then open held-out discharge and evaluate.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/05_open_target_and_evaluate.py"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/provenance/frozen_prediction_registry.json",
+        "reference_only_conus_experiment_2026-10-03/outputs/evaluation/gauge_level_reference_only.csv.gz"
+      ],
+      "opens_target_discharge": true,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "reference.sensitivity",
+      "group": "reference",
+      "description": "Summarize reference-only anchor-design, Q(0), and skill sensitivities.",
+      "cwd": "reference_only_conus_experiment_2026-10-03",
+      "argv": [
+        "{python}",
+        "scripts/06_sensitivity_summary.py"
+      ],
+      "outputs": [
+        "reference_only_conus_experiment_2026-10-03/outputs/evaluation/anchor_q0_pairwise_sensitivity.csv"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "synthesis.practical_metrics",
+      "group": "synthesis",
+      "description": "Translate response gaps into R30, half-life, and persistence-class differences.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "scripts/13_quantify_practical_response_differences.py"
+      ],
+      "outputs": [
+        "outputs/identification/practical_response_metrics.csv"
+      ],
+      "opens_target_discharge": false,
+      "expensive": false,
+      "complete": true
+    },
+    {
+      "stage_id": "trajectory.full_curve",
+      "group": "trajectory",
+      "description": "Recompute full drainage-trajectory, natural-recession, and six-gauge robustness results.",
+      "cwd": "r7_curve_robustness_2026-10-09",
+      "argv": [
+        "{python}",
+        "run_curve_robustness.py"
+      ],
+      "outputs": [
+        "r7_curve_robustness_2026-10-09/provenance/curve_robustness_receipt.json",
+        "r7_curve_robustness_2026-10-09/outputs/pairwise_daily_curve_agreement.csv",
+        "r7_curve_robustness_2026-10-09/outputs/six_gauge_curves.csv"
+      ],
+      "opens_target_discharge": true,
+      "expensive": true,
+      "complete": true
+    },
+    {
+      "stage_id": "audit.original_independent",
+      "group": "audit",
+      "description": "Run the independent, figure-free two-model identification audit.",
+      "cwd": ".",
+      "argv": [
+        "{python}",
+        "audit/independent_identification_audit.py",
+        "--project-root",
+        "{project}",
+        "--recompute-skill",
+        "--recompute-observed-recessions",
+        "--recompute-fingerprints"
+      ],
+      "outputs": [
+        "audit/identification_reanalysis_outputs/audit_summary.json"
+      ],
+      "opens_target_discharge": true,
+      "expensive": true,
+      "complete": true
+    }
+  ],
+  "stage_count": 184
+}

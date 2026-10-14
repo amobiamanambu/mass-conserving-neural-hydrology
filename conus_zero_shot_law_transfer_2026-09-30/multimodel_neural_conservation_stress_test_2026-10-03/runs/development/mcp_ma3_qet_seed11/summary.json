@@ -1,0 +1,16 @@
+{
+  "run": "mcp_ma3_qet_seed11",
+  "architecture": "mcp_ma3",
+  "family": "MCP directed graph",
+  "seed": 11,
+  "best_epoch": 66,
+  "best_development_median_kge": 0.3256490154436018,
+  "maximum_epochs": 72,
+  "learning_rate": 0.0015,
+  "parameter_count": 24010,
+  "daily_mass_residual_max_abs_mm": 1.1368683772161603e-13,
+  "cumulative_mass_residual_max_abs_mm": 2.2737367544323206e-13,
+  "checkpoint": "runs/development/mcp_ma3_qet_seed11/best_model.pt",
+  "checkpoint_sha256": "c735bc06347cfea7dabb63558113f349dff3156bcc4a2c4f246bd6ea23a2caee",
+  "target_discharge_accessed_by_script": false
+}

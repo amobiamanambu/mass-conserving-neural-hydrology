@@ -1,0 +1,7 @@
+{
+  "run": "fluxgate_q_seed11",
+  "source": "conus_zero_shot_law_transfer_2026-09-30/runs/frozen_refit/fluxgate_q_seed11",
+  "model_sha256": "be23ed1474e98493bdb25c91ff523738851746540117d0c5d0261c562ebc75dd",
+  "copied_without_retraining": true,
+  "reason": "exact frozen Q-only comparator from the source experiment"
+}

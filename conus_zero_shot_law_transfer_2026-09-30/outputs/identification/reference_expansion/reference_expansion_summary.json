@@ -1,0 +1,104 @@
+{
+  "analysis_status": "post_evaluation_expansion_of_prespecified_subgroups",
+  "bootstrap_draws": 1000,
+  "bootstrap_strata": "aggregated ecoregion",
+  "matching": {
+    "exact_strata": [
+      "aggregated ecoregion",
+      "GAGES-II quality tier"
+    ],
+    "replacement": false,
+    "law_or_observed_recession_outcome_used": false,
+    "reference_gauges_matched": 398,
+    "skill_features": [
+      "dhbv_qet_kge",
+      "fluxgate_qet_kge"
+    ],
+    "hydroclimate_and_skill_features": [
+      "log10_area_km2",
+      "pptavg_basin",
+      "tavg_basin",
+      "pet",
+      "snow_pct_precip",
+      "precip_seasonality",
+      "dhbv_qet_kge",
+      "fluxgate_qet_kge"
+    ],
+    "hydroclimate_feature_weights": {
+      "log10_area_km2": 4.0,
+      "pptavg_basin": 2.0
+    }
+  },
+  "key_contrasts": [
+    {
+      "comparison": "Unmatched reference minus non-reference",
+      "metric": "qet_cross_architecture_mad",
+      "reference_value": 0.14908269047737122,
+      "control_value": 0.09626561403274536,
+      "reference_minus_control": 0.052817076444625854,
+      "ci_low": 0.038395140692591666,
+      "ci_high": 0.06420420426875352,
+      "interval_excludes_zero": true
+    },
+    {
+      "comparison": "Unmatched reference minus non-reference",
+      "metric": "all_model_class_agreement_fraction",
+      "reference_value": 0.2814070351758794,
+      "control_value": 0.38405419489317355,
+      "reference_minus_control": -0.10264715971729416,
+      "ci_low": -0.14549034908780484,
+      "ci_high": -0.061540178746782366,
+      "interval_excludes_zero": true
+    },
+    {
+      "comparison": "Skill-matched reference minus control",
+      "metric": "qet_cross_architecture_mad",
+      "reference_value": 0.14908269047737122,
+      "control_value": 0.11633148044347763,
+      "reference_minus_control": 0.032751210033893585,
+      "ci_low": 0.01612248569726944,
+      "ci_high": 0.04423762019723654,
+      "interval_excludes_zero": true
+    },
+    {
+      "comparison": "Skill-matched reference minus control",
+      "metric": "all_model_class_agreement_fraction",
+      "reference_value": 0.2814070351758794,
+      "control_value": 0.35678391959798994,
+      "reference_minus_control": -0.07537688442211055,
+      "ci_low": -0.1306532663316583,
+      "ci_high": -0.017587939698492483,
+      "interval_excludes_zero": true
+    },
+    {
+      "comparison": "Hydroclimate-and-skill-matched reference minus control",
+      "metric": "qet_cross_architecture_mad",
+      "reference_value": 0.14908269047737122,
+      "control_value": 0.11664827167987823,
+      "reference_minus_control": 0.03243441879749298,
+      "ci_low": 0.015348019637167453,
+      "ci_high": 0.04471779502928257,
+      "interval_excludes_zero": true
+    },
+    {
+      "comparison": "Hydroclimate-and-skill-matched reference minus control",
+      "metric": "all_model_class_agreement_fraction",
+      "reference_value": 0.2814070351758794,
+      "control_value": 0.3743718592964824,
+      "reference_minus_control": -0.09296482412060303,
+      "ci_low": -0.14572864321608037,
+      "ci_high": -0.045226130653266305,
+      "interval_excludes_zero": true
+    }
+  ],
+  "files": {
+    "group_metrics": "outputs/identification/reference_expansion/reference_group_metrics_with_ci.csv",
+    "group_bootstrap": "outputs/identification/reference_expansion/reference_group_bootstrap.csv.gz",
+    "contrasts": "outputs/identification/reference_expansion/reference_contrasts_with_ci.csv",
+    "contrast_bootstrap": "outputs/identification/reference_expansion/reference_contrast_bootstrap.csv.gz",
+    "matched_pairs": "outputs/identification/reference_expansion/reference_matched_pairs.csv",
+    "balance": "outputs/identification/reference_expansion/reference_match_balance.csv",
+    "skill_sensitivity": "outputs/identification/reference_expansion/reference_skill_sensitivity.csv",
+    "predictive_population": "outputs/identification/reference_expansion/reference_predictive_population.csv"
+  }
+}

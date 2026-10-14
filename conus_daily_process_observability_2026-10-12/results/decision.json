@@ -1,0 +1,76 @@
+{
+  "protocol": "protocols/frozen_protocol.md",
+  "runs_evaluated": 24,
+  "target_gauges": 3982,
+  "observed_recession_gauges_with_three_events": 3783,
+  "decisions": [
+    {
+      "rung": "q_sm",
+      "verdict": "no remedy in this design",
+      "competence_pass": true,
+      "soil_product_learning_pass": true,
+      "independent_esa_cci_pass": true,
+      "et_learning_pass": true,
+      "curve_reduction_30_percent_and_ci_pass": false,
+      "cross_seed_reduction_pass": false,
+      "r7_rank_pass": true,
+      "observed_curve_improvement_pass": true,
+      "nested_contrast_improvement_pass": false,
+      "all_skill_thresholds_direction_pass": false,
+      "reference_direction_pass": false,
+      "primary_relative_curve_gap_reduction": -0.03375967743023822,
+      "primary_reduction_95_interval": [
+        -0.0560921311378479,
+        -0.01952628493309021
+      ]
+    },
+    {
+      "rung": "q_et",
+      "verdict": "no remedy in this design",
+      "competence_pass": true,
+      "soil_product_learning_pass": true,
+      "independent_esa_cci_pass": true,
+      "et_learning_pass": false,
+      "curve_reduction_30_percent_and_ci_pass": false,
+      "cross_seed_reduction_pass": false,
+      "r7_rank_pass": true,
+      "observed_curve_improvement_pass": true,
+      "nested_contrast_improvement_pass": false,
+      "all_skill_thresholds_direction_pass": false,
+      "reference_direction_pass": false,
+      "primary_relative_curve_gap_reduction": -0.00925718638232742,
+      "primary_reduction_95_interval": [
+        -0.024760395288467407,
+        0.006098265945911407
+      ]
+    },
+    {
+      "rung": "q_sm_et",
+      "verdict": "no remedy in this design",
+      "competence_pass": true,
+      "soil_product_learning_pass": false,
+      "independent_esa_cci_pass": true,
+      "et_learning_pass": false,
+      "curve_reduction_30_percent_and_ci_pass": false,
+      "cross_seed_reduction_pass": false,
+      "r7_rank_pass": true,
+      "observed_curve_improvement_pass": true,
+      "nested_contrast_improvement_pass": false,
+      "all_skill_thresholds_direction_pass": false,
+      "reference_direction_pass": false,
+      "primary_relative_curve_gap_reduction": -0.01594211887780128,
+      "primary_reduction_95_interval": [
+        -0.03370339274406433,
+        0.00010991096496581999
+      ]
+    }
+  ],
+  "outputs": {
+    "model_competence.csv": "2492b028964536a2674f9d9be4813a3de14b8fb170feda4ac05c6ff0d2a72d86",
+    "process_learning.csv": "acf23b60b5f437ab6a272df0d0eed6db0fe492a4b906a31aeaf35ffae888c1b7",
+    "architecture_gap_by_skill.csv": "7586c384ec5b0a7f68c8c49866f5c49d8f7e10ff72b55db44ef71da1c86c58be",
+    "rung_vs_q_paired_reduction.csv": "4c7cbd75082f556fb571f65a1b78d7d335c4380f442826b35f059245ca6d78a8",
+    "seed_stability.csv": "3756f7d68280d0d2a148d6a16721f6a0f5e18edcf1face770df54ecc2d8a5068",
+    "nested_contrast.csv": "42b855acf68a661bd440771cf589687b8bd646dc3059e80ed49674944574cf7c"
+  }
+}

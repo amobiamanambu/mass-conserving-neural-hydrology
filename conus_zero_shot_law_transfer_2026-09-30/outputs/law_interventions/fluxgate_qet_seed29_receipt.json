@@ -1,0 +1,13 @@
+{
+  "run": "fluxgate_qet_seed29",
+  "target_discharge_accessed": false,
+  "primary_q0_threshold_mm_day": 0.001,
+  "gauges": 3982,
+  "anchors_per_gauge": 12,
+  "days_per_intervention": 91,
+  "maximum_daily_mass_residual_mm": 0.00390625,
+  "curves": "outputs/law_interventions/fluxgate_qet_seed29_curves.npz",
+  "curves_sha256": "619d840c37ac045eb973c183e7eb681c6f0d91d526885ab60773fda63b93e8fe",
+  "fingerprints": "outputs/law_interventions/fluxgate_qet_seed29_fingerprints.parquet",
+  "fingerprints_sha256": "eab9313f4411896ee01b183b800b8a694d7614c6a9d459a15a9c8f259c03f783"
+}

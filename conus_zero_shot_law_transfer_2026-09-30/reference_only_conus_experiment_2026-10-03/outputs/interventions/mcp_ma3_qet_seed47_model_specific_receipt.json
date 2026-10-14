@@ -1,0 +1,21 @@
+{
+  "run": "mcp_ma3_qet_seed47",
+  "model": "mcp_ma3",
+  "seed": 47,
+  "anchor_design": "model_specific",
+  "gauges": 413,
+  "anchors_per_gauge": 12,
+  "intervention_days": 91,
+  "forcing": "P=0, PET=0, T=10 C with calendar harmonics retained",
+  "q0_thresholds_mm_day": [
+    0.0001,
+    0.001,
+    0.01
+  ],
+  "maximum_daily_mass_residual_mm": 3.410605131648481e-13,
+  "target_discharge_accessed": false,
+  "fingerprints": "outputs/interventions/mcp_ma3_qet_seed47_model_specific_fingerprints.csv.gz",
+  "fingerprints_sha256": "25d2c2313447da8d2d08641fce871d83eb1f642663b4db870f7c67781d474ec6",
+  "curves": "outputs/interventions/mcp_ma3_qet_seed47_model_specific_curves.npz",
+  "curves_sha256": "a9454a77a9540ea84a1f31fa14ef890700c3982ac6dd1dae979572a489f0a853"
+}

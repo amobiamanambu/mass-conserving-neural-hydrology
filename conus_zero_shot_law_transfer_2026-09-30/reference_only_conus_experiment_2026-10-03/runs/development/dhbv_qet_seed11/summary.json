@@ -1,0 +1,15 @@
+{
+  "model": "dhbv",
+  "family": "neural-parameterized dHBV",
+  "best_epoch": 15,
+  "best_development_median_kge": 0.4785380573142993,
+  "maximum_epochs": 18,
+  "donor_gauges": 400,
+  "development_gauges": 100,
+  "nonreference_gauges": 0,
+  "mass_balance": {
+    "daily_max_abs_mm": 1.7053025658242404e-13,
+    "cumulative_max_abs_mm": 7.389644451905042e-13
+  },
+  "target_discharge_accessed": false
+}

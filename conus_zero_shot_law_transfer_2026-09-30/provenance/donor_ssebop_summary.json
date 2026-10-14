@@ -1,0 +1,13 @@
+{
+  "dataset": "USGS SSEBop MODIS CONUS seasonal cumulative actual ET",
+  "season": "April-October",
+  "years": [
+    2003,
+    2018
+  ],
+  "donor_basins": 500,
+  "rows": 8000,
+  "nonmissing": 8000,
+  "target_et_read": false,
+  "output_sha256": "365859cc0c3f7f9ba4a79855eca014db107b0d6c156493fcb4a61d69d249cdf9"
+}

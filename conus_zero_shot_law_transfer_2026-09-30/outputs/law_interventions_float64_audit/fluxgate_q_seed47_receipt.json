@@ -1,0 +1,14 @@
+{
+  "run": "fluxgate_q_seed47",
+  "target_discharge_accessed": false,
+  "primary_q0_threshold_mm_day": 0.001,
+  "gauges": 3982,
+  "anchors_per_gauge": 12,
+  "days_per_intervention": 91,
+  "numerical_precision": "float64",
+  "maximum_daily_mass_residual_mm": 3.637978807091713e-12,
+  "curves": "outputs/law_interventions_float64_audit/fluxgate_q_seed47_curves.npz",
+  "curves_sha256": "d0db1cbdcc3cd48a2f4701adfb4f35ef24569c2e5615c07cc1bb321aed652cb7",
+  "fingerprints": "outputs/law_interventions_float64_audit/fluxgate_q_seed47_fingerprints.csv",
+  "fingerprints_sha256": "ef9a13ef75391e2ff6d3766856e5dfe67bc9c7ff20fa6d33d82c059e99d67148"
+}

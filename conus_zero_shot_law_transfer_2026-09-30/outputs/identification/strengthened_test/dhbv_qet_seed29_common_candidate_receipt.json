@@ -1,0 +1,7 @@
+{
+  "run": "dhbv_qet_seed29",
+  "candidate_states": "outputs/identification/strengthened_test/dhbv_qet_seed29_common_candidate_states.npz",
+  "candidate_states_sha256": "d45dc99b6488e728b411b9c79ee67524af1f4ff1f2bf91693fd93403e8c55567",
+  "maximum_abs_state_replay_error": 0.00030517578125,
+  "maximum_abs_prediction_replay_error_mm_day": 7.152557373046875e-07
+}

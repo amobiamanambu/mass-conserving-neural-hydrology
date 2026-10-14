@@ -1,0 +1,9 @@
+{
+  "gauge_level_identification.parquet": "abc4581d4da059cee1de651df9bc4a6e9be6c65fb64f25c8f5519099af0b3a40",
+  "primary_identification_population.parquet": "30b574c76dde74272793cce5924ecc6465026de4026a468cc6de27c18ffb2f5c",
+  "stratified_bootstrap.parquet": "aa43bf4a65a99317558960717b7e9f759556c4e58fdf59c680c53628b534ffe2",
+  "subgroup_metrics.csv": "a36a77ecbb13173cab0d768a67f96772322a8d7543faab960ff5ef7c04ec9899",
+  "sensitivity_metrics.csv": "9aa5da36c6564194323abd7e447af1973f6e01aa760e12da8825966763b92692",
+  "nested_pair_metrics.csv": "87096adadcd3ba869e50be822dea3f2ddf856be3392a6d78548e719443d5cdba",
+  "identification_gates.json": "ddc389927462145417368d30a288796a312652cebfbd7a50e4a2f12bc766a071"
+}

@@ -1,0 +1,14 @@
+{
+  "run": "mcp_qet_seed47",
+  "anchor_design": "model_specific",
+  "primary_q0_threshold_mm_day": 0.001,
+  "gauges": 3982,
+  "gauges_with_complete_anchors": 3982,
+  "anchors_per_gauge": 12,
+  "days_per_intervention": 91,
+  "maximum_daily_mass_residual_mm": 0.00048828125,
+  "curves": "outputs/interventions/mcp_qet_seed47_model_specific_curves.npz",
+  "curves_sha256": "6d0e868d40a5aad552e29f628fde16b721536b300499947946518394a6688feb",
+  "fingerprints": "outputs/interventions/mcp_qet_seed47_model_specific_fingerprints.parquet",
+  "fingerprints_sha256": "20d65d33f0d3fabd0803af374223017fc8759e6466f38f2ecc08b3ca791bb378"
+}

@@ -1,0 +1,15 @@
+{
+  "model": "fluxgate",
+  "family": "five-store neural flux gate",
+  "best_epoch": 24,
+  "best_development_median_kge": 0.5434285124763414,
+  "maximum_epochs": 24,
+  "donor_gauges": 400,
+  "development_gauges": 100,
+  "nonreference_gauges": 0,
+  "mass_balance": {
+    "daily_max_abs_mm": 2.2737367544323206e-13,
+    "cumulative_max_abs_mm": 7.673861546209082e-13
+  },
+  "target_discharge_accessed": false
+}

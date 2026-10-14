@@ -1,0 +1,23 @@
+{
+  "run": "fluxgate_qet_seed11",
+  "model": "fluxgate",
+  "family": "five-store neural flux gate",
+  "seed": 11,
+  "epochs": 24,
+  "donor_gauges": 400,
+  "target_gauges": 413,
+  "nonreference_gauges": 0,
+  "mass_balance": {
+    "daily_max_abs_mm": 2.2737367544323206e-13,
+    "cumulative_max_abs_mm": 6.821210263296962e-13
+  },
+  "target_discharge_accessed": false,
+  "checkpoint": "runs/frozen_refit/fluxgate_qet_seed11/model.pt",
+  "checkpoint_sha256": "50b86b53500c3e42ef80138bcd05dbca599a645c8f6ce0b1c6dea608bbe9cb09",
+  "prediction": "outputs/predictions/fluxgate_qet_seed11_target_q_2019_2024.npy",
+  "prediction_sha256": "687963f88ff7766bfe73a1418d6de1ef46a73c45b35ffbe1d6d6c58f4b585f73",
+  "common_date_states": "outputs/antecedent_states/fluxgate_qet_seed11_common_date.npz",
+  "common_date_states_sha256": "9a76d9d9737e4aecd386bfe69a6b96d9af87a839148732227dc3d95d916c139a",
+  "model_specific_states": "outputs/antecedent_states/fluxgate_qet_seed11_model_specific.npz",
+  "model_specific_states_sha256": "165f1703e3fe4282b424a409ad85cf3eb9b57166483295197f565f752934b6da"
+}

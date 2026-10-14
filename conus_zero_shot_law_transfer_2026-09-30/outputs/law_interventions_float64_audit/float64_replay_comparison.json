@@ -1,0 +1,51 @@
+{
+  "purpose": "float64 replay of the 12 archived dHBV and flux-gate interventions",
+  "archived_precision": "float32",
+  "replay_precision": "float64",
+  "maximum_archived_daily_mass_residual_mm": 0.00390625,
+  "maximum_replay_daily_mass_residual_mm": 7.275957614183426e-12,
+  "maximum_absolute_r7_change": 8.099808141981413e-07,
+  "median_absolute_r7_change_across_runs": 5.162318292284418e-08,
+  "archived_primary_metrics": {
+    "gauges": 2317,
+    "q_cross_architecture_rho": 0.7655902281098174,
+    "q_cross_architecture_mad": 0.08789336681365967,
+    "qet_cross_architecture_rho": 0.7497517971748007,
+    "qet_cross_architecture_mad": 0.10257244110107422,
+    "disagreement_reduction_fraction": -0.16701003522296798,
+    "dhbv_observed_rho": 0.31186041876464066,
+    "dhbv_observed_mae": 0.1895081102848053,
+    "fluxgate_observed_rho": 0.36404804356077625,
+    "fluxgate_observed_mae": 0.16045206785202026,
+    "all_model_class_agreement_fraction": 0.36642209753992233
+  },
+  "float64_primary_metrics": {
+    "gauges": 2317,
+    "q_cross_architecture_rho": 0.7655902281098174,
+    "q_cross_architecture_mad": 0.0878934038229427,
+    "qet_cross_architecture_rho": 0.749751968895729,
+    "qet_cross_architecture_mad": 0.10257230427176955,
+    "disagreement_reduction_fraction": -0.16700798706575126,
+    "dhbv_observed_rho": 0.31185985343618644,
+    "dhbv_observed_mae": 0.18950818092913613,
+    "fluxgate_observed_rho": 0.36404804356077625,
+    "fluxgate_observed_mae": 0.1604520865812888,
+    "all_model_class_agreement_fraction": 0.36642209753992233,
+    "complete_class_rows": 2317
+  },
+  "float64_minus_archived_primary_metrics": {
+    "gauges": 0.0,
+    "q_cross_architecture_rho": 0.0,
+    "q_cross_architecture_mad": 3.700928302707851e-08,
+    "qet_cross_architecture_rho": 1.7172092836581498e-07,
+    "qet_cross_architecture_mad": -1.368293046644098e-07,
+    "disagreement_reduction_fraction": 2.048157216716362e-06,
+    "dhbv_observed_rho": -5.653284542161963e-07,
+    "dhbv_observed_mae": 7.064433082959454e-08,
+    "fluxgate_observed_rho": 0.0,
+    "fluxgate_observed_mae": 1.872926852497514e-08,
+    "all_model_class_agreement_fraction": 0.0
+  },
+  "reported_three_decimal_values_unchanged": true,
+  "run_level_table": "outputs/law_interventions_float64_audit/float64_fingerprint_differences.csv"
+}

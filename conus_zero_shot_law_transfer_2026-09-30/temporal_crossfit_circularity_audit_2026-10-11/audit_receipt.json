@@ -1,0 +1,55 @@
+{
+  "analysis": "disjoint temporal cross-fit of KGE qualification and observed R7 benchmark",
+  "skill_threshold": 0.3,
+  "bootstrap_draws": 2000,
+  "folds": [
+    {
+      "design": "skill_2019_2021__benchmark_2022_2024",
+      "label": "Skill 2019–21\nR7 2022–24",
+      "skill_start": "2019-01-01",
+      "skill_end": "2021-12-31",
+      "benchmark_start": "2022-01-01",
+      "benchmark_end": "2024-12-31"
+    },
+    {
+      "design": "skill_2022_2024__benchmark_2019_2021",
+      "label": "Skill 2022–24\nR7 2019–21",
+      "skill_start": "2022-01-01",
+      "skill_end": "2024-12-31",
+      "benchmark_start": "2019-01-01",
+      "benchmark_end": "2021-12-31"
+    }
+  ],
+  "inputs": {
+    "data/processed/station_index.csv": "6e92bac4d8f82d9c48a6cffadbe536160b38ec615c054eddf7c4c94add8ae367",
+    "data/evaluation/q_target_2019_2024.npy": "37e021117b11a5dbcac395694f350783601794db6fb3948548466aae009f4f95",
+    "data/processed/forcing.npy": "2156194bc092ca45453a464839339aa738a92b8fc84ad196f9e1fef8fd35899e",
+    "data/processed/dates.npy": "d814e728f276866470109f57db7d94becc07aa9ca24408a45b28a775be3cfe4d",
+    "outputs/identification/gauge_level_identification.parquet": "abc4581d4da059cee1de651df9bc4a6e9be6c65fb64f25c8f5519099af0b3a40",
+    "outputs/predictions/dhbv_qet_seed11_target_q_2019_2024.npy": "bc333a7a65c00ac618910b728d675bedf2f8b5b76a39086d58a5af2db279b71d",
+    "outputs/predictions/dhbv_qet_seed29_target_q_2019_2024.npy": "cbb8e86c4017ab5aaa7fbf619575601e3c11a528e611bda9e9ffa9f4433ea589",
+    "outputs/predictions/dhbv_qet_seed47_target_q_2019_2024.npy": "4c87c0260a36a09f28aed2b3f2db80f995690407c9116ef1e150029f0fbf5b9a",
+    "outputs/predictions/fluxgate_qet_seed11_target_q_2019_2024.npy": "1c0030280133e3f3efeced69137b0953ae3862c748c53e2a0b9e13b324b677e3",
+    "outputs/predictions/fluxgate_qet_seed29_target_q_2019_2024.npy": "450e6e8580115f613ad03ec3ef311110e2b562723255593dae6d9caa63d00c4d",
+    "outputs/predictions/fluxgate_qet_seed47_target_q_2019_2024.npy": "853fb9aaac8e5ccc9e9461ad8a29664c91abbff3e78da12b5cb94f3660bdf2a4",
+    "outputs/law_interventions/dhbv_q_seed11_fingerprints.parquet": "350aae3461be8fba5cec3c47b810e81ec91a14fac8b2c4922fc5773d82984be6",
+    "outputs/law_interventions/dhbv_q_seed29_fingerprints.parquet": "856e241b4accfb4c03dbdb1affa27467a9ae05c8756b14c3b0c403423ebb1684",
+    "outputs/law_interventions/dhbv_q_seed47_fingerprints.parquet": "9a5040e74db1577254088543c99b366615da736ce68b281c7367e045f06f51d4",
+    "outputs/law_interventions/dhbv_qet_seed11_fingerprints.parquet": "c539da04ea3058fe0724c2fb39a7a998f7179a48e54e627cb7cc096980f249c7",
+    "outputs/law_interventions/dhbv_qet_seed29_fingerprints.parquet": "28384453ef337109d509f4be82d7511c6057476816d2ed29fef99cefe3214e8c",
+    "outputs/law_interventions/dhbv_qet_seed47_fingerprints.parquet": "f28fcd3cdd54de854c5f52559d9e7901302841343f8ec812dbbe5f366c7141dd",
+    "outputs/law_interventions/fluxgate_q_seed11_fingerprints.parquet": "7220e890d420e79531534f581ac5eff58f579a950466ba5717363b32ebdcd5e8",
+    "outputs/law_interventions/fluxgate_q_seed29_fingerprints.parquet": "6c9c4db38788e7ff27cc2e0c5a4565c604fe30c41e422cd8a2cf965bd400b640",
+    "outputs/law_interventions/fluxgate_q_seed47_fingerprints.parquet": "690369bdfb9d134e1de83b4d9997bd2a6fb06bf306242122d1b6278fdc242a7d",
+    "outputs/law_interventions/fluxgate_qet_seed11_fingerprints.parquet": "760d0cdb0eda6851e876f6788f3c67bc3bec257ad5f1fb1c6d1e1af1f6669065",
+    "outputs/law_interventions/fluxgate_qet_seed29_fingerprints.parquet": "eab9313f4411896ee01b183b800b8a694d7614c6a9d459a15a9c8f259c03f783",
+    "outputs/law_interventions/fluxgate_qet_seed47_fingerprints.parquet": "57efa5407cdb2a84e912f8a1d76109f464f701c4bb7f3247bbdf210caf4bb2c7"
+  },
+  "outputs": {
+    "crossfit_gauge_level.csv.gz": "00b2c36e954c61fb48e96a072612740577350a58fa08191f3b3c75921e9bb00e",
+    "crossfit_sample_counts.csv": "2fbad3f23ba479e134f0b39890afc18c49e1ab30fe6e6ff2a66d02a98769b54a",
+    "crossfit_bootstrap_draws.csv.gz": "0922c9268b92e709c648a9eff43e69e1e6d140cc0ac5c00002328b15326e7e4a",
+    "crossfit_summary.csv": "464e09a84d82c4d1d6d4f68a287a3577d81cfd9b90c43d95d08e05dacff3564c",
+    "RESULTS.md": "07bfaab38a33a69308091a4ec3fbb7637913361b516b031d22449ce30eda1eea"
+  }
+}

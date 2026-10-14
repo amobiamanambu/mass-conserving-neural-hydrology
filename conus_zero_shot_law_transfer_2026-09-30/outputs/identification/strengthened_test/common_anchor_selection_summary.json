@@ -1,0 +1,16 @@
+{
+  "gauges": 3982,
+  "gauges_with_12_common_anchors": 3979,
+  "snow_threshold_relaxation_counts": {
+    "-1": 3,
+    "0": 3979
+  },
+  "threshold_code_mm": {
+    "0": 1.0,
+    "1": 2.0,
+    "2": 5.0,
+    "-1": null
+  },
+  "common_anchors": "outputs/identification/strengthened_test/common_anchors.npz",
+  "common_anchors_sha256": "de86ac68d36c5ca2be0fff475f554e135d3155e36be17284424edcce9ea0aed6"
+}

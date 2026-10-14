@@ -1,0 +1,21 @@
+{
+  "run": "fluxgate_qet_seed11",
+  "model": "fluxgate",
+  "seed": 11,
+  "anchor_design": "common_date",
+  "gauges": 413,
+  "anchors_per_gauge": 12,
+  "intervention_days": 91,
+  "forcing": "P=0, PET=0, T=10 C with calendar harmonics retained",
+  "q0_thresholds_mm_day": [
+    0.0001,
+    0.001,
+    0.01
+  ],
+  "maximum_daily_mass_residual_mm": 6.821210263296962e-13,
+  "target_discharge_accessed": false,
+  "fingerprints": "outputs/interventions/fluxgate_qet_seed11_common_date_fingerprints.csv.gz",
+  "fingerprints_sha256": "043ebdb7eacbda50b1918e14969bc323ba8e5c0ae4ec133c74db2e0611d47bf9",
+  "curves": "outputs/interventions/fluxgate_qet_seed11_common_date_curves.npz",
+  "curves_sha256": "4822b960c727d98754637a15e381e452900fe436f4cd15408ed5076d46dbe1de"
+}

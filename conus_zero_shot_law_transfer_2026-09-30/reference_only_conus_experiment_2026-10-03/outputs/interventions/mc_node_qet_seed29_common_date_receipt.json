@@ -1,0 +1,21 @@
+{
+  "run": "mc_node_qet_seed29",
+  "model": "mc_node",
+  "seed": 29,
+  "anchor_design": "common_date",
+  "gauges": 413,
+  "anchors_per_gauge": 12,
+  "intervention_days": 91,
+  "forcing": "P=0, PET=0, T=10 C with calendar harmonics retained",
+  "q0_thresholds_mm_day": [
+    0.0001,
+    0.001,
+    0.01
+  ],
+  "maximum_daily_mass_residual_mm": 8.526512829121202e-14,
+  "target_discharge_accessed": false,
+  "fingerprints": "outputs/interventions/mc_node_qet_seed29_common_date_fingerprints.csv.gz",
+  "fingerprints_sha256": "48fa3952f242034c0ecbcc3cbf57be125fcb633bfc497b0ebeaaec4bf68ff1bb",
+  "curves": "outputs/interventions/mc_node_qet_seed29_common_date_curves.npz",
+  "curves_sha256": "0d63da40a8a4a04181de00b295f5c8aa9b61918a6efa722264af40b16d250f10"
+}

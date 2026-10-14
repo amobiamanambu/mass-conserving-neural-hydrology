@@ -1,0 +1,7 @@
+{
+  "run": "dhbv_q_seed29",
+  "source": "conus_zero_shot_law_transfer_2026-09-30/runs/frozen_refit/dhbv_q_seed29",
+  "model_sha256": "f00e56c1ba136dcde16249794a620abf02717254691029e1656a3627a3875c6a",
+  "copied_without_retraining": true,
+  "reason": "exact frozen Q-only comparator from the source experiment"
+}

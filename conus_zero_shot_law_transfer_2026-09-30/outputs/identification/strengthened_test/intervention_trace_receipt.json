@@ -1,0 +1,8 @@
+{
+  "original_trace": "outputs/identification/strengthened_test/original_anchor_flux_trace.parquet",
+  "original_trace_sha256": "4d4063868820f86a21f150295bffb736893149cacc5d7be51e383f9481dcd85d",
+  "common_trace": "outputs/identification/strengthened_test/common_date_flux_trace.parquet",
+  "common_trace_sha256": "333773ffae96d161d68fddf7ca75fd5b5bdb671c410fef69ee32aea7711e324f",
+  "target_discharge_used_for_common_date_selection": true,
+  "status": "post-evaluation sensitivity; primary frozen analysis unchanged"
+}

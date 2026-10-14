@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "frozen_prediction_receipts": 15,
+  "intervention_receipts": 30,
+  "target_metric_rows": 79640,
+  "all_prediction_files_match_receipts": true,
+  "all_intervention_files_match_receipts": true,
+  "all_mass_gates_pass": true,
+  "maximum_refit_daily_residual_mm": 1.7053025658242404e-13,
+  "maximum_refit_cumulative_residual_mm": 1.1368683772161605e-12,
+  "maximum_intervention_daily_residual_mm": 1.091393642127514e-11,
+  "primary_pairs": 28,
+  "primary_disagreements": 24,
+  "common_date_pairs": 28,
+  "common_date_disagreements": 24,
+  "high_skill_pairs": 21,
+  "high_skill_disagreements": 16,
+  "reference_pairs": 28,
+  "reference_disagreements": 23
+}

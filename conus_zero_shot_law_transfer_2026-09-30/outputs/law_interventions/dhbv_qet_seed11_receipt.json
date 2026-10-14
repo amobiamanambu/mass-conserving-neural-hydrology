@@ -1,0 +1,13 @@
+{
+  "run": "dhbv_qet_seed11",
+  "target_discharge_accessed": false,
+  "primary_q0_threshold_mm_day": 0.001,
+  "gauges": 3982,
+  "anchors_per_gauge": 12,
+  "days_per_intervention": 91,
+  "maximum_daily_mass_residual_mm": 0.000244140625,
+  "curves": "outputs/law_interventions/dhbv_qet_seed11_curves.npz",
+  "curves_sha256": "6dd09a60bf7ab8926380ea05523360c67ebc925cada0cb4e00a6471a20a74608",
+  "fingerprints": "outputs/law_interventions/dhbv_qet_seed11_fingerprints.parquet",
+  "fingerprints_sha256": "c539da04ea3058fe0724c2fb39a7a998f7179a48e54e627cb7cc096980f249c7"
+}

@@ -1,0 +1,26 @@
+{
+  "run": "ealstm_q_seed29",
+  "architecture": "ealstm",
+  "rung": "q",
+  "seed": 29,
+  "epochs": 114,
+  "parameter_count": 76945,
+  "donor_gauges": 500,
+  "target_gauges": 3982,
+  "target_period": [
+    "2019-01-01",
+    "2024-12-31"
+  ],
+  "target_discharge_accessed": false,
+  "mass_balance": {
+    "daily_max_abs_mm": NaN,
+    "cumulative_max_abs_mm": NaN
+  },
+  "checkpoint": "runs/frozen_refit/ealstm_q_seed29/model.pt",
+  "checkpoint_sha256": "6cb83b912f70dad618de67f59c300bb2c1b8c09abb3892d0107cdd9c777710c5",
+  "prediction": "outputs/predictions/ealstm_q_seed29_target_q_2019_2024.npy",
+  "prediction_sha256": "721145b103dd27a5b79b7bd8da40ba8f48f9ec6a88f48b0a2f592ef6ffdd5462",
+  "antecedent_states": null,
+  "antecedent_states_sha256": null,
+  "anchor_relaxation_counts": null
+}

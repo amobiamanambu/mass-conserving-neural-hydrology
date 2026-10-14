@@ -1,0 +1,11 @@
+{
+  "reference_group_metrics_with_ci.csv": "d215539393554da6c903b1a67837f8dee713508263976cea2f22d4e87f190f34",
+  "reference_group_bootstrap.csv.gz": "4b2c91e7847cc4f560311ab7938a82e02becac7deaa08e24e4af803131fc3ebc",
+  "reference_contrasts_with_ci.csv": "58ca77ec5012103e424c759d89af121f96212b0a7d80611e66fcf333969c4e03",
+  "reference_contrast_bootstrap.csv.gz": "0b914a3850045e4c173bb8d7e7a51da409b1599ca3eb1c507b2d93b4505825f6",
+  "reference_matched_pairs.csv": "49dbbb2beee70d639ae0793f027e1a724b33b7d442d3c0ffe1823ef9f85d07a9",
+  "reference_match_balance.csv": "4cc741667d231e1a50860b99c219de9dfa0f7bbe79b028282f8816aad0dc2187",
+  "reference_skill_sensitivity.csv": "43c2bcdf26b049d827f6a59bdaecea797044b3ee823c2dd59052303651fdaa63",
+  "reference_predictive_population.csv": "36857b56d9d31a9680f658e528e42cfe7bde35a4c9270ebae25285715ffba106",
+  "reference_expansion_summary.json": "31588df03f11f1159f196642d5442f23c8c1eb165882de7a557132c3d92a4f52"
+}

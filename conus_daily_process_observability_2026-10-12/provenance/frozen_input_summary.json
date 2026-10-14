@@ -1,0 +1,16 @@
+{
+  "source_project": "<workspace>/conus_zero_shot_law_transfer_2026-09-30",
+  "roles": {
+    "target": 3982,
+    "donor": 500,
+    "development": 200
+  },
+  "gauges": 4682,
+  "dates": [
+    "2003-10-05",
+    "2024-12-31"
+  ],
+  "days": 7759,
+  "files_hashed": 9,
+  "target_outcomes_used": false
+}

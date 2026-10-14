@@ -1,0 +1,17 @@
+{
+  "run": "mcp_qet_seed11",
+  "architecture": "mcp",
+  "rung": "qet",
+  "seed": 11,
+  "parameter_count": 31903,
+  "donor_gauges": 500,
+  "development_gauges": 200,
+  "best_epoch": 45,
+  "best_development_median_kge": 0.28038505764621025,
+  "daily_max_abs_mass_residual_mm": 1.1368683772161603e-13,
+  "cumulative_max_abs_mass_residual_mm": 3.126388037344441e-13,
+  "checkpoint": "runs/development/mcp_qet_seed11/best_model.pt",
+  "checkpoint_sha256": "882245f37b9f30e0dd2bad1af12e60a9d20377abdf6d10fdc0cb2d74603d0a47",
+  "history_sha256": "bd9e3633686142543097297cee6be11d85646f1f1df0cb6c5f7d80c3612c8f95",
+  "target_discharge_used_for_selection": false
+}

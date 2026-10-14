@@ -1,0 +1,16 @@
+{
+  "run": "mclstm_dr_qet_seed11",
+  "architecture": "mclstm_dr",
+  "family": "MC-LSTM",
+  "seed": 11,
+  "best_epoch": 48,
+  "best_development_median_kge": 0.25932296167507796,
+  "maximum_epochs": 72,
+  "learning_rate": 0.001,
+  "parameter_count": 77331,
+  "daily_mass_residual_max_abs_mm": 8.526512829121202e-14,
+  "cumulative_mass_residual_max_abs_mm": 6.821210263296962e-13,
+  "checkpoint": "runs/development/mclstm_dr_qet_seed11/best_model.pt",
+  "checkpoint_sha256": "d2fb308371ff3292e91463a64ac55b360c3c5d08e4782a6f69b6cab343ad07e8",
+  "target_discharge_accessed_by_script": false
+}

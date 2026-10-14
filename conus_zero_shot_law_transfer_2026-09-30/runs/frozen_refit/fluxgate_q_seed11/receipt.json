@@ -1,0 +1,28 @@
+{
+  "run": "fluxgate_q_seed11",
+  "architecture": "fluxgate",
+  "rung": "q",
+  "seed": 11,
+  "epochs": 24,
+  "parameter_count": 19171,
+  "donor_gauges": 500,
+  "target_gauges": 3982,
+  "target_period": [
+    "2019-01-01",
+    "2024-12-31"
+  ],
+  "target_discharge_accessed": false,
+  "mass_balance": {
+    "daily_max_abs_mm": 3.410605131648481e-13,
+    "cumulative_max_abs_mm": 7.389644451905042e-13
+  },
+  "checkpoint": "runs/frozen_refit/fluxgate_q_seed11/model.pt",
+  "checkpoint_sha256": "be23ed1474e98493bdb25c91ff523738851746540117d0c5d0261c562ebc75dd",
+  "prediction": "outputs/predictions/fluxgate_q_seed11_target_q_2019_2024.npy",
+  "prediction_sha256": "f64a71ebf8c42b5a5eaab9341572f54bae202e3856552fe7083ce76c52c368dd",
+  "antecedent_states": "outputs/antecedent_states/fluxgate_q_seed11_antecedent_states.npz",
+  "antecedent_states_sha256": "f2cf065d9bfb75744674b22378c69b324831026f4f5bec01a826b7706a120481",
+  "anchor_relaxation_counts": {
+    "0": 3982
+  }
+}

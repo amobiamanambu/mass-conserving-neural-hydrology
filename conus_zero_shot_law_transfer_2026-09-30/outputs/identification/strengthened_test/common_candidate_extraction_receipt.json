@@ -1,0 +1,46 @@
+{
+  "runs": [
+    {
+      "run": "dhbv_qet_seed11",
+      "candidate_states": "outputs/identification/strengthened_test/dhbv_qet_seed11_common_candidate_states.npz",
+      "candidate_states_sha256": "b3c48bc87ff053bb9c9002e938fc23aee8c333bdb737dcf8df18c6df70aa63d1",
+      "maximum_abs_state_replay_error": 0.0001220703125,
+      "maximum_abs_prediction_replay_error_mm_day": 1.6689300537109375e-06
+    },
+    {
+      "run": "dhbv_qet_seed29",
+      "candidate_states": "outputs/identification/strengthened_test/dhbv_qet_seed29_common_candidate_states.npz",
+      "candidate_states_sha256": "d45dc99b6488e728b411b9c79ee67524af1f4ff1f2bf91693fd93403e8c55567",
+      "maximum_abs_state_replay_error": 0.00030517578125,
+      "maximum_abs_prediction_replay_error_mm_day": 7.152557373046875e-07
+    },
+    {
+      "run": "dhbv_qet_seed47",
+      "candidate_states": "outputs/identification/strengthened_test/dhbv_qet_seed47_common_candidate_states.npz",
+      "candidate_states_sha256": "19d801c31dff25ff3b098f8f51cd46b8f50814d808979467624490e852fae0ca",
+      "maximum_abs_state_replay_error": 6.103515625e-05,
+      "maximum_abs_prediction_replay_error_mm_day": 1.6689300537109375e-06
+    },
+    {
+      "run": "fluxgate_qet_seed11",
+      "candidate_states": "outputs/identification/strengthened_test/fluxgate_qet_seed11_common_candidate_states.npz",
+      "candidate_states_sha256": "e841b86fef0ca041a8a9f0fe349929e4f5f0567fa8ba4bcc5ca7937a872aa0b3",
+      "maximum_abs_state_replay_error": 0.000732421875,
+      "maximum_abs_prediction_replay_error_mm_day": 2.86102294921875e-06
+    },
+    {
+      "run": "fluxgate_qet_seed29",
+      "candidate_states": "outputs/identification/strengthened_test/fluxgate_qet_seed29_common_candidate_states.npz",
+      "candidate_states_sha256": "6237f2a3f8d5bef32a9b76e295c3e40394e820274f195b5ae1363c91a54fd62c",
+      "maximum_abs_state_replay_error": 0.0003662109375,
+      "maximum_abs_prediction_replay_error_mm_day": 3.814697265625e-06
+    },
+    {
+      "run": "fluxgate_qet_seed47",
+      "candidate_states": "outputs/identification/strengthened_test/fluxgate_qet_seed47_common_candidate_states.npz",
+      "candidate_states_sha256": "7476af8a92ad2dd90255281be09482627dd93d33c62ce8e5ac48637f10512c82",
+      "maximum_abs_state_replay_error": 0.000732421875,
+      "maximum_abs_prediction_replay_error_mm_day": 8.58306884765625e-06
+    }
+  ]
+}

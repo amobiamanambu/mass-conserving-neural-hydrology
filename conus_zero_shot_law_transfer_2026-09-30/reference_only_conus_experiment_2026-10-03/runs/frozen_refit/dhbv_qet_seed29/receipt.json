@@ -1,0 +1,23 @@
+{
+  "run": "dhbv_qet_seed29",
+  "model": "dhbv",
+  "family": "neural-parameterized dHBV",
+  "seed": 29,
+  "epochs": 15,
+  "donor_gauges": 400,
+  "target_gauges": 413,
+  "nonreference_gauges": 0,
+  "mass_balance": {
+    "daily_max_abs_mm": 2.2737367544323206e-13,
+    "cumulative_max_abs_mm": 5.115907697472721e-13
+  },
+  "target_discharge_accessed": false,
+  "checkpoint": "runs/frozen_refit/dhbv_qet_seed29/model.pt",
+  "checkpoint_sha256": "3c40bf0d13042960d617de549eebb9bce0c803b070dfb58f74fd1c554433a8c7",
+  "prediction": "outputs/predictions/dhbv_qet_seed29_target_q_2019_2024.npy",
+  "prediction_sha256": "0cfcaeb97b0782594279e632ca1f2ade8fdbe22621ca278e45204a7b70ef9d12",
+  "common_date_states": "outputs/antecedent_states/dhbv_qet_seed29_common_date.npz",
+  "common_date_states_sha256": "d2e7ee77ee3eb5a0645bd1c113f507e29d8f8f6970836c864ee00e0933e79011",
+  "model_specific_states": "outputs/antecedent_states/dhbv_qet_seed29_model_specific.npz",
+  "model_specific_states_sha256": "90765c366acccaadde48a052642d2f2f91de5c821966f10c87951ee223d006b8"
+}

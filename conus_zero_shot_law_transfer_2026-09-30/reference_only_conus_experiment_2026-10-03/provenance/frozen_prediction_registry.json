@@ -1,0 +1,143 @@
+{
+  "created_at_utc": "2026-10-10T07:49:53.285830+00:00",
+  "population": "413 held-out GAGES-II reference gauges, Tier 1 plus Tier 2",
+  "runs": [
+    {
+      "run": "dhbv_qet_seed11",
+      "model": "dhbv",
+      "seed": 11,
+      "prediction": "outputs/predictions/dhbv_qet_seed11_target_q_2019_2024.npy",
+      "prediction_sha256": "71b1265a80a729c2dfacd481996cb8ded6c46815e8c91f4083a73c844df49fb8",
+      "fingerprints": "outputs/interventions/dhbv_qet_seed11_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "f1b0ceea44eb73d46b35fd072482afc87ad3b9e9bc16d32032952f051b035911"
+    },
+    {
+      "run": "dhbv_qet_seed29",
+      "model": "dhbv",
+      "seed": 29,
+      "prediction": "outputs/predictions/dhbv_qet_seed29_target_q_2019_2024.npy",
+      "prediction_sha256": "0cfcaeb97b0782594279e632ca1f2ade8fdbe22621ca278e45204a7b70ef9d12",
+      "fingerprints": "outputs/interventions/dhbv_qet_seed29_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "9202ca5f094f478aec65f782da24370dfd5e61a601b09fe4065c825df162afd7"
+    },
+    {
+      "run": "dhbv_qet_seed47",
+      "model": "dhbv",
+      "seed": 47,
+      "prediction": "outputs/predictions/dhbv_qet_seed47_target_q_2019_2024.npy",
+      "prediction_sha256": "9041236b8b4b2076948d6157d7d716cb13cd088b3e576f84a369ccb48d43143f",
+      "fingerprints": "outputs/interventions/dhbv_qet_seed47_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "78922fc691bf49a804a4b0d3d5d1eff7fddfcd7d8915fb55ab46833f2cb30600"
+    },
+    {
+      "run": "fluxgate_qet_seed11",
+      "model": "fluxgate",
+      "seed": 11,
+      "prediction": "outputs/predictions/fluxgate_qet_seed11_target_q_2019_2024.npy",
+      "prediction_sha256": "687963f88ff7766bfe73a1418d6de1ef46a73c45b35ffbe1d6d6c58f4b585f73",
+      "fingerprints": "outputs/interventions/fluxgate_qet_seed11_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "043ebdb7eacbda50b1918e14969bc323ba8e5c0ae4ec133c74db2e0611d47bf9"
+    },
+    {
+      "run": "fluxgate_qet_seed29",
+      "model": "fluxgate",
+      "seed": 29,
+      "prediction": "outputs/predictions/fluxgate_qet_seed29_target_q_2019_2024.npy",
+      "prediction_sha256": "a0740a9011483a15f5759da71f05763f2aebf9b021c13d541a384c2e67636eec",
+      "fingerprints": "outputs/interventions/fluxgate_qet_seed29_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "19076125ec6b94900e2dcab929be029b43995b30f2f4d696aa9742e18c739eb2"
+    },
+    {
+      "run": "fluxgate_qet_seed47",
+      "model": "fluxgate",
+      "seed": 47,
+      "prediction": "outputs/predictions/fluxgate_qet_seed47_target_q_2019_2024.npy",
+      "prediction_sha256": "8d554c76073458963da7db663b766190f121b3a8639c5b340f38ff9f2a3c5536",
+      "fingerprints": "outputs/interventions/fluxgate_qet_seed47_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "265f136686ae410a76584057a30d9172487e64120062807555e4115556785384"
+    },
+    {
+      "run": "mc_node_qet_seed11",
+      "model": "mc_node",
+      "seed": 11,
+      "prediction": "outputs/predictions/mc_node_qet_seed11_target_q_2019_2024.npy",
+      "prediction_sha256": "a4ec3d4ceb2fb96026fcd52aa10b3c4e126604c6a7802fd2bcd2a87c3981c801",
+      "fingerprints": "outputs/interventions/mc_node_qet_seed11_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "bb04c555888700dc46fa0c0ef648c31a67726777c75eebd08ca21fb994b94bd6"
+    },
+    {
+      "run": "mc_node_qet_seed29",
+      "model": "mc_node",
+      "seed": 29,
+      "prediction": "outputs/predictions/mc_node_qet_seed29_target_q_2019_2024.npy",
+      "prediction_sha256": "59754b3e7a7501804b31413870f13aeab125da39048745d1c216462f52ebf33a",
+      "fingerprints": "outputs/interventions/mc_node_qet_seed29_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "48fa3952f242034c0ecbcc3cbf57be125fcb633bfc497b0ebeaaec4bf68ff1bb"
+    },
+    {
+      "run": "mc_node_qet_seed47",
+      "model": "mc_node",
+      "seed": 47,
+      "prediction": "outputs/predictions/mc_node_qet_seed47_target_q_2019_2024.npy",
+      "prediction_sha256": "f756adc19cc9bb7058517bf1872f1273771ec40d5b1e6d09d0c269269e0ddbdf",
+      "fingerprints": "outputs/interventions/mc_node_qet_seed47_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "dde80155a05aa88d57e0cd2afd096badb487fbb05f6cbfd1b82ba8c64ccd4271"
+    },
+    {
+      "run": "mclstm_dr_qet_seed11",
+      "model": "mclstm_dr",
+      "seed": 11,
+      "prediction": "outputs/predictions/mclstm_dr_qet_seed11_target_q_2019_2024.npy",
+      "prediction_sha256": "050c433c51b420071092de04e7b5ca266e6bf9cfa769625fc88622211f80f977",
+      "fingerprints": "outputs/interventions/mclstm_dr_qet_seed11_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "81ab771140c13b0f78b4bdc3f2ad6ac7e9f7ce75a71c2f4d80990f1ada2f0be2"
+    },
+    {
+      "run": "mclstm_dr_qet_seed29",
+      "model": "mclstm_dr",
+      "seed": 29,
+      "prediction": "outputs/predictions/mclstm_dr_qet_seed29_target_q_2019_2024.npy",
+      "prediction_sha256": "0a7522946e36d4700d60416e1aeb29f531bb37649b34165d538175a03f45f574",
+      "fingerprints": "outputs/interventions/mclstm_dr_qet_seed29_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "ca8b8905eb404e9c2d1c8e699ac75d94c713a754177efbcabc740cf5ab217ccb"
+    },
+    {
+      "run": "mclstm_dr_qet_seed47",
+      "model": "mclstm_dr",
+      "seed": 47,
+      "prediction": "outputs/predictions/mclstm_dr_qet_seed47_target_q_2019_2024.npy",
+      "prediction_sha256": "2fa52c3219600a40945c633bf4029c4fb526df18958799d254279144ca581088",
+      "fingerprints": "outputs/interventions/mclstm_dr_qet_seed47_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "16f3cdf64fa30d7da6c88b4213689faa860a1ff3cddc8b9cf41e113e449f55b3"
+    },
+    {
+      "run": "mcp_ma3_qet_seed11",
+      "model": "mcp_ma3",
+      "seed": 11,
+      "prediction": "outputs/predictions/mcp_ma3_qet_seed11_target_q_2019_2024.npy",
+      "prediction_sha256": "cb061b1f8a07d6a971712e6bfeef9be707bc2869a9386a2eba795adae96da2b8",
+      "fingerprints": "outputs/interventions/mcp_ma3_qet_seed11_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "70675145b41958a4a5e1708f11923259bc02e7793b96a6a837618711827c2be7"
+    },
+    {
+      "run": "mcp_ma3_qet_seed29",
+      "model": "mcp_ma3",
+      "seed": 29,
+      "prediction": "outputs/predictions/mcp_ma3_qet_seed29_target_q_2019_2024.npy",
+      "prediction_sha256": "4a1f46a7197fb65ff6cc3525ac0eb9257374d22fc9649ee9a65bbb07c20cc741",
+      "fingerprints": "outputs/interventions/mcp_ma3_qet_seed29_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "744e54c26b55573cc456b58e6acf452ec2a29d8ca0a3e2087df3cd1dfcae6eb1"
+    },
+    {
+      "run": "mcp_ma3_qet_seed47",
+      "model": "mcp_ma3",
+      "seed": 47,
+      "prediction": "outputs/predictions/mcp_ma3_qet_seed47_target_q_2019_2024.npy",
+      "prediction_sha256": "2f6c2c37d1100903749a7d35879ccc2b5ce1461f09d0362ede1017d44690d07e",
+      "fingerprints": "outputs/interventions/mcp_ma3_qet_seed47_common_date_fingerprints.csv.gz",
+      "fingerprints_sha256": "433d2c520b47296eb04b07d7da64047c8e6213028ec005e4d500ad68b4bc4c37"
+    }
+  ],
+  "run_count": 15,
+  "target_discharge_accessed": false
+}

@@ -1,0 +1,26 @@
+{
+  "run": "fluxgate_q_sm_et_seed29",
+  "architecture": "fluxgate",
+  "rung": "q_sm_et",
+  "seed": 29,
+  "epochs": 24,
+  "parameter_count": 19171,
+  "donor_gauges": 500,
+  "training_years": [
+    2005,
+    2018
+  ],
+  "auxiliary_weight": 0.2,
+  "targets": [
+    "sm",
+    "et"
+  ],
+  "training_seconds": 83.86800003051758,
+  "model_sha256": "8658f73f3000d68be647cebfa75a6ad022a6438ce1adfbdefc33d15b45ac35be",
+  "target_discharge_accessed": false,
+  "model_source_sha256": "249225b5dc6936c0d2c38e8ae2e143ab014e0fe3ff0e138b9f90943adc503bc6",
+  "training_target_sha256": {
+    "nldas_rootzone_saturation.npy": "db2edffe2353bdba1063e35f9a740c677b19bf04c4ab75e03424ea7a8496c45d",
+    "ssebop_monthly.npz": "71a1976bcba76c31120a9ec448622ff0a5ba43c2afa6f0228858bedd2e07e8bd"
+  }
+}

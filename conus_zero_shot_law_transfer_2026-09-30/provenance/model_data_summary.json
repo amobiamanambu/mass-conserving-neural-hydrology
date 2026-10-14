@@ -1,0 +1,32 @@
+{
+  "gauges": 4682,
+  "donors": 500,
+  "development": 200,
+  "targets": 3982,
+  "days": 7759,
+  "start": "2003-10-05",
+  "end": "2024-12-31",
+  "forcing_shape": [
+    4682,
+    7759,
+    5
+  ],
+  "q_donor_development_shape": [
+    700,
+    7759
+  ],
+  "target_discharge_parsed": false,
+  "static_features": 99,
+  "forcing_features": [
+    "pr_mm",
+    "pet_mm",
+    "tmean_c",
+    "sin_doy",
+    "cos_doy"
+  ],
+  "station_split_sha256": "2045e2b2e323a3e73f09ca625b45bc21d315c1e2bda9623b7a6f9d36f11187f1",
+  "station_index_sha256": "6e92bac4d8f82d9c48a6cffadbe536160b38ec615c054eddf7c4c94add8ae367",
+  "forcing_sha256": "2156194bc092ca45453a464839339aa738a92b8fc84ad196f9e1fef8fd35899e",
+  "q_donor_development_sha256": "8c55b70e8dc74950cf897c8985121b1971e9c85ff3855321c6e751183043fb64",
+  "static_sha256": "d67e29ae4bde4af39b2b3710647595c4c0471d84998f7051e393547b7f83dfcb"
+}

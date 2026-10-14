@@ -1,0 +1,21 @@
+{
+  "run": "dhbv_qet_seed29",
+  "model": "dhbv",
+  "seed": 29,
+  "anchor_design": "model_specific",
+  "gauges": 413,
+  "anchors_per_gauge": 12,
+  "intervention_days": 91,
+  "forcing": "P=0, PET=0, T=10 C with calendar harmonics retained",
+  "q0_thresholds_mm_day": [
+    0.0001,
+    0.001,
+    0.01
+  ],
+  "maximum_daily_mass_residual_mm": 4.547473508864641e-13,
+  "target_discharge_accessed": false,
+  "fingerprints": "outputs/interventions/dhbv_qet_seed29_model_specific_fingerprints.csv.gz",
+  "fingerprints_sha256": "049bbe40f5dc0356a1385895fc58adcc46607909c05f5b348bfe9fa8818ddfac",
+  "curves": "outputs/interventions/dhbv_qet_seed29_model_specific_curves.npz",
+  "curves_sha256": "cf9d0ac898a5bae76c32b446df0e6d6c86b4e4ddebb000ed3fcfa30459057502"
+}

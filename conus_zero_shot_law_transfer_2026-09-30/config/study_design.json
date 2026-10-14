@@ -1,0 +1,25 @@
+{
+  "title": "Can Mass-Conserving Neural Hydrologic Models Identify Transferable Catchment Drainage Responses?",
+  "population_start": "2003-10-05",
+  "population_end": "2024-12-31",
+  "q_coverage_min": 0.9,
+  "forcing_coverage_min": 0.98,
+  "donor_fit_end": "2014-12-31",
+  "development_start": "2015-01-01",
+  "development_end": "2018-12-31",
+  "refit_end": "2018-12-31",
+  "target_start": "2019-01-01",
+  "target_end": "2024-12-31",
+  "seeds": [11, 29, 47],
+  "ecoregion_allocations": {
+    "CntlPlains": {"eligible": 699, "donor": 75, "development": 30},
+    "EastHghlnds": {"eligible": 552, "donor": 59, "development": 24},
+    "MxWdShld": {"eligible": 91, "donor": 10, "development": 4},
+    "NorthEast": {"eligible": 486, "donor": 52, "development": 21},
+    "SECstPlain": {"eligible": 210, "donor": 22, "development": 9},
+    "SEPlains": {"eligible": 777, "donor": 83, "development": 33},
+    "WestMnts": {"eligible": 1040, "donor": 111, "development": 44},
+    "WestPlains": {"eligible": 468, "donor": 50, "development": 20},
+    "WestXeric": {"eligible": 359, "donor": 38, "development": 15}
+  }
+}

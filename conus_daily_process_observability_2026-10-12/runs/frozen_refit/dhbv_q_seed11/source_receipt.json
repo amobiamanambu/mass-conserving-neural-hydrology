@@ -1,0 +1,28 @@
+{
+  "run": "dhbv_q_seed11",
+  "architecture": "dhbv",
+  "rung": "q",
+  "seed": 11,
+  "epochs": 15,
+  "parameter_count": 11210,
+  "donor_gauges": 500,
+  "target_gauges": 3982,
+  "target_period": [
+    "2019-01-01",
+    "2024-12-31"
+  ],
+  "target_discharge_accessed": false,
+  "mass_balance": {
+    "daily_max_abs_mm": 3.410605131648481e-13,
+    "cumulative_max_abs_mm": 9.663381206337363e-13
+  },
+  "checkpoint": "runs/frozen_refit/dhbv_q_seed11/model.pt",
+  "checkpoint_sha256": "aef322eced4e87f5d60bbb1eecca0a9a7050318e911da9f94569fe925d980cd4",
+  "prediction": "outputs/predictions/dhbv_q_seed11_target_q_2019_2024.npy",
+  "prediction_sha256": "b371d665fe6cbc631cec0d70c4da4c89c479d9a0b85c78aa5a9d7a12c0e7c46b",
+  "antecedent_states": "outputs/antecedent_states/dhbv_q_seed11_antecedent_states.npz",
+  "antecedent_states_sha256": "3733e15fe5a371779f5f927560672e27d0f15135b0c97fefa484a0e42584500c",
+  "anchor_relaxation_counts": {
+    "0": 3982
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "national_point_estimates": {
+    "available": true,
+    "maximum_absolute_difference": 0.0,
+    "differences": {
+      "q_cross_architecture_rho": 0.0,
+      "q_cross_architecture_mad": 0.0,
+      "qet_cross_architecture_rho": 0.0,
+      "qet_cross_architecture_mad": 0.0,
+      "disagreement_reduction_fraction": 0.0,
+      "dhbv_observed_rho": 0.0,
+      "dhbv_observed_mae": 0.0,
+      "fluxgate_observed_rho": 0.0,
+      "fluxgate_observed_mae": 0.0,
+      "all_model_class_agreement_fraction": 0.0
+    }
+  },
+  "reference_group_point_estimates": {
+    "available": true,
+    "populations_compared": 7,
+    "maximum_absolute_difference": 8.326672684688674e-17
+  },
+  "point_estimates_reproduced": true
+}

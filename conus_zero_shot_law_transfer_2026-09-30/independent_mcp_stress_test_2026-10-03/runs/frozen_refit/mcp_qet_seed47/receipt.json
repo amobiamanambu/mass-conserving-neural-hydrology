@@ -1,0 +1,30 @@
+{
+  "run": "mcp_qet_seed47",
+  "architecture": "mcp",
+  "rung": "qet",
+  "seed": 47,
+  "epochs": 45,
+  "parameter_count": 31903,
+  "donor_gauges": 500,
+  "target_gauges": 3982,
+  "target_period": [
+    "2019-01-01",
+    "2024-12-31"
+  ],
+  "mass_balance": {
+    "daily_max_abs_mm": 1.7053025658242404e-13,
+    "cumulative_max_abs_mm": 4.831690603168681e-13
+  },
+  "checkpoint": "runs/frozen_refit/mcp_qet_seed47/model.pt",
+  "checkpoint_sha256": "28cf35c157b1e4f4d87146e2dde1f9e03b98f02b25bae59008b5f2582db176b4",
+  "prediction": "outputs/predictions/mcp_qet_seed47_target_q_2019_2024.npy",
+  "prediction_sha256": "49b46d7647db88ae4d36c3e2f52cc154c676493e55e798d73c990f9ce9d03273",
+  "model_specific_states": "outputs/antecedent_states/mcp_qet_seed47_model_specific.npz",
+  "model_specific_states_sha256": "a9cf4d1612311746a6988004e7ce46b4f2e44a114606b77839771364e50d34d5",
+  "common_date_states": "outputs/antecedent_states/mcp_qet_seed47_common_date.npz",
+  "common_date_states_sha256": "1ab6e40996e51de806a179547411e9f0a948ecccbe12cf96eaae6f94440b8c44",
+  "model_specific_relaxation_counts": {
+    "0": 3982
+  },
+  "target_discharge_accessed_by_script": false
+}

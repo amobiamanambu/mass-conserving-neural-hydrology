@@ -1,0 +1,56 @@
+{
+  "architectures_compared": [
+    "dhbv",
+    "fluxgate",
+    "mcp12",
+    "mclstm_dr",
+    "mc_node",
+    "mcp_ma3",
+    "mcp_ma4",
+    "mcp_ma5"
+  ],
+  "new_architectures": [
+    "mclstm_dr",
+    "mc_node",
+    "mcp_ma3",
+    "mcp_ma4",
+    "mcp_ma5"
+  ],
+  "target_gauges": 3982,
+  "globally_competent_architectures": [
+    "dhbv"
+  ],
+  "new_globally_competent_count": 0,
+  "new_exact_conservation_count": 5,
+  "primary_pairwise": {
+    "eligible_pairs_n_ge_500": 28,
+    "materially_disagreeing_pairs": 24,
+    "different_family_pairs": 22,
+    "different_family_materially_disagreeing_pairs": 21
+  },
+  "high_skill_pairwise": {
+    "eligible_pairs_n_ge_30": 21,
+    "materially_disagreeing_pairs": 16
+  },
+  "reference_pairwise": {
+    "eligible_pairs_n_ge_30": 28,
+    "materially_disagreeing_pairs": 23
+  },
+  "globally_competent_pairwise": {
+    "eligible_pairs_n_ge_500": 0,
+    "materially_disagreeing_pairs": 0
+  },
+  "new_architecture_conditional_support_count": 5,
+  "interpretation_rule": "Weak architectures may provide conditional sensitivity evidence but are not counted as globally competent counterexamples. Multiple MCP graphs are one architectural family.",
+  "files": {
+    "architecture": "outputs/comparison/architecture_summary.csv",
+    "common_architecture": "outputs/comparison/common_date_architecture_summary.csv",
+    "pairwise": "outputs/comparison/pairwise_response_agreement.csv",
+    "spans": "outputs/comparison/multimodel_span_summary.csv",
+    "nested": "outputs/comparison/nested_pair_summary.csv",
+    "mass": "outputs/comparison/mass_balance_summary.csv",
+    "support": "outputs/comparison/new_architecture_support.csv",
+    "gauge": "outputs/comparison/gauge_level_multimodel.parquet",
+    "common_gauge": "outputs/comparison/gauge_level_multimodel_common_date.parquet"
+  }
+}
