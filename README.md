@@ -50,7 +50,8 @@ publication figures, writing instructions, superseded exploratory experiments,
 and failed MCP runs. Large binary products are stored in the companion private
 Zenodo review archive (record 23358088): model-ready data, selected checkpoints,
 frozen predictions, intervention trajectories, and the full gauge-level process
-tables.
+tables. The archive builder and exact file layout are documented in
+`workflow/build_zenodo_archives.py` and `docs/ZENODO_ARCHIVE.md`.
 
 ## Quick verification
 
