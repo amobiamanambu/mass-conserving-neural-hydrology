@@ -9,7 +9,6 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 PROJECT = HERE.parent
-SOURCE = PROJECT / "convergence_sensitivity_2026-11-08"
 MODELS = ("hybrid_shm", "author_dhbv", "author_mcp_ma3", "ported_fluxgate")
 SEEDS = (11, 29, 47)
 
@@ -50,7 +49,7 @@ def main() -> None:
         for seed in SEEDS:
             run = checkpoint_run(model, seed, epoch)
             checkpoint = run / f"model_epoch{epoch:03d}.pt"
-            runs[str(seed)] = {"run_dir": str(run), "checkpoint": str(checkpoint), "checkpoint_sha256": sha256(checkpoint)}
+            runs[str(seed)] = {"run_dir": run.relative_to(HERE).as_posix(), "checkpoint": checkpoint.relative_to(HERE).as_posix(), "checkpoint_sha256": sha256(checkpoint)}
         receipt["architectures"][model] = {
             "adaptive_receipt": f"adaptive_receipt_{model}.json",
             "selected_epoch": epoch,
@@ -63,10 +62,12 @@ def main() -> None:
             "plateau_reached": adaptive["plateau_reached"],
             "runs": runs,
         }
-    previous = json.loads((SOURCE / "provenance/development_epoch_selection.json").read_text())
+    # MC-LSTM is descriptive only and stays at its epoch-30 checkpoint; its entry
+    # is carried over unchanged from the released selection receipt.
+    path = HERE / "provenance/development_epoch_selection.json"
+    previous = json.loads(path.read_text())
     receipt["architectures"]["mclstm"] = previous["architectures"]["mclstm"]
     receipt["all_three_seeds_complete"] = True
-    path = HERE / "provenance/development_epoch_selection.json"
     path.write_text(json.dumps(receipt, indent=2) + "\n")
     print(json.dumps({m: (v["selected_epoch"], v.get("plateau_reached")) for m, v in receipt["architectures"].items() if m != "mclstm"}, indent=2))
 

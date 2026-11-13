@@ -24,18 +24,18 @@
       "plateau_reached": true,
       "runs": {
         "11": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/model_epoch160.pt",
+          "run_dir": "runs_adaptive/hybrid_shm/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150",
+          "checkpoint": "runs_adaptive/hybrid_shm/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/model_epoch160.pt",
           "checkpoint_sha256": "e034f916170ae716445ca0744a9550f94fbf1579dc579849733123961b526698"
         },
         "29": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed29/base_run/continue_training_from_epoch030",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed29/base_run/continue_training_from_epoch030/model_epoch160.pt",
+          "run_dir": "runs_adaptive/hybrid_shm/seed29/base_run/continue_training_from_epoch030",
+          "checkpoint": "runs_adaptive/hybrid_shm/seed29/base_run/continue_training_from_epoch030/model_epoch160.pt",
           "checkpoint_sha256": "efdf166e240360450657524f8d2c6a64531fd4f89bc18baa2b351c7bcf0e19ab"
         },
         "47": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed47/base_run/continue_training_from_epoch030",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed47/base_run/continue_training_from_epoch030/model_epoch160.pt",
+          "run_dir": "runs_adaptive/hybrid_shm/seed47/base_run/continue_training_from_epoch030",
+          "checkpoint": "runs_adaptive/hybrid_shm/seed47/base_run/continue_training_from_epoch030/model_epoch160.pt",
           "checkpoint_sha256": "8d83ee6638aaf359b050b7d30c9a71a0ae1cd3927ac53196c263b49fbc20a82b"
         }
       }
@@ -57,18 +57,18 @@
       "plateau_reached": true,
       "runs": {
         "11": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190/model_epoch200.pt",
+          "run_dir": "runs_adaptive/author_dhbv/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190",
+          "checkpoint": "runs_adaptive/author_dhbv/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190/model_epoch200.pt",
           "checkpoint_sha256": "e4d6577bee6da9d548b62bb883c7dc19451808aa77ac8993d15877e165e74188"
         },
         "29": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed29/base_run/continue_training_from_epoch030",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed29/base_run/continue_training_from_epoch030/model_epoch200.pt",
+          "run_dir": "runs_adaptive/author_dhbv/seed29/base_run/continue_training_from_epoch030",
+          "checkpoint": "runs_adaptive/author_dhbv/seed29/base_run/continue_training_from_epoch030/model_epoch200.pt",
           "checkpoint_sha256": "3c37b5c859c14b847fa3d8b9618cf4fac03013b85a2e5db03e2eebdd8e7e24c5"
         },
         "47": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed47/base_run/continue_training_from_epoch030",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed47/base_run/continue_training_from_epoch030/model_epoch200.pt",
+          "run_dir": "runs_adaptive/author_dhbv/seed47/base_run/continue_training_from_epoch030",
+          "checkpoint": "runs_adaptive/author_dhbv/seed47/base_run/continue_training_from_epoch030/model_epoch200.pt",
           "checkpoint_sha256": "1ebe6859498e449a4e74e44d2b6d46679edd909b170dec9e0eacab98ea080f3e"
         }
       }
@@ -90,18 +90,18 @@
       "plateau_reached": true,
       "runs": {
         "11": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190/continue_training_from_epoch200/continue_training_from_epoch210/continue_training_from_epoch220/continue_training_from_epoch230/continue_training_from_epoch240",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190/continue_training_from_epoch200/continue_training_from_epoch210/continue_training_from_epoch220/continue_training_from_epoch230/continue_training_from_epoch240/model_epoch250.pt",
+          "run_dir": "runs_adaptive/author_mcp_ma3/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190/continue_training_from_epoch200/continue_training_from_epoch210/continue_training_from_epoch220/continue_training_from_epoch230/continue_training_from_epoch240",
+          "checkpoint": "runs_adaptive/author_mcp_ma3/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190/continue_training_from_epoch200/continue_training_from_epoch210/continue_training_from_epoch220/continue_training_from_epoch230/continue_training_from_epoch240/model_epoch250.pt",
           "checkpoint_sha256": "2f233896f7e185c994f49f5012455d55838e5747bf78829e44efd9aadd9ab57a"
         },
         "29": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed29/base_run/continue_training_from_epoch030",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed29/base_run/continue_training_from_epoch030/model_epoch250.pt",
+          "run_dir": "runs_adaptive/author_mcp_ma3/seed29/base_run/continue_training_from_epoch030",
+          "checkpoint": "runs_adaptive/author_mcp_ma3/seed29/base_run/continue_training_from_epoch030/model_epoch250.pt",
           "checkpoint_sha256": "c4f1121df886ee2dbb3a1117f7e6d2c7313874390ab9177507e44c3e2859904f"
         },
         "47": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed47/base_run/continue_training_from_epoch030",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed47/base_run/continue_training_from_epoch030/model_epoch250.pt",
+          "run_dir": "runs_adaptive/author_mcp_ma3/seed47/base_run/continue_training_from_epoch030",
+          "checkpoint": "runs_adaptive/author_mcp_ma3/seed47/base_run/continue_training_from_epoch030/model_epoch250.pt",
           "checkpoint_sha256": "4cb3592a6834615cffaf709659a5c0cb4667e416589e9a601dfc54b0561d4660"
         }
       }
@@ -123,18 +123,18 @@
       "plateau_reached": true,
       "runs": {
         "11": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/model_epoch140.pt",
+          "run_dir": "runs_adaptive/ported_fluxgate/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130",
+          "checkpoint": "runs_adaptive/ported_fluxgate/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/model_epoch140.pt",
           "checkpoint_sha256": "e6ab9635e4b57b8fa3126d4a02b493ee7fb80402563d0374ecdcfb08cbfe4a6f"
         },
         "29": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed29/base_run/continue_training_from_epoch030",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed29/base_run/continue_training_from_epoch030/model_epoch140.pt",
+          "run_dir": "runs_adaptive/ported_fluxgate/seed29/base_run/continue_training_from_epoch030",
+          "checkpoint": "runs_adaptive/ported_fluxgate/seed29/base_run/continue_training_from_epoch030/model_epoch140.pt",
           "checkpoint_sha256": "d02563aefb70eb253b171061fb8ca158d89a573024eda54d2755cd9f3d879da9"
         },
         "47": {
-          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed47/base_run/continue_training_from_epoch030",
-          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed47/base_run/continue_training_from_epoch030/model_epoch140.pt",
+          "run_dir": "runs_adaptive/ported_fluxgate/seed47/base_run/continue_training_from_epoch030",
+          "checkpoint": "runs_adaptive/ported_fluxgate/seed47/base_run/continue_training_from_epoch030/model_epoch140.pt",
           "checkpoint_sha256": "128dfdb7e437f34c63ba9ab5d55d9a373845d6bc94cc5ed7418ddb174afe8948"
         }
       }
@@ -169,18 +169,18 @@
       "selected_epoch": 30,
       "runs": {
         "11": {
-          "run_dir": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed11_0111_042505",
-          "checkpoint": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed11_0111_042505/model_epoch030.pt",
+          "run_dir": "../runs/national_literature_mclstm_seed11_0111_042505",
+          "checkpoint": "../runs/national_literature_mclstm_seed11_0111_042505/model_epoch030.pt",
           "checkpoint_sha256": "5058b9da3b24f5556c335b109ee695472470c901166d936282f4b8424f4f39f8"
         },
         "29": {
-          "run_dir": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed29_0111_074929",
-          "checkpoint": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed29_0111_074929/model_epoch030.pt",
+          "run_dir": "../runs/national_literature_mclstm_seed29_0111_074929",
+          "checkpoint": "../runs/national_literature_mclstm_seed29_0111_074929/model_epoch030.pt",
           "checkpoint_sha256": "185bb44c146b6e5b9d211b85cbe0db46cdf9285fecc481c9245abd775ecb391f"
         },
         "47": {
-          "run_dir": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed47_0111_093850",
-          "checkpoint": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed47_0111_093850/model_epoch030.pt",
+          "run_dir": "../runs/national_literature_mclstm_seed47_0111_093850",
+          "checkpoint": "../runs/national_literature_mclstm_seed47_0111_093850/model_epoch030.pt",
           "checkpoint_sha256": "382068a9bafc2b2de6a622041d07f0e90d06aa2ba1eb5a4c55af9e4d63556ba6"
         }
       },

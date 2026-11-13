@@ -9,9 +9,10 @@ PyTorch anomaly mode, which reports the forward operation (file and line) that
 created the bad gradient, and it records extreme values of the model's
 internal quantities on that batch.
 
-Run on the host, after run_all.sh has finished:
-  ${CONDA_ENV}/bin/python 05_diagnose_mcp_gradients.py
-Output: mcp_gradient_diagnostic.json
+Record only in this package. The script was run as
+`adaptive_training/05_diagnose_mcp_gradients.py` on the failed MCP-MA3 replay
+checkpoints, which are not shipped, so it cannot be rerun from here. Its output
+is `adaptive_training/provenance/mcp_gradient_diagnostic.json`.
 """
 
 from __future__ import annotations

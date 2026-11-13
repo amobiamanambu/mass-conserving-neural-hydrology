@@ -1,5 +1,5 @@
 {
-  "created_by": "${PROJECT_ROOT}/scripts/01_prepare_generic_dataset.py",
+  "created_by": "../scripts/01_prepare_generic_dataset.py",
   "source_directory": "${LEGACY_SOURCE}/data/processed",
   "split_counts": {
     "target": 3982,

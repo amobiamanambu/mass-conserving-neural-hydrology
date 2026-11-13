@@ -16,7 +16,7 @@
   "pet_climatology_period": null,
   "process_equations": "original HydroDL2 HBV 1.0 called one day at a time",
   "routing_equations": "original HydroDL2 uh_gamma and uh_conv",
-  "closure_helper_source": "${PROJECT_ROOT}/adaptive_training/vendor/reference_helpers/author_dhbv_interventions.py",
+  "closure_helper_source": "vendor/reference_helpers/author_dhbv_interventions.py",
   "closure_helper_source_sha256": "7eda3751d31bb415173bcc7de527b40e809fe5e757880094e3cc1d26e13c8819",
   "closure_tolerance_mm": 0.005,
   "maximum_intervention_process_daily_residual_mm": 0.000732421875,

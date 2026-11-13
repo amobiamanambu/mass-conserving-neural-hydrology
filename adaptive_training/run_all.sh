@@ -4,7 +4,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 PY="${PYTHON:-python}"
-export MPLCONFIGDIR=/private/tmp/nh_mpl_cache NGEN_SILENT=1 PYTHONUNBUFFERED=1 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
+export MPLCONFIGDIR="${TMPDIR:-/tmp}/nh_mpl_cache" NGEN_SILENT=1 PYTHONUNBUFFERED=1 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2
 mkdir -p logs
 MODELS="hybrid_shm author_dhbv author_mcp_ma3 ported_fluxgate"
 echo "START $(date)"
@@ -34,7 +34,7 @@ cat logs/03_selection.log
 echo "STEP 4 predictions, interventions, PET probe, analyses, audits $(date)"
 $PY 04_run_analysis.py > logs/04_analysis.log 2>&1
 
-echo "STEP 5 validate released scientific products $(date)"
-$PY ../workflow/validate_release.py > logs/05_validate_release.log 2>&1
+echo "STEP 5 check the package (counts, hashes, figures, paths) $(date)"
+$PY ../workflow_steps/validate_package.py > logs/05_validate_package.log 2>&1
 touch ALL_DONE
 echo "ALL DONE $(date)"

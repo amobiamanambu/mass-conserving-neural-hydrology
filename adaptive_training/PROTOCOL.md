@@ -1,7 +1,7 @@
 # Adaptive learning-rate training protocol (fixed 2026-11-09, before any run)
 
-Why: the development-plateau runs in `../convergence_sensitivity_2026-11-08/`
-continued from epoch 30 at the last, decayed learning rate of the original
+Why: the earlier development-plateau runs (folder `convergence_sensitivity_2026-11-08/`,
+not included in this package) continued from epoch 30 at the last, decayed learning rate of the original
 schedule. A learning-rate restart check (script 21 there) raised seed-11
 median development KGE by 0.023 (Hybrid-SHM), 0.044 (dHBV) and 0.045 (flux
 gate), so those plateaus were step-size limits, not convergence. This folder
@@ -66,14 +66,17 @@ config flag, `skip_nonfinite_gradient_steps` (default False), that skips an
 update whose gradient norm is not finite and logs it. Only the seed 29/47
 replays set it. All other runs, including every completed one, are unaffected
 because the flag is off by default. Skipped updates are counted in
-`replay_receipt_<model>_seed<seed>.json`. The unpatched files are kept as
-`basetrainer_before_nonfinite_patch.py.txt` and `config_before_nonfinite_patch.py.txt`.
+`replay_receipt_<model>_seed<seed>.json`. The unpatched trainer and config
+files were kept in the original working folder and are not part of this package;
+the change is the `skip_nonfinite_gradient_steps` block in the vendored
+`training/basetrainer.py` and `utils/config.py`.
 
 ## Amendment 3 (2026-11-11): float64 gradient-clipping norm for MCP-MA3
 
 Reason. The MCP-MA3 seed-29 and seed-47 replays skipped 9,132 and 10,833 of
 14,080 optimizer updates, so those runs were not valid. The diagnostic
-(05_diagnose_mcp_gradients.py, mcp_gradient_diagnostic.json) showed that the
+(`audit/diagnose_mcp_gradients.py`, result in
+`provenance/mcp_gradient_diagnostic.json`) showed that the
 gradients were very large but mostly finite (largest element 3.8e31, float64
 norm 1.9e32). `clip_grad_norm_` computes the norm in float32, where it
 overflows to inf, and the clipped gradient then becomes NaN. The seed-11 run
@@ -92,5 +95,24 @@ its optimizer updates are skipped. If either seed fails, MCP-MA3 is reported
 as numerically unstable at the peak learning rate and kept as descriptive
 only; it does not enter the pairwise claims.
 
-The failed runs and the analysis outputs they fed are kept in
-`archive_mcp_failed_2026-11-10/`. Run with `run_mcp_fix.sh`.
+Result. Seeds 29 and 47 skipped 0 of 14,080 updates each
+(`replay_receipt_author_mcp_ma3_seed29.json`, `..._seed47.json`), so MCP-MA3
+meets the rule and enters the comparison.
+
+The failed MCP-MA3 replays are not part of this collaborator package. The
+diagnostic reads those failed checkpoints, so it cannot be rerun from this
+package; its output is kept as the record. The corrected replay is launched
+with `run_mcp_fix.sh`.
+
+## Release notes on the seed replays
+
+- The seed-29 and seed-47 replays of Hybrid-SHM, dHBV and the flux gate ran
+  before replay receipts were added, so they have no
+  `replay_receipt_*.json`. They ran with no safeguard switched on, finished
+  every epoch, and therefore skipped no update.
+- In the released `02_replay_other_seeds.py` the two NaN safeguards
+  (`allow_subsequent_nan_losses`, `skip_nonfinite_gradient_steps`) are set for
+  every model. They change nothing unless a NaN or a non-finite gradient
+  occurs, which did not happen for those six replays. A fresh rerun writes a
+  receipt for every replay, and its skipped-update counts show whether a
+  safeguard was ever used.

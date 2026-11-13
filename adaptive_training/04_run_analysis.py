@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import tempfile
 import os
 import shutil
 import subprocess
@@ -32,7 +33,7 @@ def run(*arguments: str) -> None:
     if free_gib < 8:
         raise RuntimeError(f"Only {free_gib:.1f} GiB free before {' '.join(arguments)}")
     environment = os.environ.copy()
-    environment["MPLCONFIGDIR"] = "/private/tmp/nh_mpl_cache"
+    environment["MPLCONFIGDIR"] = str(Path(tempfile.gettempdir()) / "nh_mpl_cache")
     environment["PYTHONPATH"] = str(HERE / "vendor/neuralhydrology_literature_adapter")
     environment["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
     environment["NGEN_SILENT"] = "1"

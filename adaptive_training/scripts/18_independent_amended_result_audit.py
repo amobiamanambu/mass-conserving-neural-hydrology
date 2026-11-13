@@ -96,7 +96,7 @@ def main() -> None:
             findings.append(f"model not admitted by closure audit: {model}")
         for seed in SEEDS:
             item = selection["architectures"][model]["runs"][str(seed)]
-            checkpoint = Path(item["checkpoint"])
+            checkpoint = ROOT / item["checkpoint"]
             if not checkpoint.exists() or sha256(checkpoint) != item["checkpoint_sha256"]:
                 findings.append(f"checkpoint hash mismatch: {model} seed {seed}")
             if model == "author_dhbv":

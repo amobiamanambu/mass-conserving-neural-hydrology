@@ -17,7 +17,7 @@
     "2003-10-05",
     "2018-12-31"
   ],
-  "closure_helper_source": "${PROJECT_ROOT}/adaptive_training/vendor/reference_helpers/native_interventions.py",
+  "closure_helper_source": "vendor/reference_helpers/native_interventions.py",
   "closure_helper_source_sha256": "d5e9cb88654133d89994b5dea30d3af7ad945cd569c2557b30713f0b3fe8f222",
   "closure_tolerance_mm": 1e-09,
   "maximum_historical_daily_residual_mm": 9.094947017729282e-13,

@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import tempfile
 import os
 import pickle
 import subprocess
@@ -66,7 +67,7 @@ def main() -> None:
 
     environment = os.environ.copy()
     environment["PYTHONPATH"] = str(ADAPTER)
-    environment["MPLCONFIGDIR"] = "/private/tmp/nh_mpl_cache"
+    environment["MPLCONFIGDIR"] = str(Path(tempfile.gettempdir()) / "nh_mpl_cache")
     if args.model == "author_dhbv":
         environment["NGEN_SILENT"] = "1"
     subprocess.run(

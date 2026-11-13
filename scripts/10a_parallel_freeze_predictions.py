@@ -11,6 +11,7 @@ from __future__ import annotations
 import concurrent.futures
 import hashlib
 import json
+import tempfile
 import os
 import subprocess
 import sys
@@ -64,7 +65,7 @@ def evaluate(job: tuple[str, int]) -> dict:
         "OPENBLAS_NUM_THREADS": "1",
         "VECLIB_MAXIMUM_THREADS": "1",
         "NUMEXPR_NUM_THREADS": "1",
-        "MPLCONFIGDIR": "/private/tmp/nh_mpl_cache",
+        "MPLCONFIGDIR": str(Path(tempfile.gettempdir()) / "nh_mpl_cache"),
     })
     started = time.time()
     with log_path.open("w") as log:

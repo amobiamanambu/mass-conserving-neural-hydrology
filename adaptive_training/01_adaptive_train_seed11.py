@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import tempfile
 import os
 import subprocess
 import sys
@@ -106,7 +107,7 @@ def continue_block(leaf: Path, model: str, rate: float, last_epoch: int) -> None
         "save_weights_every": BLOCK, "save_validation_results": True, "verbose": 0,
     }, sort_keys=False))
     env = os.environ.copy()
-    env.update({"PYTHONPATH": str(ADAPTER), "MPLCONFIGDIR": "/private/tmp/nh_mpl_cache", "NGEN_SILENT": "1",
+    env.update({"PYTHONPATH": str(ADAPTER), "MPLCONFIGDIR": str(Path(tempfile.gettempdir()) / "nh_mpl_cache"), "NGEN_SILENT": "1",
                 "OMP_NUM_THREADS": env.get("OMP_NUM_THREADS", "2"), "MKL_NUM_THREADS": env.get("MKL_NUM_THREADS", "2")})
     subprocess.run([sys.executable, "-m", "neuralhydrology.nh_run", "continue_training", "--run-dir", str(leaf),
                     "--config-file", str(override)], cwd=PROJECT, env=env, check=True, stdin=subprocess.DEVNULL)

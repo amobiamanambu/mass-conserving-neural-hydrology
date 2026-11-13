@@ -17,6 +17,6 @@
   ],
   "extreme_forward_and_gradient_finite": true,
   "passes": true,
-  "adapted_source": "${PROJECT_ROOT}/vendor/neuralhydrology_literature_adapter/neuralhydrology/modelzoo/literatureconservingmodels.py",
+  "adapted_source": "../vendor/neuralhydrology_literature_adapter/neuralhydrology/modelzoo/literatureconservingmodels.py",
   "adapted_source_sha256": "dcc05d01bd3044fd9e89a9c46423d465423778625eac2dc586b165580386d260"
 }

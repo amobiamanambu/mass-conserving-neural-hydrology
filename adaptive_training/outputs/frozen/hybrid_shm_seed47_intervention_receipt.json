@@ -14,7 +14,7 @@
   "intervention": "P=0, PET=0, T=10 C; seasonal sine/cosine retained",
   "pet_mode": "zero",
   "pet_climatology_period": null,
-  "closure_helper_source": "${PROJECT_ROOT}/adaptive_training/vendor/reference_helpers/native_interventions.py",
+  "closure_helper_source": "vendor/reference_helpers/native_interventions.py",
   "closure_helper_source_sha256": "d5e9cb88654133d89994b5dea30d3af7ad945cd569c2557b30713f0b3fe8f222",
   "closure_tolerance_mm": 1e-09,
   "maximum_historical_daily_residual_mm": 9.094947017729282e-13,

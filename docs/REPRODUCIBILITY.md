@@ -17,8 +17,9 @@ The archive separates checkpoint selection from target evaluation.
 - dHBV enters the response comparison through a float64 replay because its
   float32 residuals were precision noise rather than structural mass loss.
 - MCP-MA3 enters after a stable softmax partition and float64 gradient-norm
-  calculation were verified against the original equations and accepted by the
-  prespecified skipped-update rule.
+  calculation were verified against the original equations and accepted by a
+  skipped-update rule (at most 1 % of updates) fixed after the first replays
+  failed and before the corrected rerun.
 - MC-LSTM remains descriptive because the tested implementation did not satisfy
   the structural closure audit.
 

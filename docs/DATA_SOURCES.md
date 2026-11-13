@@ -10,7 +10,7 @@ Provider terms remain authoritative.
 - **GAGES-II:** basin attributes, reference status, and gauge metadata.
 - **NHDPlus/NLDI:** connected-gauge relationships used for the nested-pair
   diagnostic.
-- **Rain-screened observed recessions:** derived from USGS hydrographs with the
+- **Rain-free observed recessions:** derived from USGS hydrographs with the
   archived extraction rules.
 
 The GitHub repository includes basin identifiers and compact derived results.

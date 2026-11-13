@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import tempfile
 import os
 import shutil
 import subprocess
@@ -47,7 +48,7 @@ def train(model: str, seed: int) -> None:
         raise RuntimeError(f"Config seed mismatch: {config}")
     environment = os.environ.copy()
     environment["PYTHONPATH"] = str(ADAPTER)
-    environment["MPLCONFIGDIR"] = "/private/tmp/nh_mpl_cache"
+    environment["MPLCONFIGDIR"] = str(Path(tempfile.gettempdir()) / "nh_mpl_cache")
     if model == "author_dhbv":
         environment["NGEN_SILENT"] = "1"
     command = [

@@ -73,18 +73,18 @@
   },
   "central_non_guarantee_supported": true,
   "source_hashes": {
-    "${PROJECT_ROOT}/adaptive_training/outputs/evaluation/national_gauge_metrics.csv.gz": "629eb04114a1a00ac07c29523b83f84474ebad98e9132315de7b2f9d59947d4e",
-    "${PROJECT_ROOT}/adaptive_training/outputs/evaluation/national_pairwise_skill_conditioned_summary.csv": "35c0d3b94119a5670e87b42daaeb34e0a879398d436879c0652f07fa433bbe76",
-    "${PROJECT_ROOT}/adaptive_training/outputs/evaluation/national_framework_discovery.json": "ac06b647bc98d8adafed02976cabf46775425a39bb89c8ab0a17119083255aa3",
-    "${PROJECT_ROOT}/adaptive_training/data/forcing_only_anchors.npz": "2676c37a7856a4dfcc41296dea4775c3f0c114d47a95c6cb7cc808b724cdfbac",
-    "${PROJECT_ROOT}/adaptive_training/provenance/forcing_only_anchor_receipt.json": "f50d0361b3a86a7402512df29f22cbfc28b9009d16e833bfd051299317130624",
-    "${PROJECT_ROOT}/adaptive_training/provenance/preopening_analysis_plan.json": "f02b69a8d5cf1b6f0fd134142cd5b96039c7698308093712b0232f14f4ad6f8f",
-    "${PROJECT_ROOT}/adaptive_training/provenance/protocol_amendment_forcing_only_anchors.json": "c4b074087a34110a9daf069b5b868927dfbeaf63d889a3a8c5df241116b840db",
-    "${PROJECT_ROOT}/adaptive_training/provenance/protocol_amendment_mcp_stable_partition.json": "a2a8c35396693620daeb851b8063654f37bceb510460130f0914f831a0002356",
-    "${PROJECT_ROOT}/adaptive_training/provenance/stable_mcp_partition_validation.json": "5c602f1ce0686584d88579682636bafcb245982952cb3d74425af2b4988b155b",
-    "${PROJECT_ROOT}/adaptive_training/provenance/preopening_freeze_registry.json": "7178552b0b46ed9cc45180233c67f3ac4089459e44e1e98f1e790c50c5d7eaae",
-    "${PROJECT_ROOT}/adaptive_training/data/source_inputs/reference_only/combined_architecture_summary.csv": "989613be0165cf2ec47b05b5bdda37fa0eb0d0f6496e502fde2db3793486b350",
-    "${PROJECT_ROOT}/adaptive_training/data/source_inputs/reference_only/combined_pairwise_skill_conditioned_summary.csv": "803f1c1b2030f29215603b8432f29204643897ce2f39e4c95bb4767d22474412",
-    "${PROJECT_ROOT}/adaptive_training/data/source_inputs/nldi/river_network_edges.csv": "b3d5e772264caf89a6b787c889e76a2453055c738675d0fe4f00b37e6a445fc9"
+    "outputs/evaluation/national_gauge_metrics.csv.gz": "629eb04114a1a00ac07c29523b83f84474ebad98e9132315de7b2f9d59947d4e",
+    "outputs/evaluation/national_pairwise_skill_conditioned_summary.csv": "35c0d3b94119a5670e87b42daaeb34e0a879398d436879c0652f07fa433bbe76",
+    "outputs/evaluation/national_framework_discovery.json": "ac06b647bc98d8adafed02976cabf46775425a39bb89c8ab0a17119083255aa3",
+    "data/forcing_only_anchors.npz": "2676c37a7856a4dfcc41296dea4775c3f0c114d47a95c6cb7cc808b724cdfbac",
+    "provenance/forcing_only_anchor_receipt.json": "f50d0361b3a86a7402512df29f22cbfc28b9009d16e833bfd051299317130624",
+    "provenance/preopening_analysis_plan.json": "f02b69a8d5cf1b6f0fd134142cd5b96039c7698308093712b0232f14f4ad6f8f",
+    "provenance/protocol_amendment_forcing_only_anchors.json": "c4b074087a34110a9daf069b5b868927dfbeaf63d889a3a8c5df241116b840db",
+    "provenance/protocol_amendment_mcp_stable_partition.json": "a2a8c35396693620daeb851b8063654f37bceb510460130f0914f831a0002356",
+    "provenance/stable_mcp_partition_validation.json": "5c602f1ce0686584d88579682636bafcb245982952cb3d74425af2b4988b155b",
+    "provenance/preopening_freeze_registry.json": "7178552b0b46ed9cc45180233c67f3ac4089459e44e1e98f1e790c50c5d7eaae",
+    "data/source_inputs/reference_only/combined_architecture_summary.csv": "989613be0165cf2ec47b05b5bdda37fa0eb0d0f6496e502fde2db3793486b350",
+    "data/source_inputs/reference_only/combined_pairwise_skill_conditioned_summary.csv": "803f1c1b2030f29215603b8432f29204643897ce2f39e4c95bb4767d22474412",
+    "data/source_inputs/nldi/river_network_edges.csv": "b3d5e772264caf89a6b787c889e76a2453055c738675d0fe4f00b37e6a445fc9"
   }
 }

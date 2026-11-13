@@ -10,9 +10,10 @@ pytest -q
 ## Analysis replay from the Zenodo archive
 
 Extract the Zenodo files into the repository root without changing their
-relative paths. Then run:
+relative paths. Verify the complete overlay before replaying the analysis:
 
 ```bash
+python scripts/00b_verify_self_contained.py
 cd adaptive_training
 python 04_run_analysis.py
 ```

@@ -9,7 +9,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-REPORT = ROOT / "provenance/self_containment_audit.json"
+ADAPTIVE_ROOT = ROOT / "adaptive_training"
+REPORT = ADAPTIVE_ROOT / "provenance/self_containment_audit.json"
 
 EXPECTED_SHA256 = {
     "data/source_inputs/processed/dates.npy": "d814e728f276866470109f57db7d94becc07aa9ca24408a45b28a775be3cfe4d",
@@ -24,8 +25,8 @@ EXPECTED_SHA256 = {
     "data/source_inputs/reference_only/combined_architecture_summary.csv": "989613be0165cf2ec47b05b5bdda37fa0eb0d0f6496e502fde2db3793486b350",
     "data/source_inputs/reference_only/combined_pairwise_skill_conditioned_summary.csv": "803f1c1b2030f29215603b8432f29204643897ce2f39e4c95bb4767d22474412",
     "data/source_inputs/reference_only/common_forcing_anchors.npz": "b67388aaa65760d7dd6b4821afb642300bae99eb574601f7e4d03fdfc1d36313",
-    "provenance/source_parity/author_source_parity.json": "198b74aba3eff83e58c024fcc077c77ad02434929be7416b4476eb37ed27c86b",
-    "provenance/source_parity/ported_model_equivalence.json": "ca57463871ef41e5cf1617caa65779145ff8e54055b768b3dcf5474fee4f7803",
+    "adaptive_training/provenance/source_parity/author_source_parity.json": "198b74aba3eff83e58c024fcc077c77ad02434929be7416b4476eb37ed27c86b",
+    "adaptive_training/provenance/source_parity/ported_model_equivalence.json": "c1b2cf8fa54e3b96b9106504f90c02717061d56d0f17462ee7bbfdf62db59236",
     "vendor/mcp_author_source/MCPBRNN_lib_tools/HyMOD_Shared_Cases.py": "4bfc798c4b8afeabdc4b666f09087b8b7bab9fdbd6ef17bd1bc388cbcdade379",
     "vendor/reference_helpers/native_interventions.py": "d5e9cb88654133d89994b5dea30d3af7ad945cd569c2557b30713f0b3fe8f222",
     "vendor/reference_helpers/author_dhbv_interventions.py": "7eda3751d31bb415173bcc7de527b40e809fe5e757880094e3cc1d26e13c8819",
@@ -53,11 +54,11 @@ def main() -> None:
         if actual != expected:
             errors.append(f"hash mismatch: {relative}")
 
-    selection = json.loads((ROOT / "provenance/development_epoch_selection.json").read_text())
+    selection = json.loads((ADAPTIVE_ROOT / "provenance/development_epoch_selection.json").read_text())
     checkpoint_count = 0
     for model, model_record in selection["architectures"].items():
         for seed, run_record in model_record["runs"].items():
-            checkpoint = ROOT / run_record["checkpoint"]
+            checkpoint = ADAPTIVE_ROOT / run_record["checkpoint"]
             if not checkpoint.is_file():
                 errors.append(f"missing checkpoint: {model} seed {seed}")
                 continue
@@ -98,7 +99,7 @@ def main() -> None:
         "hydrologic_" + "identifiability_theorem_test_2026-10-04",
     )
     external_references = []
-    scan_roots = [ROOT / "scripts", ROOT / "manuscript_revision_2026-11-06"]
+    scan_roots = [ROOT / "scripts", ADAPTIVE_ROOT / "scripts"]
     for scan_root in scan_roots:
         for path in scan_root.rglob("*.py"):
             text = path.read_text(errors="replace")
@@ -107,9 +108,13 @@ def main() -> None:
     if external_references:
         errors.append(f"runnable code still references retired projects: {external_references}")
 
-    frozen = ROOT / "outputs/frozen"
-    frozen_receipts = len(list(frozen.glob("*_prediction_receipt.json")))
-    intervention_receipts = len(list(frozen.glob("*_intervention_receipt.json")))
+    frozen_roots = (ROOT / "outputs/frozen", ADAPTIVE_ROOT / "outputs/frozen")
+    frozen_receipts = sum(
+        len(list(frozen.glob("*_prediction_receipt.json"))) for frozen in frozen_roots
+    )
+    intervention_receipts = sum(
+        len(list(frozen.glob("*_intervention_receipt.json"))) for frozen in frozen_roots
+    )
     if frozen_receipts != 15 or intervention_receipts != 15:
         errors.append(
             "expected 15 prediction and 15 intervention receipts, found "
