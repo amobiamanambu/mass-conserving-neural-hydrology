@@ -38,6 +38,18 @@ BANNED_PARTS = {
 }
 BANNED_SUFFIXES = {".docx", ".pdf", ".pptx", ".png", ".jpg", ".jpeg", ".svg", ".html"}
 PERSONAL_PATHS = ("/Users/" + "amobichukwu", "/opt/" + "miniconda3/envs/neuralhydrology")
+INVENTORY_EXCLUDED_PARTS = {".git", ".pytest_cache", "__pycache__"}
+INVENTORY_EXCLUDED_NAMES = {".DS_Store", "MANIFEST.csv", "VALIDATION_REPORT.json"}
+
+
+def inventory_included(path: Path) -> bool:
+    relative = path.relative_to(ROOT)
+    return (
+        path.is_file()
+        and not any(part in INVENTORY_EXCLUDED_PARTS for part in relative.parts)
+        and path.name not in INVENTORY_EXCLUDED_NAMES
+        and path.suffix != ".pyc"
+    )
 
 
 def sha256(path: Path) -> str:
@@ -74,9 +86,7 @@ def validate_manifest(failures: list[str]) -> int:
     expected = {
         path.relative_to(ROOT).as_posix()
         for path in ROOT.rglob("*")
-        if path.is_file()
-        and ".git" not in path.relative_to(ROOT).parts
-        and path.name not in {"MANIFEST.csv", "VALIDATION_REPORT.json"}
+        if inventory_included(path)
     }
     check({row["path"] for row in rows} == expected, "Manifest inventory is incomplete or stale", failures)
     return len(rows)
@@ -87,7 +97,7 @@ def main() -> None:
     for relative in REQUIRED:
         check((ROOT / relative).is_file(), f"Required file missing: {relative}", failures)
 
-    release_files = [path for path in ROOT.rglob("*") if path.is_file() and ".git" not in path.parts]
+    release_files = [path for path in ROOT.rglob("*") if inventory_included(path)]
     for path in release_files:
         relative = path.relative_to(ROOT)
         lowered = {part.lower() for part in relative.parts}

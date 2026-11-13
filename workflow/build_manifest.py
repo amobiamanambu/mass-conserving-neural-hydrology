@@ -10,7 +10,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "MANIFEST.csv"
-EXCLUDED = {".git", "MANIFEST.csv", "VALIDATION_REPORT.json"}
+EXCLUDED_PARTS = {".git", ".pytest_cache", "__pycache__"}
+EXCLUDED_NAMES = {".DS_Store", "MANIFEST.csv", "VALIDATION_REPORT.json"}
 
 
 def sha256(path: Path) -> str:
@@ -23,7 +24,12 @@ def sha256(path: Path) -> str:
 
 def included(path: Path) -> bool:
     relative = path.relative_to(ROOT)
-    return path.is_file() and not any(part in EXCLUDED for part in relative.parts)
+    return (
+        path.is_file()
+        and not any(part in EXCLUDED_PARTS for part in relative.parts)
+        and path.name not in EXCLUDED_NAMES
+        and path.suffix != ".pyc"
+    )
 
 
 def main() -> None:
