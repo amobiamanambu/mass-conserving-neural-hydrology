@@ -1,0 +1,15 @@
+{
+  "amendment_date": "2026-11-01",
+  "stage": "during model training and before national prediction freezing, intervention freezing, or target-discharge opening",
+  "issue": "The initially referenced legacy common-date archive had been created for a post-evaluation sensitivity and used observed discharge and earlier model snow states to select dates. It therefore did not satisfy the stated outcome-blind definition.",
+  "resolution": "The legacy archive was excluded. A new national archive was frozen from meteorological forcing alone: 12 unique June--September dates per gauge at the 0.05--0.95 quantiles of antecedent 30-day precipitation minus PET, with mean temperature above 5 degrees C.",
+  "legacy_archive_sha256": "de86ac68d36c5ca2be0fff475f554e135d3155e36be17284424edcce9ea0aed6",
+  "replacement_archive": "data/forcing_only_anchors.npz",
+  "replacement_archive_sha256": "2676c37a7856a4dfcc41296dea4775c3f0c114d47a95c6cb7cc808b724cdfbac",
+  "replacement_complete_gauges": 3982,
+  "replacement_anchors_per_gauge": 12,
+  "target_discharge_accessed": false,
+  "model_predictions_or_states_accessed_for_replacement": false,
+  "effect_on_training_or_epoch_selection": "none",
+  "effect_on_primary_intervention": "all national interventions use only the replacement archive"
+}

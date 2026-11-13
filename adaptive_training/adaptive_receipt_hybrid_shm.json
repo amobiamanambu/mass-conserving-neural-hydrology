@@ -1,0 +1,29 @@
+{
+  "model": "hybrid_shm",
+  "seed": 11,
+  "status": "converged",
+  "target_discharge_accessed": false,
+  "rule": {
+    "block_epochs": 10,
+    "material_improvement": 0.005,
+    "halve_after_blocks": 3,
+    "maximum_halvings": 3,
+    "stop_after_blocks_at_final_rate": 5,
+    "maximum_epoch": 400
+  },
+  "peak_learning_rate": 0.001,
+  "learning_rate_schedule": {
+    "31": 0.001,
+    "131": 0.0005,
+    "191": 0.00025,
+    "221": 0.000125
+  },
+  "halvings": 3,
+  "latest_epoch": 270,
+  "stopping_epoch": 270,
+  "plateau_reached": true,
+  "selected_epoch": 160,
+  "selected_median_development_kge": 0.6441670903786993,
+  "epoch30_median_development_kge": 0.5789657465109279,
+  "history_csv": "development_history_hybrid_shm_seed11.csv"
+}

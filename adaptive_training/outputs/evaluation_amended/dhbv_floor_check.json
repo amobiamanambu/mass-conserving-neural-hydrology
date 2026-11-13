@@ -1,0 +1,78 @@
+{
+  "floor_mm": 1e-05,
+  "interpretation": "Residuals equal to whole multiples of 1e-5 mm are floor events in which ET emptied the soil store; a fractional part means at least one event where SM - ET fell between 0 and 1e-5 mm. Either way the extra water is added by the floor, not lost, and stays far below 0.005 mm.",
+  "runs": {
+    "zero_pet_seed11": {
+      "receipt": "outputs/frozen/author_dhbv_seed11_float64_replay_receipt.json",
+      "selected_epoch": 200,
+      "worst_historical_gauge": "11404300",
+      "maximum_intervention_total_daily_residual_mm": 1.3642420526593924e-12,
+      "maximum_intervention_total_cumulative_drift_mm": 8.185452315956354e-12,
+      "passes_prespecified_tolerance_in_float64": true,
+      "maximum_historical_cumulative_residual_mm": 0.001199999999528245,
+      "residual_in_floor_units": 119.9999999528245,
+      "distance_from_nearest_integer_floor_count": 4.71755043918165e-08,
+      "consistent_with_floor": true
+    },
+    "zero_pet_seed29": {
+      "receipt": "outputs/frozen/author_dhbv_seed29_float64_replay_receipt.json",
+      "selected_epoch": 200,
+      "worst_historical_gauge": "11143250",
+      "maximum_intervention_total_daily_residual_mm": 1.8189894035458565e-12,
+      "maximum_intervention_total_cumulative_drift_mm": 6.366462912410498e-12,
+      "passes_prespecified_tolerance_in_float64": true,
+      "maximum_historical_cumulative_residual_mm": 0.001114051180522324,
+      "residual_in_floor_units": 111.4051180522324,
+      "distance_from_nearest_integer_floor_count": 0.40511805223239605,
+      "consistent_with_floor": true
+    },
+    "zero_pet_seed47": {
+      "receipt": "outputs/frozen/author_dhbv_seed47_float64_replay_receipt.json",
+      "selected_epoch": 200,
+      "worst_historical_gauge": "09418500",
+      "maximum_intervention_total_daily_residual_mm": 1.8189894035458565e-12,
+      "maximum_intervention_total_cumulative_drift_mm": 6.821210263296962e-12,
+      "passes_prespecified_tolerance_in_float64": true,
+      "maximum_historical_cumulative_residual_mm": 0.0015000000000247253,
+      "residual_in_floor_units": 150.00000000247252,
+      "distance_from_nearest_integer_floor_count": 2.4725181901885662e-09,
+      "consistent_with_floor": true
+    },
+    "climatology_pet_seed11": {
+      "receipt": "outputs/sensitivity_pet_climatology/author_dhbv_seed11_pet_climatology_float64_replay_receipt.json",
+      "selected_epoch": 200,
+      "worst_historical_gauge": "11404300",
+      "maximum_intervention_total_daily_residual_mm": 1.000000008673644e-05,
+      "maximum_intervention_total_cumulative_drift_mm": 0.0007390506213103353,
+      "passes_prespecified_tolerance_in_float64": true,
+      "maximum_historical_cumulative_residual_mm": 0.001199999999528245,
+      "residual_in_floor_units": 119.9999999528245,
+      "distance_from_nearest_integer_floor_count": 4.71755043918165e-08,
+      "consistent_with_floor": true
+    },
+    "climatology_pet_seed29": {
+      "receipt": "outputs/sensitivity_pet_climatology/author_dhbv_seed29_pet_climatology_float64_replay_receipt.json",
+      "selected_epoch": 200,
+      "worst_historical_gauge": "11143250",
+      "maximum_intervention_total_daily_residual_mm": 1.0000000060017555e-05,
+      "maximum_intervention_total_cumulative_drift_mm": 0.0009099720148579848,
+      "passes_prespecified_tolerance_in_float64": true,
+      "maximum_historical_cumulative_residual_mm": 0.001114051180522324,
+      "residual_in_floor_units": 111.4051180522324,
+      "distance_from_nearest_integer_floor_count": 0.40511805223239605,
+      "consistent_with_floor": true
+    },
+    "climatology_pet_seed47": {
+      "receipt": "outputs/sensitivity_pet_climatology/author_dhbv_seed47_pet_climatology_float64_replay_receipt.json",
+      "selected_epoch": 200,
+      "worst_historical_gauge": "09418500",
+      "maximum_intervention_total_daily_residual_mm": 1.0000000091991978e-05,
+      "maximum_intervention_total_cumulative_drift_mm": 0.000910000000281741,
+      "passes_prespecified_tolerance_in_float64": true,
+      "maximum_historical_cumulative_residual_mm": 0.0015000000000247253,
+      "residual_in_floor_units": 150.00000000247252,
+      "distance_from_nearest_integer_floor_count": 2.4725181901885662e-09,
+      "consistent_with_floor": true
+    }
+  }
+}

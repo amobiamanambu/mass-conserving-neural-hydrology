@@ -1,0 +1,122 @@
+{
+  "model": "author_mcp_ma3",
+  "note": "No weights were updated; gradients only.",
+  "cases": [
+    {
+      "label": "seed11_selected",
+      "seed": 11,
+      "checkpoint_epoch": 250,
+      "batches_checked": 64,
+      "nan_loss_batches": 0,
+      "nonfinite_gradient_batches": 0,
+      "median_finite_gradient_norm": 1.534161925315857,
+      "parameters_with_nonfinite_gradients": {},
+      "first_nonfinite_batch": null
+    },
+    {
+      "label": "seed29_last_good",
+      "seed": 29,
+      "checkpoint_epoch": 100,
+      "batches_checked": 64,
+      "nan_loss_batches": 0,
+      "nonfinite_gradient_batches": 0,
+      "median_finite_gradient_norm": 1.2201330661773682,
+      "parameters_with_nonfinite_gradients": {},
+      "first_nonfinite_batch": null
+    },
+    {
+      "label": "seed29_stuck",
+      "seed": 29,
+      "checkpoint_epoch": 110,
+      "batches_checked": 64,
+      "nan_loss_batches": 0,
+      "nonfinite_gradient_batches": 62,
+      "median_finite_gradient_norm": 2.0645668270112768e+17,
+      "parameters_with_nonfinite_gradients": {
+        "parameter_net.0.weight": 33,
+        "parameter_net.0.bias": 33,
+        "parameter_net.2.weight": 33,
+        "parameter_net.2.bias": 33,
+        "parameter_net.4.weight": 33,
+        "parameter_net.4.bias": 33
+      },
+      "first_nonfinite_batch": {
+        "batch_index": 0,
+        "loss": 2.1806070804595947,
+        "internal": {
+          "raw_gate_abs_max": 10.672450065612793,
+          "c_mean_min": 164.35816955566406,
+          "c_std_min": 29.52801513671875,
+          "route_mean_min": 5.817596435546875,
+          "route_std_min": 0.2515547275543213,
+          "main_storage_min_mm": 0.0,
+          "main_storage_max_mm": 2970.577880859375,
+          "fraction_main_storage_below_1e-6_mm": 0.006710188463330269,
+          "routing_storage_min_mm": 0.0,
+          "q_max_mm_day": 105.01541137695312,
+          "q_min_mm_day": 0.0
+        },
+        "float64_gradient_norm": NaN,
+        "largest_abs_gradient": NaN,
+        "gradients_finite_but_float32_norm_overflows": false,
+        "anomaly_error": "Function 'MulBackward0' returned nan values in its 0th output.",
+        "anomaly_forward_trace": [
+          "Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.",
+          "Error detected in MulBackward0. Traceback of forward call that caused the error:\n  File \"${PROJECT_ROOT}/adaptive_training/05_diagnose_mcp_gradients.py\", line 166, in <module>\n    main()\n  File \"${PROJECT_ROOT}/adaptive_training/05_diagnose_mcp_gradients.py\", line 156, in main\n    result = diagnose(label, seed, epoch)\n  File \"${PROJECT_ROOT}/adaptive_training/05_diagnose_mcp_gradients.py\", line 136, in diagnose\n    loss2, _ = loss_obj(model(data), data)\n  File \"${CONDA_ENV}/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"${CONDA_ENV}/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"${PROJECT_ROOT}/vendor/neuralhydrology_literature_adapter/neuralhydrology/modelzoo/literatureconservingmodels.py\", line 282, in forward\n    result = self._core(\n  File \"${PROJECT_ROOT}/vendor/neuralhydrology_literature_adapter/neuralhydrology/modelzoo/literatureconservingmodels.py\", line 218, in _core\n    output_gate = output_scale * torch.sigmoid(\n (Triggered internally at ${PYTORCH_BUILD_ROOT}/pytorch/torch/csrc/autograd/python_anomaly_mode.cpp:127.)"
+        ]
+      }
+    },
+    {
+      "label": "seed47_last_good",
+      "seed": 47,
+      "checkpoint_epoch": 70,
+      "batches_checked": 64,
+      "nan_loss_batches": 0,
+      "nonfinite_gradient_batches": 0,
+      "median_finite_gradient_norm": 1.0645429491996765,
+      "parameters_with_nonfinite_gradients": {},
+      "first_nonfinite_batch": null
+    },
+    {
+      "label": "seed47_stuck",
+      "seed": 47,
+      "checkpoint_epoch": 90,
+      "batches_checked": 64,
+      "nan_loss_batches": 0,
+      "nonfinite_gradient_batches": 64,
+      "median_finite_gradient_norm": null,
+      "parameters_with_nonfinite_gradients": {
+        "parameter_net.0.weight": 51,
+        "parameter_net.0.bias": 51,
+        "parameter_net.2.weight": 51,
+        "parameter_net.2.bias": 51,
+        "parameter_net.4.weight": 51,
+        "parameter_net.4.bias": 51
+      },
+      "first_nonfinite_batch": {
+        "batch_index": 0,
+        "loss": 1.5940479040145874,
+        "internal": {
+          "raw_gate_abs_max": 12.367587089538574,
+          "c_mean_min": 37.656089782714844,
+          "c_std_min": 61.01682662963867,
+          "route_mean_min": 0.24615629017353058,
+          "route_std_min": 0.2716926038265228,
+          "main_storage_min_mm": 0.0,
+          "main_storage_max_mm": 2524.29248046875,
+          "fraction_main_storage_below_1e-6_mm": 0.012264554388821125,
+          "routing_storage_min_mm": 0.0,
+          "q_max_mm_day": 31.936355590820312,
+          "q_min_mm_day": 0.0
+        },
+        "float64_gradient_norm": 1.8605845046215358e+32,
+        "largest_abs_gradient": 3.789707776545646e+31,
+        "gradients_finite_but_float32_norm_overflows": true,
+        "anomaly_error": null,
+        "anomaly_forward_trace": [
+          "Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging."
+        ]
+      }
+    }
+  ]
+}

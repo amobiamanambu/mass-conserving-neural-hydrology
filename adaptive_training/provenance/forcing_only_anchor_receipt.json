@@ -1,0 +1,19 @@
+{
+  "archive": "data/forcing_only_anchors.npz",
+  "archive_sha256": "2676c37a7856a4dfcc41296dea4775c3f0c114d47a95c6cb7cc808b724cdfbac",
+  "target_gauges": 3982,
+  "anchors_per_gauge": 12,
+  "gauges_with_complete_anchors": 3982,
+  "temperature_filter_fallback_gauges": 0,
+  "selection_period": [
+    "2019-01-01",
+    "2024-12-31"
+  ],
+  "selection_rule": "12 quantiles (0.05--0.95) of antecedent 30-day P-PET during June--September; T > 5 C when at least 12 candidates exist",
+  "uses_target_discharge": false,
+  "uses_model_predictions_or_states": false,
+  "target_list_sha256": "7e3bcda171c6a1b1e5175e3bbf489b1533c0aabba47e0a65f3fe7455e4104c3a",
+  "forcing_sha256": "2156194bc092ca45453a464839339aa738a92b8fc84ad196f9e1fef8fd35899e",
+  "dates_sha256": "d814e728f276866470109f57db7d94becc07aa9ca24408a45b28a775be3cfe4d",
+  "station_index_sha256": "6e92bac4d8f82d9c48a6cffadbe536160b38ec615c054eddf7c4c94add8ae367"
+}

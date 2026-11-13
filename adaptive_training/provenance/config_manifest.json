@@ -1,0 +1,51 @@
+{
+  "models": [
+    "hybrid_shm",
+    "mclstm",
+    "author_dhbv",
+    "author_mcp_ma3",
+    "ported_fluxgate"
+  ],
+  "seeds": [
+    11,
+    29,
+    47
+  ],
+  "split": {
+    "donor": 500,
+    "development": 200,
+    "target": 3982
+  },
+  "static_feature_count": 95,
+  "excluded_zero_variance_features": [
+    "geology__bm",
+    "geology__gyp",
+    "geology__m",
+    "geology__rga"
+  ],
+  "candidate_epochs": [
+    10,
+    20,
+    30
+  ],
+  "epochs": 30,
+  "updates_per_epoch": 64,
+  "target_information_used": false,
+  "files": [
+    "configs/full_hybrid_shm_seed11.yml",
+    "configs/full_hybrid_shm_seed29.yml",
+    "configs/full_hybrid_shm_seed47.yml",
+    "configs/full_mclstm_seed11.yml",
+    "configs/full_mclstm_seed29.yml",
+    "configs/full_mclstm_seed47.yml",
+    "configs/full_author_dhbv_seed11.yml",
+    "configs/full_author_dhbv_seed29.yml",
+    "configs/full_author_dhbv_seed47.yml",
+    "configs/full_author_mcp_ma3_seed11.yml",
+    "configs/full_author_mcp_ma3_seed29.yml",
+    "configs/full_author_mcp_ma3_seed47.yml",
+    "configs/full_ported_fluxgate_seed11.yml",
+    "configs/full_ported_fluxgate_seed29.yml",
+    "configs/full_ported_fluxgate_seed47.yml"
+  ]
+}

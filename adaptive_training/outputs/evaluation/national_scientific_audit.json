@@ -1,0 +1,90 @@
+{
+  "population_verified": true,
+  "target_gauges": 3982,
+  "forcing_anchor_gauges": 3982,
+  "closure_eligible_models": [
+    "hybrid_shm",
+    "author_mcp_ma3",
+    "ported_fluxgate"
+  ],
+  "national": {
+    "evaluable_pairs_kge_0_30": 3,
+    "materially_disagreeing_pairs_kge_0_30": 3,
+    "high_skill_evaluable_pairs_kge_0_60": 3,
+    "high_skill_convergent_pairs_kge_0_60": []
+  },
+  "reference_only": {
+    "architecture_summary": [
+      {
+        "model": "hybrid_shm",
+        "closure_eligible": true,
+        "finite_kge_gauges": 413,
+        "median_target_kge": 0.6140815935071764,
+        "fraction_kge_ge_0_30": 0.8426150121065376,
+        "fraction_kge_ge_0_60": 0.5351089588377724,
+        "finite_r7_gauges": 413,
+        "median_r7": 0.7238474185426744
+      },
+      {
+        "model": "mclstm",
+        "closure_eligible": true,
+        "finite_kge_gauges": 413,
+        "median_target_kge": 0.5453237440879528,
+        "fraction_kge_ge_0_30": 0.7966101694915254,
+        "fraction_kge_ge_0_60": 0.3898305084745763,
+        "finite_r7_gauges": 413,
+        "median_r7": 0.5537462170052843
+      },
+      {
+        "model": "author_dhbv",
+        "closure_eligible": true,
+        "finite_kge_gauges": 413,
+        "median_target_kge": 0.5866591197925763,
+        "fraction_kge_ge_0_30": 0.8523002421307506,
+        "fraction_kge_ge_0_60": 0.4818401937046004,
+        "finite_r7_gauges": 413,
+        "median_r7": 0.4421932243660867
+      },
+      {
+        "model": "author_mcp_ma3",
+        "closure_eligible": true,
+        "finite_kge_gauges": 413,
+        "median_target_kge": 0.4681303961214901,
+        "fraction_kge_ge_0_30": 0.7263922518159807,
+        "fraction_kge_ge_0_60": 0.234866828087167,
+        "finite_r7_gauges": 412,
+        "median_r7": 0.9828106122430028
+      },
+      {
+        "model": "ported_fluxgate",
+        "closure_eligible": true,
+        "finite_kge_gauges": 413,
+        "median_target_kge": 0.6144242944993139,
+        "fraction_kge_ge_0_30": 0.8232445520581114,
+        "fraction_kge_ge_0_60": 0.5254237288135594,
+        "finite_r7_gauges": 413,
+        "median_r7": 0.5885684270806948
+      }
+    ],
+    "evaluable_pairs_kge_0_30": 10,
+    "materially_disagreeing_pairs_kge_0_30": 10,
+    "high_skill_evaluable_pairs_kge_0_60": 10,
+    "high_skill_convergent_pairs_kge_0_60": []
+  },
+  "central_non_guarantee_supported": true,
+  "source_hashes": {
+    "${PROJECT_ROOT}/adaptive_training/outputs/evaluation/national_gauge_metrics.csv.gz": "629eb04114a1a00ac07c29523b83f84474ebad98e9132315de7b2f9d59947d4e",
+    "${PROJECT_ROOT}/adaptive_training/outputs/evaluation/national_pairwise_skill_conditioned_summary.csv": "35c0d3b94119a5670e87b42daaeb34e0a879398d436879c0652f07fa433bbe76",
+    "${PROJECT_ROOT}/adaptive_training/outputs/evaluation/national_framework_discovery.json": "ac06b647bc98d8adafed02976cabf46775425a39bb89c8ab0a17119083255aa3",
+    "${PROJECT_ROOT}/adaptive_training/data/forcing_only_anchors.npz": "2676c37a7856a4dfcc41296dea4775c3f0c114d47a95c6cb7cc808b724cdfbac",
+    "${PROJECT_ROOT}/adaptive_training/provenance/forcing_only_anchor_receipt.json": "f50d0361b3a86a7402512df29f22cbfc28b9009d16e833bfd051299317130624",
+    "${PROJECT_ROOT}/adaptive_training/provenance/preopening_analysis_plan.json": "f02b69a8d5cf1b6f0fd134142cd5b96039c7698308093712b0232f14f4ad6f8f",
+    "${PROJECT_ROOT}/adaptive_training/provenance/protocol_amendment_forcing_only_anchors.json": "c4b074087a34110a9daf069b5b868927dfbeaf63d889a3a8c5df241116b840db",
+    "${PROJECT_ROOT}/adaptive_training/provenance/protocol_amendment_mcp_stable_partition.json": "a2a8c35396693620daeb851b8063654f37bceb510460130f0914f831a0002356",
+    "${PROJECT_ROOT}/adaptive_training/provenance/stable_mcp_partition_validation.json": "5c602f1ce0686584d88579682636bafcb245982952cb3d74425af2b4988b155b",
+    "${PROJECT_ROOT}/adaptive_training/provenance/preopening_freeze_registry.json": "7178552b0b46ed9cc45180233c67f3ac4089459e44e1e98f1e790c50c5d7eaae",
+    "${PROJECT_ROOT}/adaptive_training/data/source_inputs/reference_only/combined_architecture_summary.csv": "989613be0165cf2ec47b05b5bdda37fa0eb0d0f6496e502fde2db3793486b350",
+    "${PROJECT_ROOT}/adaptive_training/data/source_inputs/reference_only/combined_pairwise_skill_conditioned_summary.csv": "803f1c1b2030f29215603b8432f29204643897ce2f39e4c95bb4767d22474412",
+    "${PROJECT_ROOT}/adaptive_training/data/source_inputs/nldi/river_network_edges.csv": "b3d5e772264caf89a6b787c889e76a2453055c738675d0fe4f00b37e6a445fc9"
+  }
+}

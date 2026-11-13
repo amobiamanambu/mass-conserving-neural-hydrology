@@ -1,0 +1,29 @@
+{
+  "model": "author_mcp_ma3",
+  "seed": 11,
+  "status": "converged",
+  "target_discharge_accessed": false,
+  "rule": {
+    "block_epochs": 10,
+    "material_improvement": 0.005,
+    "halve_after_blocks": 3,
+    "maximum_halvings": 3,
+    "stop_after_blocks_at_final_rate": 5,
+    "maximum_epoch": 400
+  },
+  "peak_learning_rate": 0.002,
+  "learning_rate_schedule": {
+    "31": 0.002,
+    "111": 0.001,
+    "161": 0.0005,
+    "191": 0.00025
+  },
+  "halvings": 3,
+  "latest_epoch": 260,
+  "stopping_epoch": 260,
+  "plateau_reached": true,
+  "selected_epoch": 250,
+  "selected_median_development_kge": 0.5042352938934256,
+  "epoch30_median_development_kge": 0.3943697547005064,
+  "history_csv": "development_history_author_mcp_ma3_seed11.csv"
+}

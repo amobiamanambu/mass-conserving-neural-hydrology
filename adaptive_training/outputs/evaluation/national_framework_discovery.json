@@ -1,0 +1,22 @@
+{
+  "population": "3,982 unseen gauges after a 500/200 donor/development split",
+  "gauges_with_valid_forcing_anchors": 3982,
+  "target_discharge_opened_after_freeze": true,
+  "preopening_registry": "provenance/preopening_freeze_registry.json",
+  "preopening_registry_sha256": "7178552b0b46ed9cc45180233c67f3ac4089459e44e1e98f1e790c50c5d7eaae",
+  "closure_eligible_models": [
+    "hybrid_shm",
+    "author_mcp_ma3",
+    "ported_fluxgate"
+  ],
+  "closure_ineligible_models": [
+    "mclstm",
+    "author_dhbv"
+  ],
+  "evaluable_pairs_at_kge_0_30": 3,
+  "materially_disagreeing_pairs_at_kge_0_30": 3,
+  "high_skill_evaluable_pairs_at_kge_0_60": 3,
+  "convergent_pairs_at_kge_0_60": [],
+  "central_non_guarantee_supported": true,
+  "interpretation": "A valid skill-conditioned counterexample supports only the narrow non-guarantee claim. Convergent pairs are retained and reported."
+}

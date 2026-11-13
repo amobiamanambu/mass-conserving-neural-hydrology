@@ -1,0 +1,30 @@
+{
+  "created_by": "${PROJECT_ROOT}/scripts/01_prepare_generic_dataset.py",
+  "source_directory": "${LEGACY_SOURCE}/data/processed",
+  "split_counts": {
+    "target": 3982,
+    "donor": 500,
+    "development": 200
+  },
+  "dates": [
+    "2003-10-05",
+    "2024-12-31"
+  ],
+  "forcing_shape": [
+    4682,
+    7759,
+    5
+  ],
+  "target_discharge_loaded": false,
+  "target_framework_value_2019_2024": "dummy zero used only for sample construction",
+  "static_feature_count": 99,
+  "source_sha256": {
+    "dates.npy": "d814e728f276866470109f57db7d94becc07aa9ca24408a45b28a775be3cfe4d",
+    "forcing.npy": "2156194bc092ca45453a464839339aa738a92b8fc84ad196f9e1fef8fd35899e",
+    "q_donor_development.npy": "8c55b70e8dc74950cf897c8985121b1971e9c85ff3855321c6e751183043fb64",
+    "station_index.csv": "6e92bac4d8f82d9c48a6cffadbe536160b38ec615c054eddf7c4c94add8ae367",
+    "static_normalization.csv": "56eb80cf334992f1e3249aa62d37daeed3f11cd140f2902719e67fd39d493625"
+  },
+  "station_split_sha256": "2045e2b2e323a3e73f09ca625b45bc21d315c1e2bda9623b7a6f9d36f11187f1",
+  "explicitly_not_read": "data/evaluation/q_target_2019_2024.npy"
+}

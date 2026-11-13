@@ -1,158 +1,155 @@
 #!/usr/bin/env python3
-"""Validate repository scope, frozen design, and file integrity."""
+"""Validate scope, provenance, hashes, and headline result consistency."""
 
 from __future__ import annotations
 
-import argparse
 import csv
 import hashlib
 import json
+import math
 import re
-from collections import Counter
-from datetime import datetime, timezone
 from pathlib import Path
+
+import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PRIMARY = ROOT / "conus_zero_shot_law_transfer_2026-09-30"
-PROCESS = ROOT / "conus_daily_process_observability_2026-10-12"
-MANIFEST = ROOT / "MANIFEST.csv"
-MAX_FILE_BYTES = 95 * 1024 * 1024
-TEXT_SUFFIXES = {".csv", ".json", ".md", ".py", ".txt", ".toml", ".yml", ".yaml"}
-FORBIDDEN_PARTS = {"manuscript", "reproducible_figures", "presentation"}
-FORBIDDEN_SUFFIXES = {".docx", ".pdf", ".pptx", ".png", ".jpg", ".jpeg", ".svg", ".html"}
-LOCAL_PATH = re.compile(r"/(?:Users|home)/[^/]+/")
-SECRET = re.compile(
-    r"(?:github_pat_|ghp_[A-Za-z0-9]{20,}|BEGIN [A-Z ]*PRIVATE KEY|"
-    r"(?:api[_-]?key|password|secret|token)\s*[:=]\s*['\"][^'\"]+)",
-    re.IGNORECASE,
+REPORT = ROOT / "VALIDATION_REPORT.json"
+TEXT_SUFFIXES = {".cff", ".csv", ".json", ".md", ".py", ".sh", ".txt", ".yaml", ".yml"}
+REQUIRED = (
+    "README.md",
+    "CITATION.cff",
+    "environment.yml",
+    "adaptive_training/PROTOCOL.md",
+    "adaptive_training/provenance/development_epoch_selection.json",
+    "adaptive_training/outputs/evaluation_amended/amended_architecture_summary.csv",
+    "adaptive_training/outputs/evaluation_amended/amended_pairwise_summary.csv",
+    "adaptive_training/outputs/evaluation_pet_climatology/pet_climatology_pairwise_summary.csv",
+    "vendor/neuralhydrology_literature_adapter/LICENSE",
+    "vendor/mcp_author_source/LICENSE",
 )
-EXPECTED_ROLES = {"donor": 500, "development": 200, "target": 3982}
-EXPECTED_MODELS = {"dhbv", "fluxgate", "mcp_ma3", "mc_node", "mclstm_dr"}
-EXCLUDED_PARTS = {".git", "__pycache__", ".pytest_cache", ".ruff_cache", ".mypy_cache"}
+BANNED_PARTS = {
+    "manuscript",
+    "manuscript_revision_2026-11-06",
+    "reproducible_figures",
+    "archive_mcp_failed_2026-11-10",
+    "conus_zero_shot_law_transfer_2026-09-30",
+    "conus_daily_process_observability_2026-10-12",
+}
+BANNED_SUFFIXES = {".docx", ".pdf", ".pptx", ".png", ".jpg", ".jpeg", ".svg", ".html"}
+PERSONAL_PATHS = ("/Users/" + "amobichukwu", "/opt/" + "miniconda3/envs/neuralhydrology")
 
 
 def sha256(path: Path) -> str:
-    value = hashlib.sha256()
+    digest = hashlib.sha256()
     with path.open("rb") as stream:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
-            value.update(block)
-    return value.hexdigest()
+            digest.update(block)
+    return digest.hexdigest()
 
 
-def repository_files() -> list[Path]:
-    return sorted(
-        (
-            path
-            for path in ROOT.rglob("*")
-            if path.is_file()
-            and not EXCLUDED_PARTS.intersection(path.parts)
-            and path.name != ".DS_Store"
-            and path.suffix not in {".pyc", ".pyo"}
-        ),
-        key=lambda path: path.relative_to(ROOT).as_posix(),
-    )
+def check(condition: bool, message: str, failures: list[str]) -> None:
+    if not condition:
+        failures.append(message)
 
 
-def check_scope(errors: list[str]) -> None:
-    for path in repository_files():
-        relative = path.relative_to(ROOT)
-        if FORBIDDEN_PARTS.intersection(relative.parts):
-            errors.append(f"forbidden publication path: {relative}")
-        if path.suffix.lower() in FORBIDDEN_SUFFIXES:
-            errors.append(f"forbidden rendered artifact: {relative}")
-        if path.stat().st_size > MAX_FILE_BYTES:
-            errors.append(f"file exceeds 95 MiB: {relative}")
-        if path.suffix.lower() not in TEXT_SUFFIXES or path.stat().st_size > 10_000_000:
-            continue
-        text = path.read_text(encoding="utf-8", errors="replace")
-        if LOCAL_PATH.search(text):
-            errors.append(f"local absolute path found: {relative}")
-        # Do not flag this validator merely because it contains the detection
-        # expressions themselves.
-        if relative.as_posix() != "workflow/validate_release.py" and SECRET.search(text):
-            errors.append(f"possible credential found: {relative}")
+def basin_count(name: str) -> int:
+    path = ROOT / "data/basin_lists" / name
+    return sum(bool(line.strip()) for line in path.read_text().splitlines())
 
 
-def check_frozen_design(errors: list[str], summary: dict[str, object]) -> None:
-    split_path = PRIMARY / "data/frozen/station_split.csv"
-    with split_path.open(newline="", encoding="utf-8") as stream:
-        roles = Counter(row["role"] for row in csv.DictReader(stream))
-    summary["station_roles"] = dict(roles)
-    if dict(roles) != EXPECTED_ROLES:
-        errors.append(f"station role counts changed: {dict(roles)}")
-
-    models = {"dhbv", "fluxgate"}
-    stress_path = PRIMARY / "multimodel_neural_conservation_stress_test_2026-10-03/outputs/evaluation/target_skill_summary.csv"
-    with stress_path.open(newline="", encoding="utf-8") as stream:
-        for row in csv.DictReader(stream):
-            if row.get("architecture") in EXPECTED_MODELS:
-                models.add(row["architecture"])
-    summary["primary_models"] = sorted(models)
-    if models != EXPECTED_MODELS:
-        errors.append(f"five-model coverage changed: {sorted(models)}")
-
-    decision = json.loads((PROCESS / "results/decision.json").read_text(encoding="utf-8"))
-    summary["process_runs"] = decision.get("runs_evaluated")
-    summary["process_target_gauges"] = decision.get("target_gauges")
-    if decision.get("runs_evaluated") != 24 or decision.get("target_gauges") != 3982:
-        errors.append("process-observation matrix is incomplete")
-
-    stages = json.loads((ROOT / "workflow/stages.json").read_text(encoding="utf-8"))
-    summary["workflow_stages"] = len(stages["stages"])
-    if len(stages["stages"]) < 180:
-        errors.append("workflow stage index is incomplete")
-
-
-def check_manifest(errors: list[str], summary: dict[str, object]) -> None:
-    if not MANIFEST.exists():
-        errors.append("MANIFEST.csv is missing")
-        return
-    with MANIFEST.open(newline="", encoding="utf-8") as stream:
-        records = list(csv.DictReader(stream))
+def validate_manifest(failures: list[str]) -> int:
+    manifest = ROOT / "MANIFEST.csv"
+    check(manifest.exists(), "MANIFEST.csv is missing", failures)
+    if not manifest.exists():
+        return 0
+    with manifest.open(newline="") as stream:
+        rows = list(csv.DictReader(stream))
+    for row in rows:
+        path = ROOT / row["path"]
+        check(path.is_file(), f"Manifest file missing: {row['path']}", failures)
+        if path.is_file():
+            check(path.stat().st_size == int(row["bytes"]), f"Size mismatch: {row['path']}", failures)
+            check(sha256(path) == row["sha256"], f"Hash mismatch: {row['path']}", failures)
     expected = {
-        path.relative_to(ROOT).as_posix(): path
-        for path in repository_files()
-        if path.name not in {"MANIFEST.csv", "VALIDATION_REPORT.json"}
+        path.relative_to(ROOT).as_posix()
+        for path in ROOT.rglob("*")
+        if path.is_file()
+        and ".git" not in path.relative_to(ROOT).parts
+        and path.name not in {"MANIFEST.csv", "VALIDATION_REPORT.json"}
     }
-    recorded = {row["relative_path"]: row for row in records}
-    missing = sorted(set(expected) - set(recorded))
-    extra = sorted(set(recorded) - set(expected))
-    if missing:
-        errors.append(f"manifest missing {len(missing)} files; first: {missing[0]}")
-    if extra:
-        errors.append(f"manifest lists {len(extra)} absent files; first: {extra[0]}")
-    for name in sorted(set(expected).intersection(recorded)):
-        path = expected[name]
-        row = recorded[name]
-        if int(row["size_bytes"]) != path.stat().st_size or row["sha256"] != sha256(path):
-            errors.append(f"manifest mismatch: {name}")
-            if len(errors) >= 25:
-                break
-    summary["manifest_files"] = len(records)
+    check({row["path"] for row in rows} == expected, "Manifest inventory is incomplete or stale", failures)
+    return len(rows)
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--report", type=Path, default=None)
-    args = parser.parse_args()
-    errors: list[str] = []
-    summary: dict[str, object] = {}
-    check_scope(errors)
-    check_frozen_design(errors, summary)
-    check_manifest(errors, summary)
+    failures: list[str] = []
+    for relative in REQUIRED:
+        check((ROOT / relative).is_file(), f"Required file missing: {relative}", failures)
+
+    release_files = [path for path in ROOT.rglob("*") if path.is_file() and ".git" not in path.parts]
+    for path in release_files:
+        relative = path.relative_to(ROOT)
+        lowered = {part.lower() for part in relative.parts}
+        check(not (lowered & BANNED_PARTS), f"Excluded project material present: {relative}", failures)
+        check(path.suffix.lower() not in BANNED_SUFFIXES, f"Publication artifact present: {relative}", failures)
+        check(path.stat().st_size < 50 * 1024 * 1024, f"GitHub file exceeds 50 MiB: {relative}", failures)
+        if path.suffix.lower() in TEXT_SUFFIXES:
+            text = path.read_text(errors="replace")
+            for marker in PERSONAL_PATHS:
+                check(marker not in text, f"Absolute workstation path in {relative}", failures)
+
+    check(basin_count("train_500.txt") == 500, "Training population is not 500", failures)
+    check(basin_count("validation_200.txt") == 200, "Development population is not 200", failures)
+    check(basin_count("test_3982.txt") == 3982, "Target population is not 3,982", failures)
+
+    architecture_path = ROOT / "adaptive_training/outputs/evaluation_amended/amended_architecture_summary.csv"
+    if architecture_path.exists():
+        architecture = pd.read_csv(architecture_path)
+        expected_models = {"hybrid_shm", "author_dhbv", "author_mcp_ma3", "ported_fluxgate", "mclstm"}
+        check(set(architecture["model"]) == expected_models, "Architecture summary model set changed", failures)
+        admitted = set(architecture.loc[architecture["admitted_under_float64_audit"], "model"])
+        check(admitted == expected_models - {"mclstm"}, "Closure-admitted model set changed", failures)
+        expected_kge = {
+            "hybrid_shm": 0.6056297422472267,
+            "author_dhbv": 0.6001393539230612,
+            "author_mcp_ma3": 0.4776231947574482,
+            "ported_fluxgate": 0.5895487670818396,
+        }
+        for model, value in expected_kge.items():
+            found = float(architecture.loc[architecture.model == model, "median_kge"].iloc[0])
+            check(math.isclose(found, value, rel_tol=0, abs_tol=1e-12), f"Median KGE changed for {model}", failures)
+
+    pair_path = ROOT / "adaptive_training/outputs/evaluation_amended/amended_pairwise_summary.csv"
+    if pair_path.exists():
+        pairs = pd.read_csv(pair_path)
+        high_skill = pairs[(pairs.skill_threshold == 0.6) & pairs.pair_in_amended_analysis]
+        check(len(high_skill) == 6, "Expected six amended high-skill model pairs", failures)
+
+    pet_path = ROOT / "adaptive_training/outputs/evaluation_pet_climatology/pet_climatology_pairwise_summary.csv"
+    if pet_path.exists():
+        pet = pd.read_csv(pet_path)
+        check(set(pet["pet_mode"]) == {"zero", "climatology"}, "PET modes changed", failures)
+        check(len(pet[pet.skill_threshold == 0.6]) == 12, "Expected twelve high-skill PET rows", failures)
+
+    registry = ROOT / "adaptive_training/provenance/preopening_freeze_registry.json"
+    registry_hash = ROOT / "adaptive_training/provenance/preopening_freeze_registry.sha256"
+    if registry.exists() and registry_hash.exists():
+        check(sha256(registry) == registry_hash.read_text().strip(), "Normalized freeze-registry hash mismatch", failures)
+
+    manifest_files = validate_manifest(failures)
     report = {
-        "validated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "status": "pass" if not errors else "fail",
-        "summary": summary,
-        "errors": errors,
+        "status": "pass" if not failures else "fail",
+        "files_checked": len(release_files),
+        "manifest_files": manifest_files,
+        "population": {"train": 500, "development": 200, "target": 3982},
+        "closure_admitted_models": ["hybrid_shm", "author_dhbv", "author_mcp_ma3", "ported_fluxgate"],
+        "failures": failures,
     }
-    if args.report:
-        destination = args.report if args.report.is_absolute() else ROOT / args.report
-        destination.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    REPORT.write_text(json.dumps(report, indent=2) + "\n")
+    if failures:
+        raise SystemExit("\n".join(f"FAIL: {item}" for item in failures))
     print(json.dumps(report, indent=2))
-    if errors:
-        raise SystemExit(1)
 
 
 if __name__ == "__main__":

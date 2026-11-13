@@ -1,0 +1,14 @@
+epochs: 220
+learning_rate:
+  0: 0.002
+  31: 0.002
+  111: 0.001
+  161: 0.0005
+  191: 0.00025
+validate_every: null
+save_weights_every: 10
+save_validation_results: false
+verbose: 0
+allow_subsequent_nan_losses: 5
+skip_nonfinite_gradient_steps: true
+float64_gradient_clipping: true

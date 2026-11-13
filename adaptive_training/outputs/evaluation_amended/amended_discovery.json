@@ -1,0 +1,75 @@
+{
+  "prespecified_closure_eligible_models": [
+    "hybrid_shm",
+    "author_mcp_ma3",
+    "ported_fluxgate"
+  ],
+  "admitted_under_float64_audit": [
+    "hybrid_shm",
+    "author_dhbv",
+    "author_mcp_ma3",
+    "ported_fluxgate"
+  ],
+  "float64_replay_available_for_dhbv": true,
+  "maximum_absolute_r7_change_from_float32_replay": 4.595067174539835e-07,
+  "amended_pairs": 6,
+  "amended_materially_disagreeing_pairs_kge_0_30": 6,
+  "amended_materially_disagreeing_pairs_kge_0_60": 6,
+  "amended_convergent_pairs_kge_0_60": [],
+  "amended_pairs_whose_cross_gap_exceeds_within_seed_gap_kge_0_60": [
+    {
+      "first": "hybrid_shm",
+      "second": "author_dhbv"
+    },
+    {
+      "first": "hybrid_shm",
+      "second": "author_mcp_ma3"
+    },
+    {
+      "first": "hybrid_shm",
+      "second": "ported_fluxgate"
+    },
+    {
+      "first": "author_dhbv",
+      "second": "author_mcp_ma3"
+    },
+    {
+      "first": "author_mcp_ma3",
+      "second": "ported_fluxgate"
+    }
+  ],
+  "central_non_guarantee_supported_amended": true,
+  "common_high_skill_sets": {
+    "prespecified_three": {
+      "models": [
+        "hybrid_shm",
+        "author_mcp_ma3",
+        "ported_fluxgate"
+      ],
+      "gauges_kge_ge_0_60_in_all": 1014
+    },
+    "admitted": {
+      "models": [
+        "hybrid_shm",
+        "author_dhbv",
+        "author_mcp_ma3",
+        "ported_fluxgate"
+      ],
+      "gauges_kge_ge_0_60_in_all": 982
+    },
+    "all_five": {
+      "models": [
+        "hybrid_shm",
+        "mclstm",
+        "author_dhbv",
+        "author_mcp_ma3",
+        "ported_fluxgate"
+      ],
+      "gauges_kge_ge_0_60_in_all": 630
+    }
+  },
+  "inputs_sha256": {
+    "outputs/evaluation/national_gauge_metrics.csv.gz": "629eb04114a1a00ac07c29523b83f84474ebad98e9132315de7b2f9d59947d4e",
+    "provenance/preopening_freeze_registry.json": "7178552b0b46ed9cc45180233c67f3ac4089459e44e1e98f1e790c50c5d7eaae"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "status": "pass",
+  "target_gauges": 3982,
+  "target_days": 2192,
+  "forcing_anchors": {
+    "gauges": 3982,
+    "anchors_per_gauge": 12,
+    "archive_sha256": "2676c37a7856a4dfcc41296dea4775c3f0c114d47a95c6cb7cc808b724cdfbac",
+    "uses_target_discharge": false,
+    "uses_predictions_or_states": false
+  },
+  "closure": {
+    "hybrid_shm": {
+      "all_three_seeds_pass": true,
+      "receipt_sha256": {
+        "11": "10fd4706c2c19f629b2d5ac925cef8884adbb258e089f41f02b084392c29d2b5",
+        "29": "c2fe5fe932e312aa729e29cb4dc2057216f1baad7f61ab4e3fa7c029c1fd5b48",
+        "47": "6ca8a9afd255a3777dff414f470d2945ace0eef7f7205d71b02cc34cc8de221f"
+      }
+    },
+    "mclstm": {
+      "all_three_seeds_pass": false,
+      "receipt_sha256": {
+        "11": "c0e10e29c68fcc14ff5f4cfaf44bc530cd92b9f28e6f3c610f830acf1876c40e",
+        "29": "103f31acec9b65a8e90fa66f09d582f8024c99cd7aa0ef0f948ad0e5cace5c9d",
+        "47": "62a2528995447ce05f7479d133e1812eda7bf99d468596e2890d396b266f2922"
+      }
+    },
+    "author_dhbv": {
+      "all_three_seeds_pass": false,
+      "receipt_sha256": {
+        "11": "e1b25d0c4caf20b1e4f98437947695f38d7db0d19916e909f1bba9d62d5a7f63",
+        "29": "8527c782202a69c37e4cc6caecb75db7d952c8405631d02a97a0e548cfecb025",
+        "47": "1ca09179d785642be98c86f576c4e8b43f8af4fa59cb7defb52e1fd10d1494cd"
+      }
+    },
+    "author_mcp_ma3": {
+      "all_three_seeds_pass": true,
+      "receipt_sha256": {
+        "11": "a376a3791df4f28dad604b85b49ddfe896a2901928b09af1cba2a2c80c31cd72",
+        "29": "4a54695e3f475a3c28740af9799817be3b8e762c8961024f8eb10f47b02c2552",
+        "47": "b3846fc66b7422938cffe5353368edf33a71ee0f83cb07def568450ae5514dad"
+      }
+    },
+    "ported_fluxgate": {
+      "all_three_seeds_pass": true,
+      "receipt_sha256": {
+        "11": "ca99c5a63a0ed60abcc80ca837b0cab8a9cdfe041e5c291f0ab0613cdbfba583",
+        "29": "a78564e75987765b609e6e2fdb5f633d58304d969c35a0611d3d97bbafe8ad2e",
+        "47": "c5692d7c7c809ea61e7bd56539c9116866aa03b1f397a3ee72435ee9562bf78f"
+      }
+    }
+  },
+  "maximum_recomputed_vs_saved_difference": 2.842170943040401e-14,
+  "pair_rows_checked": 12,
+  "source_hashes": {
+    "target_discharge": "37e021117b11a5dbcac395694f350783601794db6fb3948548466aae009f4f95",
+    "gauge_metrics": "629eb04114a1a00ac07c29523b83f84474ebad98e9132315de7b2f9d59947d4e",
+    "architecture_summary": "0dad528879e1a3955444ce15afa0c9af14914ea29cf61b779a7fcaefbd8d47a3",
+    "pairwise_summary": "35c0d3b94119a5670e87b42daaeb34e0a879398d436879c0652f07fa433bbe76"
+  }
+}

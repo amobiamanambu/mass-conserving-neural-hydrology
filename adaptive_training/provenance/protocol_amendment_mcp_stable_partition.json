@@ -1,0 +1,17 @@
+{
+  "amendment_date": "2026-11-01",
+  "stage": "during replicate training and before national prediction freezing, intervention freezing, or target-discharge opening",
+  "trigger": "MCP-MA3 seeds 29 and 47 produced nonfinite training loss when raw regional gate weights overflowed the literal exp(x_i)/sum(exp(x)) evaluation.",
+  "change": "Evaluate the same normalized exponential partition with torch.softmax, which subtracts the row maximum internally and is algebraically identical for finite inputs.",
+  "hydrologic_equations_changed": false,
+  "network_architecture_changed": false,
+  "loss_or_learning_schedule_changed": false,
+  "author_parity_tolerance": 1e-12,
+  "author_parity_passes": true,
+  "extreme_gate_forward_and_gradient_finite": true,
+  "validation_receipt": "provenance/stable_mcp_partition_validation.json",
+  "legacy_runs_retained_at": "runs_failed_numerical_mcp_legacy_exp_ratio",
+  "rerun_scope": "all three MCP-MA3 seeds, including the seed that had completed under the literal ratio",
+  "target_discharge_accessed": false,
+  "effect_on_other_architectures": "none"
+}

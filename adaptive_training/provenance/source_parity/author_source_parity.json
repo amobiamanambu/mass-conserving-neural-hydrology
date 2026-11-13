@@ -1,0 +1,54 @@
+{
+  "mcp_author_parity": {
+    "source_class": "MA3_PETconstraint_CellShared",
+    "days": 127,
+    "dtype": "float64",
+    "maximum_absolute_differences": {
+      "system_discharge": 3.1086244689504383e-15,
+      "main_discharge": 3.9968028886505635e-15,
+      "main_storage_pre_update": 2.1316282072803006e-14,
+      "routing_storage_pre_update": 7.105427357601002e-15,
+      "pet_limited_loss": 8.881784197001252e-16
+    },
+    "tolerance": 1e-12,
+    "passes": true,
+    "regional_extension": "static-attribute network generates the 13 raw MA3 gate parameters and four storage normalization constants"
+  },
+  "dhbv_direct_author_call_parity": {
+    "process_source_class": "hydrodl2.models.hbv.hbv.Hbv",
+    "parameterizer_source_class": "generic_deltaModel LstmModel",
+    "days": 91,
+    "dtype": "float32",
+    "note": "HydroDL2 HBV 1.0 allocates process arrays in float32 internally",
+    "maximum_absolute_differences": {
+      "routed_discharge": 0.0,
+      "actual_et": 0.0,
+      "final_states": 0.0,
+      "parameter_sequence": 0.0
+    },
+    "tolerance": 0.0,
+    "passes": true
+  },
+  "dhbv_dry_gradient_smoke": {
+    "days": 365,
+    "dtype": "float32",
+    "hydrodl2_nearzero_mm": 1e-05,
+    "finite_outputs": true,
+    "parameters_with_gradients": 8,
+    "finite_gradients": true,
+    "passes": true
+  },
+  "mcp_gradient_and_closure_smoke": {
+    "dtype": "float64",
+    "maximum_daily_residual_mm": 1.4210854715202004e-14,
+    "maximum_cumulative_residual_mm": 5.684341886080802e-14,
+    "parameters_with_finite_gradient": 6,
+    "passes": true
+  },
+  "source_hashes": {
+    "hydrodl2_hbv_py": "39c99d2c1507c625aa1cce20b0a26b21a3f80b368f6959c3d313e6ee4f141b01",
+    "generic_delta_lstm_py": "73d29c44b03254a74ae06706279c9a2ee26f03d9a7fc045a41b0252053c91194",
+    "mcp_ma3_py": "4bfc798c4b8afeabdc4b666f09087b8b7bab9fdbd6ef17bd1bc388cbcdade379"
+  },
+  "all_pass": true
+}

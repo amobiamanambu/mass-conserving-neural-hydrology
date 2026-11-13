@@ -1,15 +1,12 @@
-* text=auto eol=lf
-*.bat text eol=crlf
-*.csv text
-*.json text
-*.md text
-*.py text
-*.yml text
-*.yaml text
+*.csv text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
 *.gz binary
-*.npy binary
 *.npz binary
-*.parquet binary
+*.npy binary
 *.pt binary
-*.tif binary
-*.zip binary
+*.p binary

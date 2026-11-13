@@ -1,7 +1,0 @@
-{
-  "pairwise_metrics.csv": "ef526a3f164486ad2ee5fc5bfc5662f1e87f86b45e084b4d3f2aaa6d66c05b16",
-  "skill_and_reference_sensitivity.csv": "c90b436797ef3cec537431f9c716d9bd043c8e89fe949fc4289ae25996dd1072",
-  "nested_pair_metrics.csv": "aa72fdcf4c3b88e0ed61f4496301b7bcfd8bd938d0c047b25243c630f314640b",
-  "gauge_level_mcp_comparison.parquet": "d4e9f817cfd1231dbf240a772bf9f9eebd2de54b70fb140565a152f4bdeea11c",
-  "mcp_stress_test_summary.json": "56d2cf4ffbdfdd9b239397e6decd27a1886eeb49a015ec349d228a10e8d319ff"
-}

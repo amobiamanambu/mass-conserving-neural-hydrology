@@ -1,0 +1,39 @@
+{
+  "model": "mclstm",
+  "seed": 11,
+  "epoch": 30,
+  "gauges": [
+    "01011000",
+    "01409400",
+    "01633000",
+    "02178400",
+    "02378500",
+    "03223425",
+    "03611260",
+    "05293000",
+    "05585000",
+    "06808500",
+    "07160350",
+    "08063100",
+    "09114500",
+    "10265150",
+    "11376025",
+    "12508990"
+  ],
+  "batch_sizes": [
+    256,
+    64,
+    12,
+    1
+  ],
+  "note": "NeuralHydrology 1.13.0 MC-LSTM normalizes the cell state by the L1 norm of the whole batch",
+  "median_kge_batch256": 0.4441227251877952,
+  "median_kge_batch64": 0.4449695377681604,
+  "median_kge_batch12": 0.4491837468446564,
+  "median_of_max_abs_diff_batch64_vs_256_mm_day": 0.06320452690124512,
+  "median_of_max_abs_diff_batch12_vs_256_mm_day": 0.32619547843933105,
+  "median_rel_diff_batch64_vs_256": 0.0018084241547681305,
+  "median_rel_diff_batch12_vs_256": 0.013366897908328106,
+  "median_kge_batch1_first_gauges": 0.6483424979675729,
+  "median_rel_diff_batch1_vs_256": 0.09563654468077981
+}

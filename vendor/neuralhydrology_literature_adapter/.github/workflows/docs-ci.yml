@@ -1,0 +1,28 @@
+name: "docs check"
+on: 
+  pull_request:
+    branches: 
+      - master
+      - public
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install uv
+      uses: astral-sh/setup-uv@v3
+    - name: Set up Python
+      run: uv python install 3.10
+    - name: Install pandoc
+      run: |
+        sudo apt-get update -y && sudo apt-get install -y pandoc
+    - name: Install dependencies
+      run: |
+        uv sync --group docs --no-dev
+    - name: Build Sphinx docs
+      working-directory: docs/
+      env:
+        SPHINXOPTS: "-W"  # treat warnings as errors
+      run: |
+        uv run make html

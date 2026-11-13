@@ -1,12 +1,5 @@
-# Operating-system and editor files
 .DS_Store
 Thumbs.db
-*.swp
-*.swo
-.idea/
-.vscode/
-
-# Python caches and environments
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -14,45 +7,25 @@ __pycache__/
 .ruff_cache/
 .mypy_cache/
 .coverage
-htmlcov/
 .venv/
 venv/
 env/
-.python_packages/
-.figure_python_packages/
-
-# Credentials and local configuration
 .env
 .env.*
 *.pem
 *.key
 credentials*
 secrets*
-.netrc
-
-# Provider-controlled or reconstructable large inputs
-**/data/raw/
-**/data/external/
-**/data/interim/
-**/data/model_ready/
-**/data/processed/forcing.npy
-**/data/processed/static.npy
-**/data/processed/dates.npy
-**/data/processed/q_*.npy
-**/outputs/predictions/
-**/outputs/antecedent_states/
-conus_zero_shot_law_transfer_2026-09-30/outputs/law_interventions/*_curves.npz
-conus_zero_shot_law_transfer_2026-09-30/outputs/law_interventions_float64_audit/*_curves.npz
-conus_zero_shot_law_transfer_2026-09-30/outputs/law_interventions_pet_climatology/*_curves.npz
-conus_zero_shot_law_transfer_2026-09-30/multimodel_neural_conservation_stress_test_2026-10-03/outputs/law_interventions/*_curves.npz
-conus_zero_shot_law_transfer_2026-09-30/reference_only_conus_experiment_2026-10-03/outputs/law_interventions/*_curves.npz
-conus_zero_shot_law_transfer_2026-09-30/independent_mcp_stress_test_2026-10-03/outputs/law_interventions/*_curves.npz
-
-# Publication and presentation artifacts are intentionally outside this repo
-**/manuscript/
-**/figures/
-**/reproducible_figures/
-**/presentation/
+*.log
+logs/
+tmp/
+scratch/
+runs/
+data/generic_blind/
+data/source_inputs/
+adaptive_training/runs_adaptive/
+adaptive_training/outputs/**/*.npz
+adaptive_training/outputs/**/*_trajectory_gauge.csv.gz
 *.docx
 *.pdf
 *.pptx
@@ -61,9 +34,3 @@ conus_zero_shot_law_transfer_2026-09-30/independent_mcp_stress_test_2026-10-03/o
 *.jpeg
 *.svg
 *.html
-
-# Temporary and log files
-*.tmp
-*.log
-scratch/
-tmp/

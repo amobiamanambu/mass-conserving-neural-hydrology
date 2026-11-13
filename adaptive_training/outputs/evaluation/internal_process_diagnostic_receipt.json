@@ -1,0 +1,19 @@
+{
+  "common_high_skill_gauges": 1014,
+  "skill_threshold_for_all_three_models": 0.6,
+  "models": [
+    "hybrid_shm",
+    "author_mcp_ma3",
+    "ported_fluxgate"
+  ],
+  "seeds": [
+    11,
+    29,
+    47
+  ],
+  "forcing_anchors_per_gauge": 12,
+  "display_days": "response days 0 through 30",
+  "diagnostic_fluxgate_replay_max_absolute_difference": 1.1368683772161603e-13,
+  "target_discharge_used_only_for_post_evaluation_skill_conditioning": true,
+  "checkpoints_predictions_and_fingerprints_modified": false
+}

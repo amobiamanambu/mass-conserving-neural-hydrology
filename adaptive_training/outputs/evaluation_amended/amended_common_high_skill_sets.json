@@ -1,0 +1,29 @@
+{
+  "prespecified_three": {
+    "models": [
+      "hybrid_shm",
+      "author_mcp_ma3",
+      "ported_fluxgate"
+    ],
+    "gauges_kge_ge_0_60_in_all": 1014
+  },
+  "admitted": {
+    "models": [
+      "hybrid_shm",
+      "author_dhbv",
+      "author_mcp_ma3",
+      "ported_fluxgate"
+    ],
+    "gauges_kge_ge_0_60_in_all": 982
+  },
+  "all_five": {
+    "models": [
+      "hybrid_shm",
+      "mclstm",
+      "author_dhbv",
+      "author_mcp_ma3",
+      "ported_fluxgate"
+    ],
+    "gauges_kge_ge_0_60_in_all": 630
+  }
+}

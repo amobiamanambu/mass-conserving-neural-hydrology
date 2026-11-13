@@ -1,0 +1,29 @@
+{
+  "analysis": "PET-at-climatology intervention sensitivity",
+  "pet_climatology_period": [
+    "2003-10-05",
+    "2018-12-31"
+  ],
+  "target_discharge_used_for_pet": false,
+  "architectures": [
+    "hybrid_shm",
+    "author_dhbv",
+    "author_mcp_ma3",
+    "ported_fluxgate"
+  ],
+  "seeds": [
+    11,
+    29,
+    47
+  ],
+  "high_skill_zero_pet_disagreeing_pairs": 6,
+  "high_skill_climatology_pet_disagreeing_pairs": 6,
+  "high_skill_zero_pet_pairs_exceeding_seed_noise": 5,
+  "high_skill_climatology_pet_pairs_exceeding_seed_noise": 5,
+  "note": "material_disagreement uses the prespecified 0.05 / 0.75 rule only; the 0.05 rule is stricter than single-architecture seed noise, so the seed-noise counts are the defensible ones.",
+  "high_skill_evaluable_pairs_per_mode": 6,
+  "model_summary": "outputs/evaluation_pet_climatology/pet_climatology_model_summary.csv",
+  "model_summary_sha256": "7061e0c03ab8358fe8a96e16241b31e19a692cff2d6022da88040f37db1a20a6",
+  "pairwise_summary": "outputs/evaluation_pet_climatology/pet_climatology_pairwise_summary.csv",
+  "pairwise_summary_sha256": "0065ea224e6ec4b1375dc9f4e877fa270764962b9983d2a60e9a2654801760d0"
+}

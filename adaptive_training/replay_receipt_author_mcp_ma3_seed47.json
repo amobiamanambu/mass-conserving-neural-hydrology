@@ -1,0 +1,17 @@
+{
+  "model": "author_mcp_ma3",
+  "seed": 47,
+  "selected_epoch": 250,
+  "learning_rate_schedule": {
+    "31": 0.002,
+    "111": 0.001,
+    "161": 0.0005,
+    "191": 0.00025
+  },
+  "skipped_nan_loss_batches": 0,
+  "skipped_nonfinite_gradient_updates": 0,
+  "updates": 14080,
+  "float64_gradient_clipping": true,
+  "skipped_fraction": 0.0,
+  "valid": true
+}

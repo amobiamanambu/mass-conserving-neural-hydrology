@@ -1,0 +1,13 @@
+{
+  "archive": "derived/pet_climatology_2003_2018.npz",
+  "archive_sha256": "0df4889d07b98552ee9db645173c8d836aa274dfbe7df41a725c6e9f35134686",
+  "gauges": 3982,
+  "calendar_days": 366,
+  "period": [
+    "2003-10-05",
+    "2018-12-31"
+  ],
+  "target_discharge_accessed": false,
+  "minimum_pet_mm_day": 0.140854611992836,
+  "maximum_pet_mm_day": 10.107450485229492
+}

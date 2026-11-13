@@ -1,0 +1,82 @@
+{
+  "amendment_date": "2026-11-08",
+  "stage": "POST-OPENING. Target discharge had already been opened (2026-11-02) when this amendment was written. It changes no frozen file, prediction, intervention curve or prespecified result; it adds audits and reports results under both the prespecified rule and the amended rule.",
+  "trigger": "An independent code audit found that (i) the dHBV author-source closure audit evaluated the HydroDL2 HBV 1.0 water balance in float32 while every other lineage was replayed in float64, and the dHBV residuals that missed the 0.005 mm tolerance (0.0057-0.0073 mm) are exact float32 unit-roundoff multiples at gauges receiving 3,800-5,300 mm of precipitation per year (one float32 ULP at that magnitude is 0.00049 mm); (ii) NeuralHydrology 1.13.0 normalizes the MC-LSTM cell state by the L1 norm of the whole batch, so MC-LSTM gate inputs depend on batch composition and the 12-sample closure replay ran in a regime unseen in training; (iii) each lineage was trained for 30 epochs of 64 mini-batches (1,920 updates, about 26 percent of one pass over the 1.87 million training samples) and development skill was still rising at epoch 30; (iv) the 0.05 magnitude criterion is smaller than the within-architecture seed-to-seed R7 difference of Hybrid-SHM.",
+  "changes": [
+    "scripts/08b_audit_dhbv_float64_replay.py replays the dHBV historical year and intervention with the author equations unchanged and the module's float32 dtype literals rewritten to float64; eligibility under the amended rule admits a lineage that passes its prespecified tolerance in float64 arithmetic for all three seeds.",
+    "scripts/16_post_opening_amended_analysis.py reports all ten pairs, signed differences, one-sidedness, the within-architecture seed null at the same gauges, R7 > 1 frequencies, low-snow subgroups, and the training-length sensitivity from the archived epoch-10 and epoch-20 checkpoints (scripts 06/07/08 with --epoch).",
+    "scripts/15_mclstm_batch_sensitivity.py quantifies the MC-LSTM batch-composition dependence. MC-LSTM remains outside response inference and its trajectories remain descriptive.",
+    "The manuscript reports the prespecified three-lineage result and the amended four-lineage result side by side and states the training budget explicitly."
+  ],
+  "target_discharge_accessed_by_amended_scripts": "yes, for skill conditioning only, after opening; all R7 fingerprints and curves come from the frozen pre-opening archives",
+  "frozen_files_modified": false,
+  "prespecified_results_retained": "outputs/evaluation/ is unchanged; amended results are in outputs/evaluation_amended/",
+  "outcome_2026-11-08": {
+    "dhbv_float64_replay_receipts": {
+      "11": {
+        "maximum_historical_cumulative_residual_mm": 1.0913936421275139e-11,
+        "worst_historical_gauge": "12037400",
+        "maximum_intervention_total_cumulative_drift_mm": 7.275957614183426e-12,
+        "maximum_absolute_r7_difference_float64_vs_float32": 2.4065948189821995e-07,
+        "passes_prespecified_tolerance_in_float64": true,
+        "passes_native_tolerance_in_float64": true
+      },
+      "29": {
+        "maximum_historical_cumulative_residual_mm": 1.2732925824820995e-11,
+        "worst_historical_gauge": "12138160",
+        "maximum_intervention_total_cumulative_drift_mm": 8.412825991399586e-12,
+        "maximum_absolute_r7_difference_float64_vs_float32": 2.418687959915289e-07,
+        "passes_prespecified_tolerance_in_float64": true,
+        "passes_native_tolerance_in_float64": true
+      },
+      "47": {
+        "maximum_historical_cumulative_residual_mm": 0.00031526012958238425,
+        "worst_historical_gauge": "11363930",
+        "maximum_intervention_total_cumulative_drift_mm": 5.9117155615240335e-12,
+        "maximum_absolute_r7_difference_float64_vs_float32": 2.4947444310363664e-07,
+        "passes_prespecified_tolerance_in_float64": true,
+        "passes_native_tolerance_in_float64": false
+      }
+    },
+    "dhbv_seed47_note": "The 3.2e-4 mm residual is the HydroDL2 HBV soil-moisture floor (SM = max(SM - ET, 1e-5 mm)), applied on about 30 days of the year at gauge 11363930; it is not rounding and it lies inside the prespecified 0.005 mm tolerance, so the lineage is admitted under the amended rule while failing the 1e-9 mm native tolerance for that seed.",
+    "admitted_under_float64_audit": [
+      "hybrid_shm",
+      "author_dhbv",
+      "author_mcp_ma3",
+      "ported_fluxgate"
+    ],
+    "amended_pairs": 6,
+    "amended_materially_disagreeing_pairs_kge_0_60": 6,
+    "amended_pairs_whose_cross_gap_exceeds_within_seed_gap_kge_0_60": [
+      {
+        "first": "hybrid_shm",
+        "second": "author_dhbv"
+      },
+      {
+        "first": "hybrid_shm",
+        "second": "author_mcp_ma3"
+      },
+      {
+        "first": "hybrid_shm",
+        "second": "ported_fluxgate"
+      },
+      {
+        "first": "author_dhbv",
+        "second": "author_mcp_ma3"
+      },
+      {
+        "first": "author_mcp_ma3",
+        "second": "ported_fluxgate"
+      }
+    ],
+    "pair_within_seed_noise_at_day_7": {
+      "first": "author_dhbv",
+      "second": "ported_fluxgate",
+      "median_abs_r7_gap_kge_0_60": 0.059,
+      "median_signed_curve_difference_day_30": -0.255
+    },
+    "training_length_sensitivity": "seed 11, epochs 10/20/30 at the final mutually skilled gauges: see outputs/evaluation_amended/amended_training_length_sensitivity.csv",
+    "mclstm_batch_sensitivity": "outputs/sensitivity/mclstm_seed11_batch_sensitivity.json",
+    "central_non_guarantee_supported_amended": true
+  }
+}

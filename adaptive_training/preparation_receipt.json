@@ -1,0 +1,62 @@
+{
+  "status": "prepared",
+  "source": "convergence_sensitivity_2026-11-08",
+  "models": {
+    "hybrid_shm": {
+      "11": {
+        "epoch30_checkpoint_sha256": "04f0650ac791567daf9e9e9fc5a23ab52070fe865af5096e319010011e41a307",
+        "epoch30_optimizer_sha256": "ba9118c3148f389bb4ef828b0ce51e03d016565d321f2f05df4f520fe551c480"
+      },
+      "29": {
+        "epoch30_checkpoint_sha256": "fcf48f719fcb5d1d14d1f383701e6153a2a98ad1cbbb189e6bab3fdbc19bfee7",
+        "epoch30_optimizer_sha256": "24d2ee41d1616c9d0284a3f949ae4f16000abbe91ca35e676a34436164dcf656"
+      },
+      "47": {
+        "epoch30_checkpoint_sha256": "d55a97d6737387b8a25b5821c67cd322124a5f4a4c7725cae604de01584bd133",
+        "epoch30_optimizer_sha256": "4848b677a077ce24a4b123ba74dced0057b5c82ba467e86c8727348e2834f363"
+      }
+    },
+    "author_dhbv": {
+      "11": {
+        "epoch30_checkpoint_sha256": "4ca5bc0b11ed667120e2c9f55b7c6e861e6cf8aafc481bbcac3787eb1c382034",
+        "epoch30_optimizer_sha256": "055d1c88ccc7c406ffd8827636b089ce63859c343795a9305da93b9a01f8bb0f"
+      },
+      "29": {
+        "epoch30_checkpoint_sha256": "ca6b6c6c04aea578ecea541b1a3151fba6652f262d35190e7c307b48b25a000c",
+        "epoch30_optimizer_sha256": "1ac02c2b35d94c85a93f6f65872e4b0c2daa211c39a8058ae47040ea43681412"
+      },
+      "47": {
+        "epoch30_checkpoint_sha256": "be9e8fd94e0af652010fd242c407067964c70c5fa87d4e253446c2ae2e1c28b8",
+        "epoch30_optimizer_sha256": "e5a4f086d83fe50f75405362f891174dffb98ed765b708b393b503bde7e24ad1"
+      }
+    },
+    "author_mcp_ma3": {
+      "11": {
+        "epoch30_checkpoint_sha256": "ea1038c1a29d970e7050ab9d9cfd3c9e6a37f8f4da94992189bdd039eb9147fc",
+        "epoch30_optimizer_sha256": "cecfd3dad26b49457c81e097342a8bf911034d37dbd067ccdedfcc3eac1c4949"
+      },
+      "29": {
+        "epoch30_checkpoint_sha256": "73c797775242ad27ad2a1caf152af40f772b7566f824564a381ca8d8ae8bb87f",
+        "epoch30_optimizer_sha256": "ddc8e1623b903f91d9e69636afd1d178c53971a52dd575850b5aa24ea89cc46b"
+      },
+      "47": {
+        "epoch30_checkpoint_sha256": "662f3488399b6a4ed29662a51254d6d66aa2f92b76692f3b94cc13595ab50c57",
+        "epoch30_optimizer_sha256": "2069904569293fb43e3ea403ab5bbd4b9e9d6b36fe72c281f5927a82bc2df848"
+      }
+    },
+    "ported_fluxgate": {
+      "11": {
+        "epoch30_checkpoint_sha256": "8f36e3c504d656f2ab6d6b574b3251ea622726189060e47db907e606ba96aa43",
+        "epoch30_optimizer_sha256": "5f912e8cdba83f972366fdddf1465a69da721a3c49341acd763782add0b461bb"
+      },
+      "29": {
+        "epoch30_checkpoint_sha256": "9364d0e4417780a5353e139699040d9a4ba714b4bf30ef0f75979ca29d17fb2b",
+        "epoch30_optimizer_sha256": "24e6b01df9869dfaab80f3a279920f968ef71396cb123bca0ec6665ab5e37670"
+      },
+      "47": {
+        "epoch30_checkpoint_sha256": "5a0b7b8b7e1ef634a1f9940deddf1e6b3ed807cadda714001923add900f13540",
+        "epoch30_optimizer_sha256": "2a67a8b0308dbfdb92da9ee19fe18700d7c66ae0d9f437d8bcca4ae3d59fe6a5"
+      }
+    }
+  }
+}

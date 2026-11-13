@@ -1,45 +1,53 @@
 from __future__ import annotations
 
-import csv
 import json
-from collections import Counter
 from pathlib import Path
+
+import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PRIMARY = ROOT / "conus_zero_shot_law_transfer_2026-09-30"
 
 
-def test_frozen_split_counts() -> None:
-    with (PRIMARY / "data/frozen/station_split.csv").open(newline="", encoding="utf-8") as stream:
-        counts = Counter(row["role"] for row in csv.DictReader(stream))
-    assert counts == {"donor": 500, "development": 200, "target": 3982}
-
-
-def test_stage_index_has_no_publication_groups() -> None:
-    index = json.loads((ROOT / "workflow/stages.json").read_text(encoding="utf-8"))
-    groups = {stage["group"] for stage in index["stages"]}
-    assert "manuscript" not in groups
-    assert "figures" not in groups
-    assert {"core", "original", "mcp12", "stress", "reference", "audit"} <= groups
-
-
-def test_process_observation_matrix() -> None:
-    decision = json.loads(
-        (ROOT / "conus_daily_process_observability_2026-10-12/results/decision.json").read_text(
-            encoding="utf-8"
+def test_frozen_population_split() -> None:
+    counts = {}
+    for filename in ("train_500.txt", "validation_200.txt", "test_3982.txt"):
+        counts[filename] = sum(
+            bool(line.strip())
+            for line in (ROOT / "data/basin_lists" / filename).read_text().splitlines()
         )
-    )
-    assert decision["runs_evaluated"] == 24
-    assert decision["target_gauges"] == 3982
-    assert {item["rung"] for item in decision["decisions"]} == {"q_sm", "q_et", "q_sm_et"}
+    assert counts == {"train_500.txt": 500, "validation_200.txt": 200, "test_3982.txt": 3982}
 
 
-def test_float64_audit_is_present() -> None:
-    result = json.loads(
-        (
-            PRIMARY
-            / "outputs/law_interventions_float64_audit/float64_replay_comparison.json"
-        ).read_text(encoding="utf-8")
+def test_adaptive_selection_is_outcome_blind() -> None:
+    selection = json.loads(
+        (ROOT / "adaptive_training/provenance/development_epoch_selection.json").read_text()
     )
-    assert result
+    assert selection["target_discharge_accessed_for_stopping_or_selection"] is False
+    assert selection["all_three_seeds_complete"] is True
+    selected = {
+        model: selection["architectures"][model]["selected_epoch"]
+        for model in ("hybrid_shm", "author_dhbv", "author_mcp_ma3", "ported_fluxgate")
+    }
+    assert selected == {
+        "hybrid_shm": 160,
+        "author_dhbv": 200,
+        "author_mcp_ma3": 250,
+        "ported_fluxgate": 140,
+    }
+
+
+def test_final_model_eligibility() -> None:
+    table = pd.read_csv(
+        ROOT / "adaptive_training/outputs/evaluation_amended/amended_architecture_summary.csv"
+    )
+    admitted = set(table.loc[table["admitted_under_float64_audit"], "model"])
+    assert admitted == {"hybrid_shm", "author_dhbv", "author_mcp_ma3", "ported_fluxgate"}
+
+
+def test_pet_sensitivity_has_both_modes() -> None:
+    table = pd.read_csv(
+        ROOT / "adaptive_training/outputs/evaluation_pet_climatology/pet_climatology_pairwise_summary.csv"
+    )
+    assert set(table["pet_mode"]) == {"zero", "climatology"}
+    assert len(table[table["skill_threshold"] == 0.6]) == 12

@@ -1,0 +1,169 @@
+experiment_name: national_literature_ported_fluxgate_seed29
+run_dir: ./runs
+train_basin_file: ./data/basin_lists/train_500.txt
+validation_basin_file: ./data/basin_lists/validation_200.txt
+test_basin_file: ./data/basin_lists/test_3982.txt
+train_start_date: 05/10/2003
+train_end_date: 31/12/2014
+validation_start_date: 01/01/2015
+validation_end_date: 31/12/2018
+test_start_date: 01/01/2019
+test_end_date: 31/12/2024
+seed: 29
+device: cpu
+validate_every: null
+validate_n_random_basins: 200
+cache_validation_data: true
+metrics:
+- NSE
+- KGE
+- Alpha-NSE
+- Beta-NSE
+head: regression
+output_activation: linear
+optimizer: Adam
+loss: NSE
+batch_size: 256
+epochs: 30
+max_updates_per_epoch: 64
+clip_gradient_norm: 5
+predict_last_n: 1
+seq_length: 365
+num_workers: 0
+log_interval: 20
+log_tensorboard: false
+save_weights_every: 10
+save_validation_results: true
+save_all_output: false
+verbose: 1
+dataset: generic
+data_dir: ./data/generic_blind
+target_variables:
+- q_mm_day
+static_attributes:
+- log10_DRAIN_SQKM
+- BAS_COMPACTNESS
+- PPTAVG_BASIN
+- T_AVG_BASIN
+- T_MAXSTD_BASIN
+- T_MINSTD_BASIN
+- RH_BASIN
+- log1p_WD_BASIN
+- log1p_WDMAX_BASIN
+- log1p_WDMIN_BASIN
+- PET
+- SNOW_PCT_PRECIP
+- PRECIP_SEAS_IND
+- AWCAVE
+- log1p_PERMAVE
+- BDAVE
+- OMAVE
+- log1p_WTDEPAVE
+- log1p_ROCKDEPAVE
+- CLAYAVE
+- SILTAVE
+- SANDAVE
+- KFACT_UP
+- ELEV_MEAN_M_BASIN
+- ELEV_STD_M_BASIN
+- RRMEAN
+- SLOPE_PCT
+- ASPECT_NORTHNESS
+- ASPECT_EASTNESS
+- log1p_STREAMS_KM_SQ_KM
+- STRAHLER_MAX
+- MAINSTEM_SINUOUSITY
+- HIRES_LENTIC_PCT
+- TOPWET
+- DEVNLCD06
+- FORESTNLCD06
+- WATERNLCD06
+- SNOWICENLCD06
+- BARRENNLCD06
+- SHRUBNLCD06
+- GRASSNLCD06
+- PASTURENLCD06
+- CROPSNLCD06
+- WOODYWETNLCD06
+- EMERGWETNLCD06
+- log1p_DDENS_2009
+- log1p_STOR_NID_2009
+- CANALS_PCT
+- log1p_NPDES_MAJ_DENS
+- log1p_FRESHW_WITHDRAWAL
+- MINING92_PCT
+- PCT_IRRIG_AG
+- log1p_PDEN_2000_BLOCK
+- log1p_ROADS_KM_SQ_KM
+- IMPNLCD06
+- PADCAT1_PCT_BASIN
+- geology__al
+- geology__b
+- geology__br
+- geology__c
+- geology__co_c
+- geology__co_gr
+- geology__co_ls
+- geology__co_m
+- geology__co_ss_sh
+- geology__co_v
+- geology__es
+- geology__fg
+- geology__fs
+- geology__gp
+- geology__l
+- geology__ls
+- geology__mg
+- geology__osg
+- geology__pW
+- geology__rc
+- geology__rg
+- geology__rgr
+- geology__rl
+- geology__rlc
+- geology__rls
+- geology__rph
+- geology__rs
+- geology__rsh
+- geology__rsi
+- geology__rtr
+- geology__s
+- geology__s_osg
+- geology__sh
+- geology__ss
+- geology__tg
+- geology__ts
+- geology__ts_K_T
+- geology__w
+- geology__wl
+use_basin_id_encoding: false
+model: ported_fluxgate
+dynamic_inputs:
+- pr_mm
+- pet_mm
+- tmean_c
+- sin_doy
+- cos_doy
+custom_normalization:
+  pr_mm:
+    centering: null
+    scaling: null
+  pet_mm:
+    centering: null
+    scaling: null
+  tmean_c:
+    centering: null
+    scaling: null
+  sin_doy:
+    centering: null
+    scaling: null
+  cos_doy:
+    centering: null
+    scaling: null
+  q_mm_day:
+    centering: null
+    scaling: null
+learning_rate:
+  0: 0.0015
+  20: 0.00075
+  25: 0.00015

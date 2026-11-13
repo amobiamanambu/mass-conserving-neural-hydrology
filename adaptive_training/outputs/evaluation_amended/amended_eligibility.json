@@ -1,0 +1,32 @@
+{
+  "hybrid_shm": {
+    "prespecified_three_seed_closure": true,
+    "float64_replay_available": false,
+    "admitted_under_float64_audit": true
+  },
+  "mclstm": {
+    "prespecified_three_seed_closure": false,
+    "float64_replay_available": false,
+    "admitted_under_float64_audit": false
+  },
+  "author_dhbv": {
+    "prespecified_three_seed_closure": false,
+    "float64_replay_available": true,
+    "float64_replay_passes_prespecified_tolerance_all_seeds": true,
+    "float64_replay_max_historical_cumulative_residual_mm": 0.0015000000000247253,
+    "float64_replay_max_intervention_cumulative_drift_mm": 8.185452315956354e-12,
+    "float64_replay_max_q_difference_vs_float32_mm_day": 0.0002046102786259496,
+    "float64_replay_max_abs_r7_difference_vs_float32": 8.904744757565197e-06,
+    "admitted_under_float64_audit": true
+  },
+  "author_mcp_ma3": {
+    "prespecified_three_seed_closure": true,
+    "float64_replay_available": false,
+    "admitted_under_float64_audit": true
+  },
+  "ported_fluxgate": {
+    "prespecified_three_seed_closure": true,
+    "float64_replay_available": false,
+    "admitted_under_float64_audit": true
+  }
+}

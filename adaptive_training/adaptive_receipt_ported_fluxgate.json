@@ -1,0 +1,29 @@
+{
+  "model": "ported_fluxgate",
+  "seed": 11,
+  "status": "converged",
+  "target_discharge_accessed": false,
+  "rule": {
+    "block_epochs": 10,
+    "material_improvement": 0.005,
+    "halve_after_blocks": 3,
+    "maximum_halvings": 3,
+    "stop_after_blocks_at_final_rate": 5,
+    "maximum_epoch": 400
+  },
+  "peak_learning_rate": 0.0015,
+  "learning_rate_schedule": {
+    "31": 0.0015,
+    "91": 0.00075,
+    "161": 0.000375,
+    "191": 0.0001875
+  },
+  "halvings": 3,
+  "latest_epoch": 240,
+  "stopping_epoch": 240,
+  "plateau_reached": true,
+  "selected_epoch": 140,
+  "selected_median_development_kge": 0.6043675459724632,
+  "epoch30_median_development_kge": 0.5686153099248756,
+  "history_csv": "development_history_ported_fluxgate_seed11.csv"
+}

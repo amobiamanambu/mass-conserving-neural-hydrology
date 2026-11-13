@@ -1,8 +1,5 @@
-# Security and data-access notes
+# Security
 
-Do not commit Earthdata credentials, USGS service tokens, `.netrc` files,
-personal paths, or cloud-storage URLs. Report accidental credential exposure
-privately to the repository owner and rotate the credential immediately.
-
-The repository contains hydrologic observations and public station metadata,
-not human-subject data. Provider terms still apply to every external source.
+Report suspected credential exposure or unsafe deserialization privately to the
+repository owner. Model checkpoints and pickle files should be loaded only from
+the checksummed Zenodo archive or another trusted source.

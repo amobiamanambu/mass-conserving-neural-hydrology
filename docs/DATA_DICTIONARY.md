@@ -1,41 +1,29 @@
-# Compact data dictionary
+# Data dictionary
 
-## Frozen design
+## Core populations
 
-`data/frozen/station_split.csv`
+- `data/basin_lists/train_500.txt`: donor gauges used for model fitting.
+- `data/basin_lists/validation_200.txt`: development gauges used for stopping and
+  checkpoint selection.
+- `data/basin_lists/test_3982.txt`: unseen target gauges used only after model
+  selection was frozen.
+- `data/forcing_only_anchors.npz`: twelve forcing-derived antecedent anchors per
+  eligible target gauge.
 
-- `GAGE_ID`: eight-character USGS station identifier.
-- `role`: `donor`, `development`, or `target`.
-- `ecoregion`: hydrologic ecoregion used for stratification.
-- `quality_tier`: source-data completeness tier.
-- `reference_status`: GAGES-II reference classification.
-- remaining columns: location, drainage area, and the 99 model attributes.
+## Compact final products
 
-## Predictive evaluation
+- `adaptive_training/outputs/evaluation_amended/amended_architecture_summary.csv`:
+  model skill, drainage-response summaries, seed reproducibility, and observed
+  recession comparisons.
+- `adaptive_training/outputs/evaluation_amended/amended_pairwise_summary.csv`:
+  pairwise response comparisons across KGE thresholds.
+- `adaptive_training/outputs/evaluation_pet_climatology/`:
+  the same response comparison with seasonal PET retained.
+- `adaptive_training/outputs/frozen/*_fingerprints.csv`:
+  seven-day fingerprints for individual model seeds.
+- `adaptive_training/provenance/`:
+  protocol amendments, blind-target checks, selection receipts, source parity,
+  and closure evidence.
 
-`outputs/evaluation/target_model_metrics.parquet` contains gauge-level KGE,
-NSE, log1p-NSE, bias, architecture, rung, and seed. The companion
-`target_skill_summary.csv` contains ensemble and seed summaries.
-
-## Intervention fingerprints
-
-Each `*_fingerprints.parquet` or `*_fingerprints.csv` stores gauge- and
-anchor-level summaries from a frozen zero-input intervention, including R7,
-R30, R90, half-life, and storage–discharge diagnostics when defined. Receipt
-files record checkpoints, precision, closure residuals, and input hashes.
-
-## Identification products
-
-- `gauge_level_identification.parquet`: original-pair, gauge-level comparison.
-- `primary_identification_population.parquet`: mutually skill-qualified set.
-- `sensitivity_metrics.csv`: skill and recession-rule sensitivity grid.
-- `subgroup_metrics.csv`: ecoregion and data-quality summaries.
-- `nested_pair_metrics.csv`: connected upstream–downstream contrasts.
-- `strengthened_test/`: common-date anchors, flux traces, proxy reliability,
-  reference controls, and cross-architecture decomposition.
-
-## Process-observation products
-
-`conus_daily_process_observability_2026-10-12/results/` contains predictive
-competence, process learning, paired architecture-gap changes, seed stability,
-connected-gauge contrasts, and the frozen decision record.
+The large NPZ archives use the same model and seed labels. Their hashes are
+recorded in the adjacent JSON receipts and the Zenodo manifest.

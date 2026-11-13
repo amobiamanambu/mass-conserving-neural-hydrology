@@ -1,6 +1,0 @@
-architecture,passes_global_competence,primary_pairs_n_ge_500,primary_pairs_materially_disagree,reference_pairs_n_ge_30,reference_pairs_materially_disagree,observed_identification_fails,conditional_support
-mclstm_dr,False,7,7,7,7,True,True
-mc_node,False,7,6,7,6,True,True
-mcp_ma3,False,7,6,7,6,True,True
-mcp_ma4,False,7,6,7,5,True,True
-mcp_ma5,False,7,4,7,3,True,True

@@ -1,0 +1,9 @@
+{
+  "common_high_skill_gauges_all_admitted_models": 982,
+  "median_q_ratio_day30": 0.016207948451564043,
+  "q25_q_ratio_day30": 0.006885382714845868,
+  "q75_q_ratio_day30": 0.056567657181699045,
+  "median_total_storage_ratio_day30": 0.985589551664716,
+  "q25_total_storage_ratio_day30": 0.9727615243218822,
+  "q75_total_storage_ratio_day30": 0.9931991852979971
+}

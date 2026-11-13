@@ -1,0 +1,15 @@
+{
+  "target_gauges": 3982,
+  "target_days": 2192,
+  "target_period": [
+    "2019-01-01",
+    "2024-12-31"
+  ],
+  "all_target_values_are_dummy_zero": true,
+  "all_files_marked_blinded_target": true,
+  "target_discharge_accessed": false,
+  "target_basin_file": "data/basin_lists/test_3982.txt",
+  "target_basin_file_sha256": "7e3bcda171c6a1b1e5175e3bbf489b1533c0aabba47e0a65f3fe7455e4104c3a",
+  "inventory": "provenance/blind_target_file_inventory.json",
+  "inventory_sha256": "f56ac241306fb2835d01f6c18511950fc6b883003f53a4c1d426828bcd15791d"
+}

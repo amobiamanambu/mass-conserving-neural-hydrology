@@ -1,0 +1,9 @@
+epochs: 110
+learning_rate:
+  0: 0.0015
+  31: 0.0015
+  91: 0.00075
+validate_every: null
+save_weights_every: 10
+save_validation_results: false
+verbose: 0

@@ -1,0 +1,27 @@
+{
+  "model": "author_mcp_ma3",
+  "seed": 47,
+  "gauges": [
+    "01011000",
+    "01017000"
+  ],
+  "stock_device": "cpu",
+  "batched_device": "mps",
+  "stock_batch_size": 256,
+  "batched_batch_size": 8192,
+  "implementation_cpu_maximum_absolute_difference_mm_day": 0.0,
+  "implementation_cpu_median_absolute_difference_mm_day": 0.0,
+  "implementation_atol": 2e-06,
+  "implementation_rtol": 2e-06,
+  "implementation_passes": true,
+  "accelerator_maximum_absolute_difference_mm_day": 9.5367431640625e-06,
+  "accelerator_median_absolute_difference_mm_day": 7.152557373046875e-07,
+  "accelerator_maximum_relative_difference": 7.307448987826972e-06,
+  "accelerator_maximum_absolute_tolerance_mm_day": 0.02,
+  "accelerator_median_absolute_tolerance_mm_day": 0.001,
+  "accelerator_maximum_relative_tolerance": 0.01,
+  "accelerator_passes": true,
+  "passes": true,
+  "elapsed_seconds": 1.8495941162109375,
+  "target_discharge_accessed": false
+}

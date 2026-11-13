@@ -1,0 +1,27 @@
+{
+  "model": "hybrid_shm",
+  "seed": 29,
+  "gauges": [
+    "01011000",
+    "01017000"
+  ],
+  "stock_device": "cpu",
+  "batched_device": "mps",
+  "stock_batch_size": 256,
+  "batched_batch_size": 8192,
+  "implementation_cpu_maximum_absolute_difference_mm_day": 0.0,
+  "implementation_cpu_median_absolute_difference_mm_day": 0.0,
+  "implementation_atol": 2e-06,
+  "implementation_rtol": 2e-06,
+  "implementation_passes": true,
+  "accelerator_maximum_absolute_difference_mm_day": 2.1219253540039062e-05,
+  "accelerator_median_absolute_difference_mm_day": 1.7881393432617188e-07,
+  "accelerator_maximum_relative_difference": 1.952375849461731e-05,
+  "accelerator_maximum_absolute_tolerance_mm_day": 0.02,
+  "accelerator_median_absolute_tolerance_mm_day": 0.001,
+  "accelerator_maximum_relative_tolerance": 0.01,
+  "accelerator_passes": true,
+  "passes": true,
+  "elapsed_seconds": 6.03873085975647,
+  "target_discharge_accessed": false
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the repository SHA-256 manifest."""
+"""Build a deterministic SHA-256 manifest for the GitHub release."""
 
 from __future__ import annotations
 
@@ -10,42 +10,32 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "MANIFEST.csv"
-EXCLUDED = {"MANIFEST.csv", "VALIDATION_REPORT.json"}
-EXCLUDED_PARTS = {".git", "__pycache__", ".pytest_cache", ".ruff_cache", ".mypy_cache"}
-EXCLUDED_NAMES = {".DS_Store"}
+EXCLUDED = {".git", "MANIFEST.csv", "VALIDATION_REPORT.json"}
 
 
-def digest(path: Path) -> str:
-    value = hashlib.sha256()
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
     with path.open("rb") as stream:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
-            value.update(block)
-    return value.hexdigest()
+            digest.update(block)
+    return digest.hexdigest()
 
 
-def included_files() -> list[Path]:
-    files = []
-    for path in ROOT.rglob("*"):
-        if not path.is_file() or EXCLUDED_PARTS.intersection(path.parts):
-            continue
-        relative = path.relative_to(ROOT).as_posix()
-        if relative in EXCLUDED or path.name in EXCLUDED_NAMES or path.suffix in {".pyc", ".pyo"}:
-            continue
-        files.append(path)
-    return sorted(files, key=lambda item: item.relative_to(ROOT).as_posix())
+def included(path: Path) -> bool:
+    relative = path.relative_to(ROOT)
+    return path.is_file() and not any(part in EXCLUDED for part in relative.parts)
 
 
 def main() -> None:
-    with OUTPUT.open("w", newline="", encoding="utf-8") as stream:
+    rows = []
+    for path in sorted(ROOT.rglob("*")):
+        if included(path):
+            rows.append((path.relative_to(ROOT).as_posix(), path.stat().st_size, sha256(path)))
+    with OUTPUT.open("w", newline="") as stream:
         writer = csv.writer(stream, lineterminator="\n")
-        writer.writerow(["relative_path", "size_bytes", "sha256"])
-        for path in included_files():
-            writer.writerow([
-                path.relative_to(ROOT).as_posix(),
-                path.stat().st_size,
-                digest(path),
-            ])
-    print(f"Wrote {OUTPUT} with {len(included_files()):,} files")
+        writer.writerow(("path", "bytes", "sha256"))
+        writer.writerows(rows)
+    print(f"Wrote {OUTPUT} with {len(rows)} files")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,16 @@
+{
+  "amendment_date": "2026-11-01",
+  "stage": "after checkpoint selection and before national prediction freezing, intervention freezing, or target-discharge opening",
+  "trigger": "The stock NeuralHydrology tester evaluates one gauge at a time and recomputes a 365-day sequence for every predicted day. The MC-LSTM benchmark showed that this execution schedule would require approximately 22 hours per seed on CPU.",
+  "change": "Use the same NeuralHydrology Config, GenericDataset, collate function, model class, checkpoint, pre-model hook, target subsetting, and framework scaler while batching samples across groups of target gauges on Apple MPS.",
+  "model_equations_changed": false,
+  "network_architectures_changed": false,
+  "checkpoints_changed": false,
+  "inputs_or_scaling_changed": false,
+  "evaluation_period_changed": false,
+  "target_discharge_accessed": false,
+  "validation": "Before each national archive is written, two blinded gauges are evaluated three ways. The cross-gauge CPU implementation must reproduce the unmodified gauge-wise stock CPU evaluator within 0.000002 absolute and relative tolerance. Accelerator arithmetic must remain within 0.02 mm/day maximum absolute difference, 0.001 mm/day median absolute difference, and 1% maximum relative difference.",
+  "mclstm_batch_semantics": "NeuralHydrology 1.13.0 normalizes MC-LSTM state by one L1 norm over the complete evaluator batch. The grouped evaluator therefore preserves each gauge's stock 256-sample microbatch as an independent norm group; it does not mix gauge states.",
+  "failure_rule": "No national prediction archive is written if parity fails.",
+  "effect_on_scientific_design": "none; only the inference execution schedule and device differ"
+}

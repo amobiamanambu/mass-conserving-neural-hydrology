@@ -1,0 +1,34 @@
+{
+  "frozen_before_national_target_evaluation": true,
+  "population": "3,982 unseen GAGES-II target gauges",
+  "training_development_split": "500 donor gauges and 200 development gauges",
+  "models": [
+    "native NeuralHydrology HybridModel-SHM",
+    "native NeuralHydrology MC-LSTM",
+    "HydroDL2 dHBV author-source adapter",
+    "MCP-MA3 author-equation regional adapter",
+    "verified NeuralHydrology-compatible flux-gate port"
+  ],
+  "prediction_ensemble": "arithmetic mean of the three seed hydrographs",
+  "response_ensemble": "median R7 and normalized drainage trajectory across the three seeds",
+  "skill_thresholds": [0.3, 0.4, 0.5, 0.6],
+  "pair_rule": {
+    "minimum_mutually_qualified_gauges": 10,
+    "rank_agreement_rho_at_least": 0.75,
+    "median_absolute_R7_gap_at_most": 0.05,
+    "material_disagreement": "rho below 0.75 or median absolute R7 gap above 0.05"
+  },
+  "high_skill_convergence": {
+    "skill_threshold": 0.6,
+    "minimum_mutually_qualified_gauges": 30,
+    "rho_at_least": 0.75,
+    "median_absolute_R7_gap_at_most": 0.05
+  },
+  "full_curve_metric": "median gauge-level mean absolute difference between normalized drainage trajectories over days 0-30",
+  "full_curve_role": "descriptive corroboration only; not a classification gate",
+  "uncertainty": "2,000 ecoregion-stratified bootstrap replicates with deterministic pair-specific seeds",
+  "observational_benchmark": "rain-screened observed recession R7",
+  "anchor_note": "The frozen outcome-blind archive provides 12 unique warm-season anchors at every target gauge, selected from quantiles of antecedent 30-day precipitation minus PET without discharge, predictions, or model states.",
+  "interpretation": "one competent, exactly closed, materially disagreeing pair is a counterexample to guarantee; every convergent pair is retained and reported",
+  "blinding_note": "Checkpoint selection, national prediction freezing, intervention-date selection, and closure auditing are completed without opening 2019-2024 target discharge."
+}

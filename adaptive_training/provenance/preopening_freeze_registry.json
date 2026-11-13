@@ -1,0 +1,301 @@
+{
+  "national_target_discharge_accessed": false,
+  "analysis_plan": {
+    "path": "provenance/preopening_analysis_plan.json",
+    "sha256": "f02b69a8d5cf1b6f0fd134142cd5b96039c7698308093712b0232f14f4ad6f8f"
+  },
+  "analysis_code": {
+    "path": "scripts/09_open_national_target_and_analyze.py",
+    "sha256": "bc9e0ad156992804f072d886789a762c6420b050985f37d26caa538e91b05111"
+  },
+  "forcing_anchor_archive": {
+    "path": "data/forcing_only_anchors.npz",
+    "sha256": "2676c37a7856a4dfcc41296dea4775c3f0c114d47a95c6cb7cc808b724cdfbac",
+    "receipt": "provenance/forcing_only_anchor_receipt.json",
+    "uses_target_discharge": false,
+    "uses_model_predictions_or_states": false
+  },
+  "inherited_parity_evidence": {
+    "author_source_parity": {
+      "path": "${PROJECT_ROOT}/adaptive_training/provenance/source_parity/author_source_parity.json",
+      "sha256": "198b74aba3eff83e58c024fcc077c77ad02434929be7416b4476eb37ed27c86b",
+      "all_pass": true
+    },
+    "ported_model_equivalence": {
+      "path": "${PROJECT_ROOT}/adaptive_training/provenance/source_parity/ported_model_equivalence.json",
+      "sha256": "ca57463871ef41e5cf1617caa65779145ff8e54055b768b3dcf5474fee4f7803",
+      "all_pass": true
+    }
+  },
+  "protocol_amendments": [
+    {
+      "path": "provenance/protocol_amendment_forcing_only_anchors.json",
+      "sha256": "c4b074087a34110a9daf069b5b868927dfbeaf63d889a3a8c5df241116b840db",
+      "target_discharge_accessed": false
+    },
+    {
+      "path": "provenance/protocol_amendment_mcp_stable_partition.json",
+      "sha256": "a2a8c35396693620daeb851b8063654f37bceb510460130f0914f831a0002356",
+      "target_discharge_accessed": false
+    },
+    {
+      "path": "provenance/protocol_amendment_batched_evaluator.json",
+      "sha256": "773b73afdcced19d7ea0f448c23759046c5fb71da7915d4add6a174155bbfa8b",
+      "target_discharge_accessed": false
+    }
+  ],
+  "stable_mcp_partition_validation": {
+    "path": "provenance/stable_mcp_partition_validation.json",
+    "sha256": "5c602f1ce0686584d88579682636bafcb245982952cb3d74425af2b4988b155b",
+    "passes": true
+  },
+  "files": [
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed11_stock_predictions.npz",
+      "sha256": "ad7cec5c53ae6691e43f84780eae686a3cb52d5ec9549ec3a62d2ce7cb047041"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed11_stock_predictions.npz",
+      "sha256": "ad7cec5c53ae6691e43f84780eae686a3cb52d5ec9549ec3a62d2ce7cb047041"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed11_intervention_curves.npz",
+      "sha256": "46e46865c5806fa8f1664f1db35b9c634b2af57d0f45db03815073f179995efe"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed11_fingerprints.csv",
+      "sha256": "16c151f57fc88d603bbcc2f07004df91e03ca9ddadbad56ddde9bffa96dfb51f"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed29_stock_predictions.npz",
+      "sha256": "02b92d17b83959e3ae73c5142884ff1cbb9f84e4f09dddc59b59e335f32919dc"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed29_stock_predictions.npz",
+      "sha256": "02b92d17b83959e3ae73c5142884ff1cbb9f84e4f09dddc59b59e335f32919dc"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed29_intervention_curves.npz",
+      "sha256": "d4bf7c0d2b4f001c419f072513d384aaa71c19d677dc84d7300b7fb41f401ee2"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed29_fingerprints.csv",
+      "sha256": "38bddb44fba73d196a96e5def0a001476f9ec8fa1fd0a9db24d739459f242489"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed47_stock_predictions.npz",
+      "sha256": "6239aaa2d9f99a7a8df27300eac113c7e366fbc3fa1ee73a5e0b63eea5059889"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed47_stock_predictions.npz",
+      "sha256": "6239aaa2d9f99a7a8df27300eac113c7e366fbc3fa1ee73a5e0b63eea5059889"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed47_intervention_curves.npz",
+      "sha256": "d124f8c1378c16d3834658ccf92cac43dcf56a3dcd5ec6415933a4fc1891a37c"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/hybrid_shm_seed47_fingerprints.csv",
+      "sha256": "ef8ddbdb76addce1ecf47d258f922147a0b8ea1ec15e5e6985890986d1747081"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed11_stock_predictions.npz",
+      "sha256": "4d843de085503980dfae25af43b578761b1037e7ed263a00a272f3e2cd000b93"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed11_stock_predictions.npz",
+      "sha256": "4d843de085503980dfae25af43b578761b1037e7ed263a00a272f3e2cd000b93"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed11_intervention_curves.npz",
+      "sha256": "b4e317a0e8b904b15a7b4788f10ebc4ebea2a674f70935c7b1e41bd3034ff5bf"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed11_fingerprints.csv",
+      "sha256": "4edb98b720dbb68ddf708f543a5204587b575468ff6d26620055abcfff6bb43a"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed29_stock_predictions.npz",
+      "sha256": "04b7b9e743188dcd8de79e48dfdf89e63ca64176db14dbb2f5806fd9e9501068"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed29_stock_predictions.npz",
+      "sha256": "04b7b9e743188dcd8de79e48dfdf89e63ca64176db14dbb2f5806fd9e9501068"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed29_intervention_curves.npz",
+      "sha256": "bd12b9046ac0fb2770d05b237acd290fcc990b0404b80e249edcad16e442faeb"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed29_fingerprints.csv",
+      "sha256": "00be1b4f9e11ed771df9a79d8e90364905a1aeec60f35cc3ee250f34f479c037"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed47_stock_predictions.npz",
+      "sha256": "5b855a8f573e4befd23b220edcdcafcd0bfd88164f25da702ae0528edac93c3a"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed47_stock_predictions.npz",
+      "sha256": "5b855a8f573e4befd23b220edcdcafcd0bfd88164f25da702ae0528edac93c3a"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed47_intervention_curves.npz",
+      "sha256": "73bbad7211b52de5ff0c68b815c6278f308206ff2581e92232f8f8cf73a36273"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/mclstm_seed47_fingerprints.csv",
+      "sha256": "21a5cbe528e682a767eaa9a47892ae842813e8ad29da56ed2e8e042e00f86add"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed11_stock_predictions.npz",
+      "sha256": "a11cc2c300cf8283efcc8bc0f2dcc2bc3f2c74f9a82086f05e7a68e97262f652"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed11_stock_predictions.npz",
+      "sha256": "a11cc2c300cf8283efcc8bc0f2dcc2bc3f2c74f9a82086f05e7a68e97262f652"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed11_intervention_curves.npz",
+      "sha256": "9d7528dd1c461b5fc0a0f1f7c9b6ca5152ba3a6c5570a2889aa5512003386a7a"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed11_fingerprints.csv",
+      "sha256": "47d40491116c77b77d7b960df643fee43679303c8c600cbcfc1d785a57e7e12b"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed29_stock_predictions.npz",
+      "sha256": "074caa304ecd3f51c5ff33a70aa903804f166bd214633e039d770be17856b046"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed29_stock_predictions.npz",
+      "sha256": "074caa304ecd3f51c5ff33a70aa903804f166bd214633e039d770be17856b046"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed29_intervention_curves.npz",
+      "sha256": "acb1d9e4ccde8b4dc5d642d9b3112f52bc50b0bfbf717e63ca923d8c635c4b7c"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed29_fingerprints.csv",
+      "sha256": "b5b50605218b6a62abebf242a269064e674dc88b6218ffface28ad55e1f26ae1"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed47_stock_predictions.npz",
+      "sha256": "ec730deb5f5cc3ff3251e2d12ba93d311c75384d94cfa0d5101346ee0be59014"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed47_stock_predictions.npz",
+      "sha256": "ec730deb5f5cc3ff3251e2d12ba93d311c75384d94cfa0d5101346ee0be59014"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed47_intervention_curves.npz",
+      "sha256": "9101d435f2fb9e0ff34deab597789aa4809b8e4f099557ebbcfcddf328354c36"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_dhbv_seed47_fingerprints.csv",
+      "sha256": "38243d2c386a7d6e2ab3535b4bb8b92253cb78a80ae3a4f83c28a773a89150e8"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed11_stock_predictions.npz",
+      "sha256": "11c55dbf3cf6a88a14b0b153c9cd64ccdbeb6be289967117c5e0d2ae1d49a5e1"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed11_stock_predictions.npz",
+      "sha256": "11c55dbf3cf6a88a14b0b153c9cd64ccdbeb6be289967117c5e0d2ae1d49a5e1"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed11_intervention_curves.npz",
+      "sha256": "4f704c8553640ace00eef982c231005a5ef85d8004812c5feab9b253bfe308a2"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed11_fingerprints.csv",
+      "sha256": "51303e5e6889cb2172f378210d87bc70a3b5f514d14142c699f03c6efe33e98f"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed29_stock_predictions.npz",
+      "sha256": "d4c4c684ba6f027814951fe94245ec0e89ead0e9862462424cf746764d7c545e"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed29_stock_predictions.npz",
+      "sha256": "d4c4c684ba6f027814951fe94245ec0e89ead0e9862462424cf746764d7c545e"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed29_intervention_curves.npz",
+      "sha256": "170b5e012927eaa811b6c971ddf73b59cf5b442fcb203bcbce4349d96e82eff8"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed29_fingerprints.csv",
+      "sha256": "f8804b826dff7edca6dc21a20251e40bffe78fe4a6f6004724374778598ec2ca"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed47_stock_predictions.npz",
+      "sha256": "ad135b4e878c8cd87fc6a985b6b505068ef3cd7b8f793909278e9cc5901bf461"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed47_stock_predictions.npz",
+      "sha256": "ad135b4e878c8cd87fc6a985b6b505068ef3cd7b8f793909278e9cc5901bf461"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed47_intervention_curves.npz",
+      "sha256": "2bb1aa1425d190d066c5211a64668cb8475b72b0243b479b36e0d83aae02f2eb"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/author_mcp_ma3_seed47_fingerprints.csv",
+      "sha256": "98866a649f2361f48c3a51d6df5a8f996520a95e04deb2c235d70d6f395da73d"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed11_stock_predictions.npz",
+      "sha256": "83357dac93eeb0c76fb827a7bdda595ebf69618794f7832883c722b2f6ad9905"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed11_stock_predictions.npz",
+      "sha256": "83357dac93eeb0c76fb827a7bdda595ebf69618794f7832883c722b2f6ad9905"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed11_intervention_curves.npz",
+      "sha256": "4b142e8e70e0f6f057509abb7cfd8bf3744dccd1fd56efe9ed5a1b6506271b58"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed11_fingerprints.csv",
+      "sha256": "4893c389f55589657691df4df868042cf75315e367901d9558e959c96a8a1e89"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed29_stock_predictions.npz",
+      "sha256": "bd22f7275b698b5554893710aea90ce30e6acf4663e73b118438bc886f338a12"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed29_stock_predictions.npz",
+      "sha256": "bd22f7275b698b5554893710aea90ce30e6acf4663e73b118438bc886f338a12"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed29_intervention_curves.npz",
+      "sha256": "0cad10499c4622172aa18ef7f70fd51d387dce8804744661546ced8627824b49"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed29_fingerprints.csv",
+      "sha256": "6d31ece54af1a0422dc94ef343971af78c55c31c8609c362f51ccfd608de6c88"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed47_stock_predictions.npz",
+      "sha256": "7e312aac2f382e288527375460e19e594285eeb112fc695ec3a1f94029000da9"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed47_stock_predictions.npz",
+      "sha256": "7e312aac2f382e288527375460e19e594285eeb112fc695ec3a1f94029000da9"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed47_intervention_curves.npz",
+      "sha256": "70b760a306dd75bf4b626170392debda39e120435f22d73f2031c9aa029e758a"
+    },
+    {
+      "path": "${PROJECT_ROOT}/adaptive_training/outputs/frozen/ported_fluxgate_seed47_fingerprints.csv",
+      "sha256": "656c187079d4d792c6788b183bf366e3fd27d6ac0aae87da7dda83a5e02e4347"
+    }
+  ],
+  "closure_eligibility_all_three_seeds": {
+    "hybrid_shm": true,
+    "mclstm": false,
+    "author_dhbv": false,
+    "author_mcp_ma3": true,
+    "ported_fluxgate": true
+  }
+}

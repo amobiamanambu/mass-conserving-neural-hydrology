@@ -1,0 +1,191 @@
+{
+  "selection_data": "200 development gauges, 2015-2018",
+  "target_population": "3,982 unseen gauges, 2019-2024",
+  "target_discharge_accessed_for_stopping_or_selection": false,
+  "target_discharge_accessed": false,
+  "post_opening_sensitivity": true,
+  "selection_seed": 11,
+  "selection_rule": "adaptive learning-rate rule of PROTOCOL.md; highest median development KGE, later epoch breaks a tie",
+  "architectures": {
+    "hybrid_shm": {
+      "adaptive_receipt": "adaptive_receipt_hybrid_shm.json",
+      "selected_epoch": 160,
+      "stopping_epoch": 270,
+      "selected_optimizer_updates": 10240,
+      "stopping_optimizer_updates": 17280,
+      "selected_median_development_kge": 0.6441670903786993,
+      "learning_rate_schedule": {
+        "31": 0.001,
+        "131": 0.0005,
+        "191": 0.00025,
+        "221": 0.000125
+      },
+      "halvings": 3,
+      "plateau_reached": true,
+      "runs": {
+        "11": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/model_epoch160.pt",
+          "checkpoint_sha256": "e034f916170ae716445ca0744a9550f94fbf1579dc579849733123961b526698"
+        },
+        "29": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed29/base_run/continue_training_from_epoch030",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed29/base_run/continue_training_from_epoch030/model_epoch160.pt",
+          "checkpoint_sha256": "efdf166e240360450657524f8d2c6a64531fd4f89bc18baa2b351c7bcf0e19ab"
+        },
+        "47": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed47/base_run/continue_training_from_epoch030",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/hybrid_shm/seed47/base_run/continue_training_from_epoch030/model_epoch160.pt",
+          "checkpoint_sha256": "8d83ee6638aaf359b050b7d30c9a71a0ae1cd3927ac53196c263b49fbc20a82b"
+        }
+      }
+    },
+    "author_dhbv": {
+      "adaptive_receipt": "adaptive_receipt_author_dhbv.json",
+      "selected_epoch": 200,
+      "stopping_epoch": 240,
+      "selected_optimizer_updates": 12800,
+      "stopping_optimizer_updates": 15360,
+      "selected_median_development_kge": 0.6128521926637698,
+      "learning_rate_schedule": {
+        "31": 0.001,
+        "121": 0.0005,
+        "151": 0.00025,
+        "181": 0.000125
+      },
+      "halvings": 3,
+      "plateau_reached": true,
+      "runs": {
+        "11": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190/model_epoch200.pt",
+          "checkpoint_sha256": "e4d6577bee6da9d548b62bb883c7dc19451808aa77ac8993d15877e165e74188"
+        },
+        "29": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed29/base_run/continue_training_from_epoch030",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed29/base_run/continue_training_from_epoch030/model_epoch200.pt",
+          "checkpoint_sha256": "3c37b5c859c14b847fa3d8b9618cf4fac03013b85a2e5db03e2eebdd8e7e24c5"
+        },
+        "47": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed47/base_run/continue_training_from_epoch030",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_dhbv/seed47/base_run/continue_training_from_epoch030/model_epoch200.pt",
+          "checkpoint_sha256": "1ebe6859498e449a4e74e44d2b6d46679edd909b170dec9e0eacab98ea080f3e"
+        }
+      }
+    },
+    "author_mcp_ma3": {
+      "adaptive_receipt": "adaptive_receipt_author_mcp_ma3.json",
+      "selected_epoch": 250,
+      "stopping_epoch": 260,
+      "selected_optimizer_updates": 16000,
+      "stopping_optimizer_updates": 16640,
+      "selected_median_development_kge": 0.5042352938934256,
+      "learning_rate_schedule": {
+        "31": 0.002,
+        "111": 0.001,
+        "161": 0.0005,
+        "191": 0.00025
+      },
+      "halvings": 3,
+      "plateau_reached": true,
+      "runs": {
+        "11": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190/continue_training_from_epoch200/continue_training_from_epoch210/continue_training_from_epoch220/continue_training_from_epoch230/continue_training_from_epoch240",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/continue_training_from_epoch140/continue_training_from_epoch150/continue_training_from_epoch160/continue_training_from_epoch170/continue_training_from_epoch180/continue_training_from_epoch190/continue_training_from_epoch200/continue_training_from_epoch210/continue_training_from_epoch220/continue_training_from_epoch230/continue_training_from_epoch240/model_epoch250.pt",
+          "checkpoint_sha256": "2f233896f7e185c994f49f5012455d55838e5747bf78829e44efd9aadd9ab57a"
+        },
+        "29": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed29/base_run/continue_training_from_epoch030",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed29/base_run/continue_training_from_epoch030/model_epoch250.pt",
+          "checkpoint_sha256": "c4f1121df886ee2dbb3a1117f7e6d2c7313874390ab9177507e44c3e2859904f"
+        },
+        "47": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed47/base_run/continue_training_from_epoch030",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/author_mcp_ma3/seed47/base_run/continue_training_from_epoch030/model_epoch250.pt",
+          "checkpoint_sha256": "4cb3592a6834615cffaf709659a5c0cb4667e416589e9a601dfc54b0561d4660"
+        }
+      }
+    },
+    "ported_fluxgate": {
+      "adaptive_receipt": "adaptive_receipt_ported_fluxgate.json",
+      "selected_epoch": 140,
+      "stopping_epoch": 240,
+      "selected_optimizer_updates": 8960,
+      "stopping_optimizer_updates": 15360,
+      "selected_median_development_kge": 0.6043675459724632,
+      "learning_rate_schedule": {
+        "31": 0.0015,
+        "91": 0.00075,
+        "161": 0.000375,
+        "191": 0.0001875
+      },
+      "halvings": 3,
+      "plateau_reached": true,
+      "runs": {
+        "11": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed11/base_run/continue_training_from_epoch030/continue_training_from_epoch040/continue_training_from_epoch050/continue_training_from_epoch060/continue_training_from_epoch070/continue_training_from_epoch080/continue_training_from_epoch090/continue_training_from_epoch100/continue_training_from_epoch110/continue_training_from_epoch120/continue_training_from_epoch130/model_epoch140.pt",
+          "checkpoint_sha256": "e6ab9635e4b57b8fa3126d4a02b493ee7fb80402563d0374ecdcfb08cbfe4a6f"
+        },
+        "29": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed29/base_run/continue_training_from_epoch030",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed29/base_run/continue_training_from_epoch030/model_epoch140.pt",
+          "checkpoint_sha256": "d02563aefb70eb253b171061fb8ca158d89a573024eda54d2755cd9f3d879da9"
+        },
+        "47": {
+          "run_dir": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed47/base_run/continue_training_from_epoch030",
+          "checkpoint": "${PROJECT_ROOT}/adaptive_training/runs_adaptive/ported_fluxgate/seed47/base_run/continue_training_from_epoch030/model_epoch140.pt",
+          "checkpoint_sha256": "128dfdb7e437f34c63ba9ab5d55d9a373845d6bc94cc5ed7418ddb174afe8948"
+        }
+      }
+    },
+    "mclstm": {
+      "candidates": [
+        {
+          "epoch": 10,
+          "median_kge": 0.38619895087051365,
+          "mean_kge": 0.012487715916365598,
+          "fraction_kge_ge_0_30": 0.615,
+          "metrics": "runs/national_literature_mclstm_seed11_0111_042505/validation/model_epoch010/validation_metrics.csv",
+          "metrics_sha256": "2e9d83fb439b7be46a224719fc37e036f4507a4b9ae7f3ecbc5794d3bbf0ea5e"
+        },
+        {
+          "epoch": 20,
+          "median_kge": 0.47105582112252176,
+          "mean_kge": -0.3064132715191783,
+          "fraction_kge_ge_0_30": 0.68,
+          "metrics": "runs/national_literature_mclstm_seed11_0111_042505/validation/model_epoch020/validation_metrics.csv",
+          "metrics_sha256": "8813265ed15e92c795d5063aa6118b13fc70a8174babe46bcd226b8f8b63ffb1"
+        },
+        {
+          "epoch": 30,
+          "median_kge": 0.49632279031006216,
+          "mean_kge": -0.1801397763362089,
+          "fraction_kge_ge_0_30": 0.705,
+          "metrics": "runs/national_literature_mclstm_seed11_0111_042505/validation/model_epoch030/validation_metrics.csv",
+          "metrics_sha256": "89e844f6a56bb60068c6fd6ae827891df059cafadc7a67df33307d5b315bc332"
+        }
+      ],
+      "selected_epoch": 30,
+      "runs": {
+        "11": {
+          "run_dir": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed11_0111_042505",
+          "checkpoint": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed11_0111_042505/model_epoch030.pt",
+          "checkpoint_sha256": "5058b9da3b24f5556c335b109ee695472470c901166d936282f4b8424f4f39f8"
+        },
+        "29": {
+          "run_dir": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed29_0111_074929",
+          "checkpoint": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed29_0111_074929/model_epoch030.pt",
+          "checkpoint_sha256": "185bb44c146b6e5b9d211b85cbe0db46cdf9285fecc481c9245abd775ecb391f"
+        },
+        "47": {
+          "run_dir": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed47_0111_093850",
+          "checkpoint": "${PROJECT_ROOT}/runs/national_literature_mclstm_seed47_0111_093850/model_epoch030.pt",
+          "checkpoint_sha256": "382068a9bafc2b2de6a622041d07f0e90d06aa2ba1eb5a4c55af9e4d63556ba6"
+        }
+      },
+      "descriptive_only_unchanged_from_frozen_analysis": true
+    }
+  },
+  "all_three_seeds_complete": true
+}
