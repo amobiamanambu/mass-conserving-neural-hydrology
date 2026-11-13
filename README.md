@@ -5,10 +5,12 @@ Mass-Conserving Neural Hydrologic Models Identify Transferable Catchment
 Drainage Responses?** It tests whether mass-conserving models that predict
 streamflow adequately at unseen catchments recover the same drainage response.
 
-The final experiment uses the NeuralHydrology framework, a fixed national split
-of 500 training gauges, 200 development gauges, and 3,982 unseen target gauges,
-and three independently trained seeds. Four architectures passed the numerical
-closure audit and entered the response comparison:
+The final experiment uses the
+[NeuralHydrology framework](https://github.com/neuralhydrology/neuralhydrology),
+a fixed national split of 500 training gauges, 200 development gauges, and
+3,982 unseen target gauges, and three independently trained seeds. Four
+architectures passed the numerical closure audit and entered the response
+comparison:
 
 - Hybrid-SHM;
 - a differentiable HBV adapter (`author_dhbv`);
